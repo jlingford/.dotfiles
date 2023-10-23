@@ -1,0 +1,37 @@
+Discord
+Tor Browser Launcher
+Steam
+VSCodium
+Audacity
+Codecs
+Blender
+Codecs
+Freedesktop Platform
+Freedesktop Platform
+i386
+Mesa
+Mesa (Extra)
+Mesa
+Mesa (Extra)
+nvidia-535-104-05
+nvidia-535-113-01
+Mesa
+Mesa (Extra)
+nvidia-535-104-05
+nvidia-535-113-01
+Intel
+Intel
+i386
+ffmpeg-full
+openh264
+Freedesktop SDK
+GNU Image Manipulation Program
+GNOME Application Platform version 44
+GNOME Application Platform version 45
+Adwaita dark GTK theme
+Inkscape
+KDE Application Platform
+KDE Application Platform
+Python Molecular Graphics
+VLC
+Zoom

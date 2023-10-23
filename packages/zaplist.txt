@@ -1,0 +1,12 @@
+zsh-autosuggestions
+supercharge
+zap-prompt
+zsh-syntax-highlighting
+zsh-starship
+conda-zsh-completion
+vim
+fzf
+exa
+zsh-autopair
+fzf-tab
+zsh-history-substring-search
