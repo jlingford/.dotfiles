@@ -7,7 +7,6 @@ $git_branch\
 $git_status\
 [\uE0B0](fg:bar_three bg:bar_four)\
 $c\
-$conda\
 $dart\
 $elixir\
 $elm\
@@ -27,13 +26,17 @@ $scala\
 [\uE0B0](fg:bar_four)\
 """
 
+right_format = """
+[\uE0B2](fg:bar_three)\
+$time\
+"""
 
 palette = 'theme'
 
 # Defines the colour palette for the theme
 [palettes.theme]
-bar_one = '#24415C'
-bar_two = '#0C4F68'
+bar_one = '#C0CAF5'
+bar_two = '#6992D7'
 bar_three = '#394260'
 bar_four = '#212736'
 bar_five = '#1D2230'
@@ -55,8 +58,7 @@ CentOS = ''
 Debian = ''
 DragonFly = ''
 Emscripten = ''
-EndeavourOS = ''
-# 
+EndeavourOS = ''
 Fedora = ''
 FreeBSD = ''
 Garuda = '﯑'
@@ -104,13 +106,13 @@ style = 'bold fg:text_two bg:bar_two'
 symbol = ' '
 
 [directory.substitutions]
-'Documents' = 'Documents'
+'Documents' = ' '
 'Downloads' = ' '
 'Music' = ' '
 'Pictures' = ' '
 
 [git_branch]
-symbol = ''
+symbol = ' '
 style = 'fg:text_three bg:bar_three'
 format = '[ $symbol $branch ]($style)'
 
@@ -122,14 +124,6 @@ format = '[$all_status$ahead_behind ]($style)'
 symbol = ' '
 style = 'fg:text_three bg:bar_four'
 format = '[ $symbol ($version) ]($style)'
-
-[conda]
-symbol = '🅒 '
-style = 'fg:text_three bg:bar_four'
-format = '[ $symbol $environment ]($style)'
-truncation_length = 1
-ignore_base = false
-disabled = false
 
 [dart]
 symbol = ' '
@@ -187,14 +181,14 @@ style = 'fg:text_three bg:bar_four'
 format = '[ $symbol ($version) ]($style)'
 
 [python]
-symbol = ''
+symbol = ' '
 style = 'fg:text_three bg:bar_four'
 format = '[ $symbol ($version) ]($style)'
 
 [rlang]
-symbol = 'R '
+symbol = 'ﳒ '
 style = 'fg:text_three bg:bar_four'
-format = '[ $symbol($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [ruby]
 symbol = ' '
