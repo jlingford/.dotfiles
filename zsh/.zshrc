@@ -49,6 +49,7 @@ alias alan="~/Documents/alan/alan"
 alias afdir="~/Dropbox/Monash-work/AlphaFold"
 alias starship="lv ~/.local/share/zap/plugins/zsh-starship/theme/starship.toml"
 alias mamba="micromamba"
+alias web="cd ~/Documents/website"
 
 # Custom functions
 init_pipenv () {
