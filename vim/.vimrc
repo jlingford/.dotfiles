@@ -1,3 +1,5 @@
+set nocompatible
+filetype off "required for Vundle
 set number relativenumber
 set noerrorbells
 set smartindent
@@ -41,4 +43,18 @@ nnoremap ; :
 nnoremap : ;
 nnoremap <Leader>t :split<Space>term://zsh<Space><bar><Space>resize<Space>10<CR>
 
+" Plugins
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Vundle plugin to manage vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
+" Add custom plugins here
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'christoomey/vim-tmux-navigator'
+
+call vundle#end()
+filetype plugin indent on "required
