@@ -356,10 +356,13 @@ local core_plugins = {
     enabled = lvim.builtin.bigfile.active,
     event = { "FileReadPre", "BufReadPre", "User FileOpened" },
   },
+---------------------------------------------------------------------
 -- Custom plugins
+    -- tpope plugin
     { "tpope/vim-surround" },
+    -- tmux navigator
     { "christoomey/vim-tmux-navigator",
-    lazy = false,
+      lazy = false,
       cmd = {
         "TmuxNavigateLeft",
         "TmuxNavigateDown",
@@ -374,6 +377,141 @@ local core_plugins = {
         { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
         { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
       },
+    },
+    -- papis bibliography
+    { "jghauser/papis.nvim",
+        dependencies = {
+            "kkharji/sqlite.lua",
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("papis").setup({
+                -- custom config goes here
+                enable_modules = {
+                    ["search"] = true,
+                    ["completion"] = true,
+                    ["cursor-actions"] = true,
+                    ["formatter"] = true,
+                    ["colors"] = true,
+                    ["base"] = true,
+                    ["debug"] = false,
+                },
+                cite_formats = {
+                    tex = { "\\cite{%s}", "\\cite[tp]?%*?{%s}" },
+                    markdown = "@%s",
+                    rmd = "@%s",
+                    plain = "%s",
+                    org = { "[cite:@%s]", "%[cite:@%s]" },
+                    norg = "{= %s}",
+                },
+                cite_formats_fallback = "plain",
+                enable_keymaps = false,
+                enable_commands = true,
+                enable_fs_watcher = true,
+                data_tbl_schema = {
+                    id = { "integer", pk = true },
+                    papis_id = { "text", required = true, unique = true },
+                    ref = { "text", required = true, unique = true },
+                    author = "text",
+                    editor = "text",
+                    year = "text",
+                    title = "text",
+                    type = "text",
+                    abstract = "text",
+                    time_added = "text",
+                    notes = "luatable",
+                    journal = "text",
+                    author_list = "luatable",
+                    tags = "luatable",
+                    files = "luatable",
+                },
+                db_path = vim.fn.stdpath("data") .. "/papis_db/papis-nvim.sqlite3",
+                yq_bin = "yq",
+                papis_python = nil,
+                create_new_note_fn = function(papis_id, notes_name)
+                    vim.fn.system(
+                            string.format(
+                                "papis update --set notes %s papis_id:%s",
+                                vim.fn.shellescape(notes_name),
+                                vim.fn.shellescape(papis_id)
+                            )
+                        )
+                end,
+                init_filenames = { "%info_name%", "*.md", "*.norg" },
+                ["search"] = {
+                    wrap = true,
+                    search_keys = { "author", "editor", "year", "title", "tags" },
+                    preview_format = {
+                        { "author", "%s", "PapisPreviewAuthor" },
+                        { "year", "%s", "PapisPreviewYear" },
+                        { "title", "%s", "PapisPreviewTitle" },
+                        { "empty_line" },
+                        { "ref", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+                        { "type", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+                        { "tags", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+                        { "files", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+                        { "notes", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+                        { "journal", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+                        { "abstract", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+                    },
+                    results_format = {
+                        { "author", "%s ", "PapisResultsAuthor" },
+                        { "year", "(%s) ", "PapisResultsYear" },
+                        { "title", "%s", "PapisResultsTitle" },
+                    },
+                },
+                ["cursor-actions"] = {
+                    popup_format = {
+                        { "author", "%s", "PapisPopupAuthor" },
+                        { "year", "%s", "PapisPopupYear" },
+                        { "title", "%s", "PapisPopupTitle" },
+                    },
+                },
+                ["formatter"] = {
+                    format_notes_fn = function(entry)
+                        local title_format = {
+                          { "author", "%s ", "" },
+                          { "year", "(%s) ", "" },
+                          { "title", "%s", "" },
+                        }
+                        local title = require("papis.utils"):format_display_strings(entry, title_format)
+                        for k, v in ipairs(title) do
+                          title[k] = v[1]
+                        end
+                        local lines = {
+                          "@document.meta",
+                          "title: " .. table.concat(title),
+                          "description: ",
+                          "categories: [",
+                          "  notes",
+                          "  academia",
+                          "  readings",
+                          "]",
+                          "created: " .. os.date("%Y-%m-%d"),
+                          "version: " .. require("neorg.config").version,
+                          "@end",
+                          "",
+                        }
+                        vim.api.nvim_buf_set_lines(0, 0, #lines, false, lines)
+                        vim.cmd("normal G")
+                      end,
+                    },
+                ["papis-storage"] = {
+                    key_name_conversions = {
+                        time_added = "time-added",
+                    },
+                    tag_format = nil,
+                    required_keys = { "papis_id", "ref" },
+                },
+                log = {
+                    level = "off",
+                    notify_format = "%s",
+                },
+            })
+        end,
+        lazy = true,
     }
 }
 
