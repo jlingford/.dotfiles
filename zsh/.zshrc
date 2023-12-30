@@ -45,6 +45,7 @@ export SAVEHIST=100000
 # Aliases
 alias la="ls -la"
 # alias z="zoxide"
+alias v="vim"
 alias nv="nvim"
 alias lv="lvim"
 alias lvplug="lv ~/.local/share/lunarvim/lvim/lua/lvim/plugins.lua"
@@ -54,6 +55,12 @@ alias afdir="~/Dropbox/Monash-work/AlphaFold"
 alias starship="lv ~/.local/share/zap/plugins/zsh-starship/theme/starship.toml"
 alias mamba="micromamba"
 alias web="cd ~/Documents/website"
+alias f="fzf"
+alias ra="ranger"
+alias pap="papis"
+alias clr="clear"
+alias doc="cd ~/Documents; ls"
+alias dot="cd ~/.dotfiles; ls"
 
 # Custom functions
 init_pipenv () {
