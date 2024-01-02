@@ -1,5 +1,6 @@
 Discord
 Tor Browser Launcher
+Google Chrome
 Steam
 VSCodium
 Audacity
@@ -15,13 +16,18 @@ Mesa
 Mesa (Extra)
 nvidia-535-104-05
 nvidia-535-113-01
+nvidia-545-29-02
+nvidia-545-29-06
 Mesa
 Mesa (Extra)
 nvidia-535-104-05
 nvidia-535-113-01
+nvidia-545-29-02
+nvidia-545-29-06
 Intel
 Intel
 i386
+ffmpeg-full
 ffmpeg-full
 openh264
 Freedesktop SDK
@@ -30,8 +36,11 @@ GNOME Application Platform version 44
 GNOME Application Platform version 45
 Adwaita dark GTK theme
 Inkscape
+JabRef
 KDE Application Platform
 KDE Application Platform
+Okular
 Python Molecular Graphics
 VLC
+Zotero
 Zoom
