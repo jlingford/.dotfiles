@@ -385,6 +385,9 @@ local core_plugins = {
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
+    -- vim pandoc
+    { "vim-pandoc/vim-pandoc" },
+    { "vim-pandoc/vim-pandoc-syntax" },
     -- papis bibliography
     { "jghauser/papis.nvim",
         lazy = true,
