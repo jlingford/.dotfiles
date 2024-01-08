@@ -1,0 +1,13 @@
+brave-bin
+btrfs-assistant
+chimerax
+dropbox
+endeavouros-skel-i3wm
+envycontrol
+freetube
+hollywood
+mullvad-vpn-bin
+nerd-fonts-sf-mono
+pfetch
+rstudio-desktop-bin
+ttf-twemoji
