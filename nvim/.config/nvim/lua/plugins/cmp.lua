@@ -56,7 +56,34 @@ return {
 				{ name = "path" },
 				{ name = "buffer" },
 			},
-			formatting = {},
+			formatting = {
+				fields = { "kind", "abbr", "menu" },
+				max_width = 0,
+				-- kind_icons = XXX.icons.kind,
+				source_names = {
+					nvim_lsp = "(LSP)",
+					emoji = "(Emoji)",
+					path = "(Path)",
+					calc = "(Calc)",
+					cmp_tabnine = "(Tabnine)",
+					vsnip = "(Snippet)",
+					luasnip = "(Snippet)",
+					buffer = "(Buffer)",
+					tmux = "(TMUX)",
+					copilot = "(Copilot)",
+					treesitter = "(TreeSitter)",
+				},
+				duplicates = {
+					buffer = 1,
+					path = 1,
+					nvim_lsp = 0,
+					luasnip = 1,
+				},
+			},
+			window = {
+				-- completion = cmp_window.bordered(),
+				-- documentation = cmp_window.bordered(),
+			},
 			experimental = {
 				ghost_text = {
 					hl_group = "CmpGhostText",
