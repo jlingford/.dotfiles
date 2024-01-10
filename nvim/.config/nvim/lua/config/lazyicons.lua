@@ -1,4 +1,19 @@
-return {
+local M = {}
+local icons = {
+	dap = {
+		Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+		Breakpoint = " ",
+		BreakpointCondition = " ",
+		BreakpointRejected = { " ", "DiagnosticError" },
+		LogPoint = ".>",
+		Error = " ",
+		Warn = " ",
+		Hint = " ",
+		Info = " ",
+		added = " ",
+		modified = " ",
+		removed = " ",
+	},
 	kind = {
 		Array = "",
 		Boolean = "",
@@ -6,6 +21,7 @@ return {
 		Color = "",
 		Constant = "",
 		Constructor = "",
+		Dots = "󰇘",
 		Enum = "",
 		EnumMember = "",
 		Event = "",
@@ -152,3 +168,5 @@ return {
 		CircuitBoard = "",
 	},
 }
+
+return M
