@@ -73,7 +73,7 @@ return {
 				{ name = "greek" },
 			},
 			formatting = {
-				fields = { "abbr", "kind", "menu" },
+				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
 					vim_item.kind = icons.kind[vim_item.kind]
 					vim_item.menu = ({
