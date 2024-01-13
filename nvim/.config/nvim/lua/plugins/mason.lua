@@ -22,6 +22,7 @@ return {
 					"lua_ls",
 					"marksman",
 					"pyright",
+                    "taplo",
 					"texlab",
 					"yamlls",
 				},

@@ -1,5 +1,6 @@
 return {
 	"cshuaimin/ssr.nvim",
+	event = "VeryLazy",
 	module = "ssr",
 	-- Calling setup is optional.
 	config = function()

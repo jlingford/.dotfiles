@@ -19,11 +19,23 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 			event = "InsertEnter",
 		},
+		{
+			"hrsh7th/cmp-emoji",
+			event = "InsertEnter",
+		},
+		{
+			"hrsh7th/cmp-cmdline",
+			event = "InsertEnter",
+		},
+		{
+			"hrsh7th/cmp-nvim-lua",
+		},
 	},
 	opts = function()
 		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 		local cmp = require("cmp")
 		local defaults = require("cmp.config.default")()
+		local icons = require("config.icons")
 		return {
 			completion = {
 				completeopt = "menu,menuone,noinsert",
@@ -61,23 +73,20 @@ return {
 				{ name = "greek" },
 			},
 			formatting = {
-				fields = { "abbr", "kind", "menu" },
-				-- max_width = 0,
-				-- 	format = function(_, item)
-				-- 		-- local icons = require("lazyicons").icons.kinds
-				-- 		-- if icons[item.kind] then
-				-- 		-- 	item.kind = icons[item.kind] .. item.kind
-				-- 		-- end
-				-- 		-- return item
-				--                  --
-				--                  item.kind = string.format("%s", icons[item.kind]})
-				--                  item.menu = ({
-				--                      luasnip = "[Snippet]",
-				--                      buffer = "[Buffer]",
-				--                      path = "[Path]",
-				--                  })[_,.source.name]
-				--                  return item
-				-- 	end,
+				fields = { "kind", "abbr", "menu" },
+				format = function(entry, vim_item)
+					vim_item.kind = icons.kind[vim_item.kind]
+					vim_item.menu = ({
+						nvim_lsp = "",
+						nvim_lua = "",
+						luasnip = "",
+						buffer = "",
+						path = "",
+						emoji = "",
+					})[entry.source.name]
+					return vim_item
+				end,
+				max_width = 0,
 			},
 			source_names = {
 				nvim_lsp = "(LSP)",
@@ -98,10 +107,18 @@ return {
 				nvim_lsp = 0,
 				luasnip = 1,
 			},
-			-- 	window = {
-			-- 		-- completion = cmp_window.bordered(),
-			-- 		-- documentation = cmp_window.bordered(),
-			-- 	},
+			window = {
+				completion = {
+					border = "rounded",
+					winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+					col_offset = -3,
+					side_padding = 1,
+				},
+				documentation = {
+					border = "rounded",
+					winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
+				},
+			},
 			experimental = {
 				ghost_text = {
 					hl_group = "CmpGhostText",

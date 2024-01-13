@@ -1,6 +1,6 @@
 # Neovim config
 
-Uses lazy.nvim
+Uses lazy.nvim as its package manager.
 
 ![image](image)
 

@@ -1,13 +1,13 @@
 [selection]
 save_to_clipboard = true
 
-[keyboard]
-binding = [
-    { key = "C", mods = "Control|Shift", action = "Copy" },
-    { key = "V", mods = "Control|Shift", action = "Paste" },
-    { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
-    { key = "Subtract", mods = "Control", action = "DecreaseFontSize" }
-]   
+# [keyboard]
+# bindings = [
+#     { key = "C", mods = "Control|Shift", action = "Copy" },
+#     { key = "V", mods = "Control|Shift", action = "Paste" },
+#     { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
+#     { key = "Subtract", mods = "Control", action = "DecreaseFontSize" },
+# ]
 
 # Notes:
 # https://alacritty.org/config-alacritty.html

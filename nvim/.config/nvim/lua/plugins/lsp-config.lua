@@ -22,6 +22,12 @@ return {
 		lspconfig.marksman.setup({
 			capabilities = capabilities,
 		})
+        lspconfig.taplo.setup({
+            capabilities = capabilities,
+        })
+        lspconfig.yamlls.setup({
+            capabilities = capabilities,
+        })
 		-- keybindings
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show LSP description" })
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Show declaration" })
