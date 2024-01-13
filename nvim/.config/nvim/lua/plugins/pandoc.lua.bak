@@ -1,0 +1,7 @@
+return {
+    'aspeddro/pandoc.nvim',
+    cmd = "Pandoc",
+    config = function()
+        require'pandoc'.setup()
+    end
+}

@@ -1,0 +1,80 @@
+return {
+  "jghauser/papis.nvim",
+  cmd = "Telescope papis",
+  dependencies = {
+    "kkharji/sqlite.lua",
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
+  config = function()
+    require("papis").setup({
+    -- Your configuration goes here
+        papis_python = {
+            dir = "~/Documents/papers",
+            info_name = "info.yaml",
+            notes_name = [[notes.norg]],
+        },
+        enable_keymaps = false,
+        enable_modules = {
+            ["search"] = true,          -- Enables/disables the search module
+            ["completion"] = true,      -- Enables/disables the completion module
+            ["cursor-actions"] = true,  -- Enables/disables the cursor-actions module
+            ["formatter"] = true,       -- Enables/disables the formatter module
+            ["colors"] = true,          -- Enables/disables default highlight groups (you
+            ["base"] = true,            -- Enables/disables the base module (you definitely
+            ["debug"] = false,          -- Enables/disables the debug module (useful to
+        },
+        cite_formats = {
+            tex = { "\\cite{%s}", "\\cite[tp]?%*?{%s}" },
+            markdown = "@%s",
+            rmd = "@%s",
+            plain = "%s",
+            org = { "[cite:@%s]", "%[cite:@%s]" },
+            norg = "{= %s}",
+        },
+        cite_formats_fallback = "plain",
+        enable_fs_watcher = false,
+        data_tbl_schema = {
+            id = { "integer", pk = true },
+            papis_id = { "text", required = true, unique = true },
+            ref = { "text", required = true, unique = true },
+            author = "text",
+            editor = "text",
+            year = "text",
+            title = "text",
+            type = "text",
+            abstract = "text",
+            time_added = "text",
+            notes = "luatable",
+            journal = "text",
+            author_list = "luatable",
+            tags = "luatable",
+            files = "luatable",
+        },
+        db_path = vim.fn.stdpath("data") .. "/papis_db/papis-nvim.sqlite3",
+        yq_bin = "yq",
+        search_keys = { "author", "editor", "year", "title", "tags" },
+        preview_format = {
+            { "author", "%s", "PapisPreviewAuthor" },
+            { "year", "%s", "PapisPreviewYear" },
+            { "title", "%s", "PapisPreviewTitle" },
+            { "empty_line" },
+            { "ref", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+            { "type", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+            { "tags", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+            { "files", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+            { "notes", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+            { "journal", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+            { "abstract", "%s", "PapisPreviewValue", "show_key", "%s = ", "PapisPreviewKey" },
+        },
+        -- The format of each line in the the results window. Here, everything is show on
+        -- one line (otherwise equivalent to points 1-3 of `preview_format`).
+        results_format = {
+            { "author", "%s ", "PapisResultsAuthor" },
+            { "year", "(%s) ", "PapisResultsYear" },
+            { "title", "%s", "PapisResultsTitle" },
+        },
+    })
+  end,
+}
