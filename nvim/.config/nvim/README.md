@@ -1,3 +1,11 @@
+---
+title: "Neovim"
+author: "me"
+math: true
+toc: true
+---
+
+
 # Neovim config
 
 Uses lazy.nvim as its package manager.
@@ -14,8 +22,13 @@ Uses lazy.nvim as its package manager.
 <sup>hello</sup>
 
 <sub>
-
 [@Bird2021]
 
+```bash
 
+```
+```python
+print("hello")
+
+```
 
