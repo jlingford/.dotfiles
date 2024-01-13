@@ -41,6 +41,7 @@ export EDITOR=lvim
 export VISUAL="$EDITOR"
 export HISTSIZE=100000
 export SAVEHIST=100000
+export TERM=xterm-256color
 
 # Aliases
 alias la="ls -la"
