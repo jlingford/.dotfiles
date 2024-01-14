@@ -67,6 +67,8 @@ return {
 			}),
 			sources = {
 				{ name = "nvim_lsp" },
+				{ name = "nvim_lua" },
+				{ name = "cmp_tabnine" },
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = "buffer" },
@@ -77,16 +79,15 @@ return {
 				format = function(entry, vim_item)
 					vim_item.kind = icons.kind[vim_item.kind]
 					vim_item.menu = ({
-						nvim_lsp = "",
-						nvim_lua = "",
-						luasnip = "",
-						buffer = "",
-						path = "",
-						emoji = "",
+						nvim_lsp = "[LSP]",
+						nvim_lua = "[Lua]",
+						luasnip = "[snippet]",
+						buffer = "[Buffer]",
+						path = "[Path]",
+						emoji = "[Emoji]",
 					})[entry.source.name]
 					return vim_item
 				end,
-				max_width = 0,
 			},
 			source_names = {
 				nvim_lsp = "(LSP)",
@@ -104,18 +105,18 @@ return {
 			duplicates = {
 				buffer = 1,
 				path = 1,
-				nvim_lsp = 0,
+				nvim_lsp = 1,
 				luasnip = 1,
 			},
 			window = {
 				completion = {
-					border = "rounded",
+					border = "single",
 					winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
-					col_offset = -3,
-					side_padding = 1,
+					col_offset = 0,
+					side_padding = 0,
 				},
 				documentation = {
-					border = "rounded",
+					border = "single",
 					winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
 				},
 			},
