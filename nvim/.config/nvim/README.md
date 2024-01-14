@@ -22,7 +22,7 @@ Uses lazy.nvim as its package manager.
 <sup>hello</sup>
 
 <sub>
-[@Bird2021]
+(@Bird2021)
 
 ```bash
 
