@@ -41,6 +41,7 @@ export EDITOR=lvim
 export VISUAL="$EDITOR"
 export HISTSIZE=100000
 export SAVEHIST=100000
+export TERM=xterm-256color
 
 # Aliases
 alias la="ls -la"
@@ -49,12 +50,14 @@ alias v="vim"
 alias nv="nvim"
 alias lv="lvim"
 alias lvplug="lv ~/.local/share/lunarvim/lvim/lua/lvim/plugins.lua"
+alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias conf="cd ~/.config"
 alias alan="~/Documents/alan/alan"
 alias afdir="~/Dropbox/Monash-work/AlphaFold"
 alias starship="lv ~/.local/share/zap/plugins/zsh-starship/theme/starship.toml"
 alias mamba="micromamba"
 alias web="cd ~/Documents/website"
+alias epg="cd ~/Documents/epg-blog; ls"
 alias f="fzf"
 alias ra="ranger"
 alias pap="papis"
