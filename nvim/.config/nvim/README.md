@@ -8,7 +8,7 @@ toc: true
 
 # Neovim config
 
-Uses lazy.nvim as its package manager.
+Uses lazy.nvim as its <sup>package manager</sup>.
 
 ![image](image)
 
@@ -19,10 +19,15 @@ Uses lazy.nvim as its package manager.
 
 ***helloooo***
 
-<sup>hello</sup>
+<sup>
+hello
+</sup>
 
 <sub>
 (@Bird2021)
+
+`gggg` 
+
 
 ```bash
 
