@@ -4,7 +4,9 @@ author: "me"
 math: true
 toc: true
 ---
+@Hollinger2002-al
 
+Lewontin, R. C. (), Sociobiology — A Caricature of Darwinism.
 
 # Neovim config
 
