@@ -4,38 +4,55 @@ author: "me"
 math: true
 toc: true
 ---
-@Hollinger2002-al
-
-Lewontin, R. C. (), Sociobiology — A Caricature of Darwinism.
 
 # Neovim config
 
 Uses lazy.nvim as its <sup>package manager</sup>.
 
-![image](image)
+<sub>hi</sub>
+<sup>hi</sup>
 
-## Test
+1) Foo;
+2) Bar;
+3) Baz;
+4) Buzz;
 
-*hello*
-**hello**
+1) Foo:
+2) Bar:
+3) Baz:
+4) Buzz:
 
-***helloooo***
+I1) l~A;j
 
-<sup>
-hello
-</sup>
-
-<sub>
-(@Bird2021)
-
-`gggg` 
+I=b:i) l~A;j:let b:i+=1
 
 
-```bash
+I=g:i) l~A;j:let g:i+=1
 
-```
-```python
-print("hello")
+2
+wwwwwwwww
 
-```
+1
 
+foo
+bar
+baz
+buzz
+
+
+0
+0
+0
+0
+
+1) Foo:
+1) Bar:
+1) Baz:
+1) Buzz:
+
+
+
+-[ ] Foo:
+-[ ] Bar:
+-[ ] Baz:
+-[ ] Buzz:

@@ -2,8 +2,7 @@ set nocompatible
 let mapleader=' ' "use space for leader key
 filetype off "required for Vundle
 " Cursor behaviour
-:autocmd InsertEnter * set cursorline
-:autocmd InsertLeave * set nocursorline
+:autocmd InsertEnter,InsertLeave * set cul!
 " General visual look of Vim
 set number relativenumber
 set ruler
@@ -37,7 +36,6 @@ set wildmenu
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme gruvbox
 
 " remappings
 imap JJ <ESC>
@@ -69,3 +67,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on "required
+
+" Call after plugin is loaded
+colorscheme gruvbox
