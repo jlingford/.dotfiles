@@ -2,7 +2,10 @@ set nocompatible
 let mapleader=' ' "use space for leader key
 filetype off "required for Vundle
 " Cursor behaviour
-:autocmd InsertEnter,InsertLeave * set cul!
+" autocmd InsertEnter,InsertLeave * set cul!
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
 " General visual look of Vim
 set number relativenumber
 set ruler
