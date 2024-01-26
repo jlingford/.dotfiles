@@ -20,7 +20,7 @@ vim.keymap.set("i", "}", "{},<ESC>hhli", { noremap = true })
 vim.keymap.set("i", "[", "[]<ESC>hli", { noremap = true })
 vim.keymap.set("i", '"', '""<ESC>hli', { noremap = true })
 vim.keymap.set("i", "'", "''<ESC>hli", { noremap = true })
-vim.keymap.set("i", "<", "<><ESC>hli", { noremap = true })
+-- vim.keymap.set("i", "<", "<><ESC>hli", { noremap = true })
 vim.keymap.set("i", "`", "``<ESC>hli", { noremap = true })
 vim.keymap.set("i", "*", "**<ESC>hli", { noremap = true })
 

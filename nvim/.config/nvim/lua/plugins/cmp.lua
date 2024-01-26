@@ -3,33 +3,13 @@ return {
 	version = false, -- last release is way too old
 	event = "InsertEnter",
 	dependencies = {
-		{
-			"hrsh7th/cmp-nvim-lsp",
-			event = "InsertEnter",
-		},
-		{
-			"hrsh7th/cmp-buffer",
-			event = "InsertEnter",
-		},
-		{
-			"hrsh7th/cmp-path",
-			event = "InsertEnter",
-		},
-		{
-			"saadparwaiz1/cmp_luasnip",
-			event = "InsertEnter",
-		},
-		{
-			"hrsh7th/cmp-emoji",
-			event = "InsertEnter",
-		},
-		{
-			"hrsh7th/cmp-cmdline",
-			event = "InsertEnter",
-		},
-		{
-			"hrsh7th/cmp-nvim-lua",
-		},
+		{ "hrsh7th/cmp-nvim-lsp" },
+		{ "hrsh7th/cmp-buffer" },
+		{ "hrsh7th/cmp-path" },
+		{ "saadparwaiz1/cmp_luasnip" },
+		{ "hrsh7th/cmp-emoji" },
+		{ "hrsh7th/cmp-cmdline" },
+		{ "hrsh7th/cmp-nvim-lua" },
 	},
 	opts = function()
 		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -55,7 +35,7 @@ return {
 				["<Right>"] = cmp.mapping.confirm({ select = true }),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<C-CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-				["<A-CR>"] = cmp.mapping.complete(), -- see all autocomplete options while in insert mode
+				["<C-Space>"] = cmp.mapping.complete(), -- see all autocomplete options while in insert mode
 				-- ["<S-CR>"] = cmp.mapping.confirm({
 				-- 	behavior = cmp.ConfirmBehavior.Replace,
 				-- 	select = true,
@@ -68,23 +48,23 @@ return {
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "nvim_lua" },
-				{ name = "cmp_tabnine" },
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = "buffer" },
+				{ name = "cmp_tabnine" },
 				{ name = "greek" },
 			},
 			formatting = {
-				fields = { "kind", "abbr", "menu" },
+				fields = { "abbr", "kind", "menu" },
 				format = function(entry, vim_item)
 					vim_item.kind = icons.kind[vim_item.kind]
 					vim_item.menu = ({
-						nvim_lsp = "[LSP]",
-						nvim_lua = "[Lua]",
-						luasnip = "[snippet]",
-						buffer = "[Buffer]",
-						path = "[Path]",
-						emoji = "[Emoji]",
+						nvim_lsp = "LSP",
+						nvim_lua = "Lua",
+						luasnip = "Snippet",
+						buffer = "Buffer",
+						path = "Path",
+						emoji = "Emoji",
 					})[entry.source.name]
 					return vim_item
 				end,
@@ -110,19 +90,20 @@ return {
 			},
 			window = {
 				completion = {
-					border = "single",
-					winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+					border = "",
+					winhighlight = "Normal:CmpNormal,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
 					col_offset = 0,
-					side_padding = 0,
+					side_padding = 1,
 				},
 				documentation = {
 					border = "single",
-					winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
+					winhighlight = "Normal:CmpDocNormal,FloatBorder:FloatBorder,Search:None",
 				},
 			},
 			experimental = {
 				ghost_text = {
 					hl_group = "CmpGhostText",
+                    native_menu = false,
 				},
 			},
 			sorting = defaults.sorting,

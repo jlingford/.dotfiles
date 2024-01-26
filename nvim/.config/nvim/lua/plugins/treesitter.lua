@@ -5,6 +5,9 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
+    config = function ()
+        require('nvim-ts-autotag').setup()
+    end,
 	opts = {
 		highlight = { enable = true },
 		indent = { enable = true },
