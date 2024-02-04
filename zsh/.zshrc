@@ -42,9 +42,11 @@ export VISUAL="$EDITOR"
 export HISTSIZE=100000
 export SAVEHIST=100000
 export TERM=xterm-256color
+export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
 
 # Aliases
 alias la="ls -la"
+alias lt="ls -lt"
 # alias z="zoxide"
 alias afdir="~/Dropbox/Monash-work/AlphaFold"
 alias alan="~/Documents/alan/alan"
