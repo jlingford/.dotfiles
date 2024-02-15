@@ -1,3 +1,8 @@
+# Boot up tmux with new terminal session
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+    exec tmux new-session -A -s ${USER} >/dev/null 2>&1
+fi
+
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
@@ -37,7 +42,7 @@ unset __conda_setup
 eval "$(zoxide init zsh)"
 
 # Custom settings
-export EDITOR=lvim
+export EDITOR=nvim
 export VISUAL="$EDITOR"
 export HISTSIZE=100000
 export SAVEHIST=100000
