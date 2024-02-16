@@ -145,7 +145,7 @@ vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 -- end, { desc = "Format" })
 
 -- Terminal
-vim.keymap.set("n", "<C-/>", "<cmd>ToggleTerm<CR>", { desc = "Open Terminal" })
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Open Terminal" })
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
 vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })

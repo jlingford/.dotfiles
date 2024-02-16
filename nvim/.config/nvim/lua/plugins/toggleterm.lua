@@ -1,8 +1,12 @@
 return {
     'akinsho/toggleterm.nvim',
     version = "*",
-    keys = {
-        { "<C-/>", "<cmd>ToggleTerm<CR>", desc = "Open Terminal" },
-    },
+    event = "VeryLazy",
+    -- config = function ()
+    --     require("toggleterm").setup()
+    -- end,
+    -- keys = {
+    --     { "<c-/>", "<cmd>ToggleTerm<CR>", desc = "Open Terminal" },
+    -- },
     opts = {},
 }
