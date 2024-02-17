@@ -1,11 +1,11 @@
 set nocompatible
-let mapleader=' ' "use space for leader key
-filetype off "required for Vundle
+let mapleader=" " "use space for leader key
+filetype off " required for Vundle
 " Cursor behaviour
-" autocmd InsertEnter,InsertLeave * set cul!
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-
+" see: https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI.="\<Esc>[5 q"
+let &t_EI.="\<Esc>[1 q"
+let &t_SR.="\<Esc>[4 q"
 " General visual look of Vim
 set number relativenumber
 set ruler
@@ -50,6 +50,10 @@ inoremap " ""<ESC>hli
 inoremap ` ``<ESC>hli
 nnoremap ; :
 nnoremap : ;
+inoremap ; :
+inoremap : ;
+vnoremap ; :
+vnoremap : ;
 " nnoremap <Leader>t :split<Space>term://zsh<Space><bar><Space>resize<Space>10<CR>
 vnoremap > >gv
 vnoremap < <gv

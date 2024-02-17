@@ -1,0 +1,34 @@
+# paths
+export PATH="/home/jamesl/rp24/scratch_nobackup/jamesl/localcolabfold/colabfold-conda/bin:$PATH"
+export PATH="/home/jamesl/rp24/scratch_nobackup/jamesl/localcolabfold-1.5.2/localcolabfold/colabfold-conda/bin:$PATH"
+export SINGULARITY_CACHEDIR="/home/jamesl/rp24/scratch_nobackup/jamesl"
+export EDITOR="vim"
+export GREP_OPTIONS="--color=auto"
+
+# PS1 prompt
+export PS1='\[\e[0;34m\][\[\e[0;37m\]\u\[\e[0;31m\]@\[\e[0;35m\]\H\[\e[0;34m\]] \[\e[0;36m\]\w \\$ \[\e[0m\]'
+
+# aliases
+alias ls="ls -F --color=auto"
+alias la="ls -la"
+alias lt="ls -lt"
+alias v="vim"
+alias zc="vim ~/.zshrc"
+alias vc="vim ~/.vimrc"
+alias bc="vim ~/.bashrc"
+alias cond="source /home/jamesl/rp24/scratch_nobackup/jamesl/miniconda/bin/activate"
+alias reload="source ~/.zshrc; source ~/.bashrc"
+alias jl="cd ~/rp24/scratch_nobackup/jamesl; ls"
+alias jll="cd ~/rp24/scratch_nobackup/jamesl/localcolabfold; ls"
+alias colab="cd ~/rp24/scratch_nobackup/jamesl/localcolabfold; ls"
+alias showc="show_cluster"
+alias showg="show_cluster | grep -E 'gpu|NODE'"
+alias showbdi="show_cluster | grep -E 'bdi|NODE'"
+alias showq="squeue -u jamesl"
+alias showt="squeue --start -u jamesl"
+
+
+# options
+set -o vi
+HISTSIZE=1000000
+HISTFILESIZE=1000000
