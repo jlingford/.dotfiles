@@ -1,5 +1,4 @@
-Discord
-Tor Browser Launcher
+Discord Inc.
 Google Chrome
 Steam
 VSCodium
@@ -39,8 +38,9 @@ Inkscape
 JabRef
 KDE Application Platform
 KDE Application Platform
-Okular
+KDE
 Python Molecular Graphics
+Tor Browser Launcher
 VLC
 Zotero
 Zoom
