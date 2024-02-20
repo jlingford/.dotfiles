@@ -50,8 +50,13 @@ export TERM=xterm-256color
 export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
 
 # Aliases
-alias la="ls -la"
-alias lt="exa --sort newest"
+alias ls="eza"
+alias la="eza -lah --icons=always --no-user --total-size"
+alias lt="eza -lah --icons=always --no-user --total-size --sort=newest"
+alias ltr="eza -lah --icons=always --no-user --total-size --sort=oldest"
+alias tree="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree --level 3"
+alias treedir="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree -D"
+alias treeall="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree"
 # alias z="zoxide"
 alias afdir="~/Dropbox/Monash-work/AlphaFold"
 alias alan="~/Documents/alan/alan"
