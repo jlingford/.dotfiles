@@ -3,6 +3,12 @@ if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
     exec tmux new-session -A -s ${USER} >/dev/null 2>&1
 fi
 
+# lf integration
+LFCD="~/.config/lf/lfcd.sh"
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi
+
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
@@ -59,6 +65,8 @@ alias treedir="eza -lah --icons=always --no-permissions --no-user --total-size -
 alias treeall="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree"
 # source
 alias reload="source ~/.zshrc; source ~/.vimrc"
+# lf
+alias lf="lfcd"
 # alias z="zoxide"
 alias afdir="~/Dropbox/Monash-work/AlphaFold"
 alias alan="~/Documents/alan/alan"
