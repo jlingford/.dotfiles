@@ -54,6 +54,7 @@ export HISTSIZE=100000
 export SAVEHIST=100000
 export TERM=xterm-256color
 export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
+export PATH="/home/james/.dotfiles/lfrc/.config/lf:$PATH"
 
 # Aliases
 alias ls="eza"
