@@ -32,6 +32,7 @@ return {
 			"python",
 			"r",
 			"regex",
+            "ron",
 			"rust",
 			"toml",
 			"tsx",

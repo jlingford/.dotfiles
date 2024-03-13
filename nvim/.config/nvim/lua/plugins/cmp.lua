@@ -10,6 +10,7 @@ return {
 		{ "hrsh7th/cmp-emoji" },
 		{ "hrsh7th/cmp-cmdline" },
 		{ "hrsh7th/cmp-nvim-lua" },
+        { "Saecki/crates.nvim" },
 	},
 	opts = function()
 		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -53,6 +54,7 @@ return {
 				{ name = "buffer" },
 				{ name = "cmp_tabnine" },
 				{ name = "greek" },
+                { name = "crates" },
 			},
 			formatting = {
 				fields = { "abbr", "kind", "menu" },
