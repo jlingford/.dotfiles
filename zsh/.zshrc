@@ -68,9 +68,10 @@ alias treeall="eza -lah --icons=always --no-permissions --no-user --total-size -
 alias reload="source ~/.zshrc; source ~/.vimrc"
 # lf
 alias lf="lfcd"
-# alias z="zoxide"
+# alias z="useful"
 alias afdir="~/Dropbox/Monash-work/AlphaFold"
 alias alan="~/Documents/alan/alan"
+alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
 alias doc="cd ~/Documents; ls"
