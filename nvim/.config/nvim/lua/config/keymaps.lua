@@ -16,6 +16,7 @@ vim.keymap.set("v", ";", ":", { noremap = true }) -- maps semicolon to colon
 vim.keymap.set("v", ":", ";", { noremap = true }) -- maps colon to semicolon
 vim.keymap.set("x", ";", ":", { noremap = true }) -- maps semicolon to colon
 vim.keymap.set("x", ":", ";", { noremap = true }) -- maps colon to semicolon
+vim.keymap.set("n", "<Caps>", "<ctrl>", { noremap = true }) -- maps Caps to Ctrl
 
 -- autocomplete brackets and quotes
 vim.keymap.set("i", "(", "()<ESC>hli", { noremap = true })
