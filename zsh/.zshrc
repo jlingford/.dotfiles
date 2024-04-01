@@ -223,3 +223,4 @@ fi
 
 \builtin alias z=__zoxide_z
 \builtin alias zi=__zoxide_zi
+export PATH=$PATH:/home/james/.pixi/bin
