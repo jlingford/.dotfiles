@@ -1,10 +1,10 @@
 Discord Inc.
 Google Chrome
 Steam
-VSCodium
+Peter Squicciarini
 Audacity
 Codecs
-Blender
+Blender Foundation
 Codecs
 Freedesktop Platform
 Freedesktop Platform
@@ -13,34 +13,31 @@ Mesa
 Mesa (Extra)
 Mesa
 Mesa (Extra)
-nvidia-535-104-05
-nvidia-535-113-01
-nvidia-545-29-02
-nvidia-545-29-06
+nvidia-550-67
 Mesa
 Mesa (Extra)
-nvidia-535-104-05
-nvidia-535-113-01
-nvidia-545-29-02
-nvidia-545-29-06
+nvidia-550-67
 Intel
 Intel
 i386
 ffmpeg-full
 ffmpeg-full
 openh264
+openh264
 Freedesktop SDK
 GNU Image Manipulation Program
 GNOME Application Platform version 44
 GNOME Application Platform version 45
+GNOME Application Platform version 46
 Adwaita dark GTK theme
-Inkscape
+The Inkscape Community
 JabRef
 KDE Application Platform
 KDE Application Platform
+KDE Application Platform
 KDE
-Python Molecular Graphics
-Tor Browser Launcher
+Schrödinger, Inc.
+Tor Project
 VLC
-Zotero
+Corporation for Digital Scholarship
 Zoom
