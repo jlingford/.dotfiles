@@ -8,11 +8,11 @@ TERM = "xterm-256color"
 # Normal font style
 normal = { family = "monospace", style = "Regular" }  # Default for Linux/BSD: "monospace", Regular
 # Bold font style
-bold = { style = "Bold" }  # Inherits family from normal, Default style: Bold
+bold = { family = "monospace", style = "Bold" }  # Inherits family from normal, Default style: Bold
 # Italic font style
-italic = { style = "Italic" }  # Inherits family from normal, Default style: Italic
+italic = { family = "monospace", style = "Italic" }  # Inherits family from normal, Default style: Italic
 # Bold Italic font style
-bold_italic = { style = "Bold Italic" }  # Inherits family from normal, Default style: Bold Italic
+bold_italic = { family = "monospace", style = "Bold Italic" }  # Inherits family from normal, Default style: Bold Italic
 # Font size in points
 size = 11.25  # Default: 11.25
 # Offset is extra space around each character
@@ -21,6 +21,8 @@ offset = { x = 0, y = 0 }  # Default: x = 0, y = 0
 glyph_offset = { x = 0, y = 0 }  # Default: x = 0, y = 0
 # Use built-in font for box drawing characters
 builtin_box_drawing = true  # Default: true
+# settings taken from: https://github.com/alacritty/alacritty/issues/6999
+
 
 # [keyboard]
 # bindings = [
