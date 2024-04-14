@@ -1,6 +1,5 @@
 format = """
 $os\
-[\uE0B0](fg:bar_one bg:bar_two)\
 $custom$directory\
 [\uE0B0](fg:bar_two bg:bar_three)\
 $git_branch\
@@ -26,7 +25,8 @@ $rust\
 $scala\
 [\uE0B0](fg:bar_four)\
 """
-
+# cut from after "$os\"...
+# [\uE0B0](fg:bar_one bg:bar_two)\
 
 palette = 'theme'
 
@@ -44,7 +44,7 @@ text_three = '#A3AED2'
 [os]
 style = 'bg:bar_one fg:text_one'
 format = '[ $symbol ]($style)'
-disabled = false
+disabled = true
 
 [os.symbols]
 Alpine = ''
@@ -101,10 +101,11 @@ symbol = ' '
 [custom.folder]
 when = ''' test '$HOME' != '$PWD' '''
 style = 'bold fg:text_two bg:bar_two'
-symbol = ' '
+symbol = ''
 
 [directory.substitutions]
-'Documents' = 'Documents'
+'Documents' = '  '
+'Dropbox' = ' '
 'Downloads' = ' '
 'Music' = ' '
 'Pictures' = ' '
