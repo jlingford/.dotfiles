@@ -9,6 +9,16 @@ if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
 
+# yazi integration
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
@@ -72,6 +82,7 @@ alias reload="source ~/.zshrc; source ~/.vimrc"
 # lf
 alias lf="lfcd"
 # alias z="useful"
+alias cd="z"
 alias afdir="~/Dropbox/Monash-work/AlphaFold"
 alias alan="~/Documents/alan/alan"
 alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
