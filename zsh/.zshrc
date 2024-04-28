@@ -19,6 +19,41 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+# FZF
+## fzf keybindings
+eval "$(fzf --zsh)"
+
+## fd integration into fzf
+export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+_fzf_compgen_path() {
+    fd --hidden --exclude -git . "$1"
+}
+_fzf_compgen_dir() {
+    fd --type=d --hidden --exclude .git . "$1"
+}
+
+## fzf-git.sh integration
+export FZF_GIT_BINDKEYS=$(bindkey -p '^g') #fix CTRL-g conflict between fzf-git and tmux
+source ~/.config/fzf-git.sh/fzf-git.sh
+
+## fzf eza integration for previews
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {}'"
+
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always; else bat --color=always {}; fi"
+_fzf_comprun() {
+    local command=$1
+    shift
+
+    case "$command" in
+        cd) fzf --preview 'eza --tree --icons=always --color=always {}' "$@" ;;
+        export|unset) fzf --preview "eval 'echo \$' {}" "$@" ;;
+        ssh) fzf --preview 'dig {}' "$@" ;;
+        *) fzf --preview "$show_file_or_dir_preview" "$@" ;;
+    esac
+}
+
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
@@ -34,6 +69,7 @@ plug "hlissner/zsh-autopair"
 plug "zsh-history-substring-search"
 plug "Aloxaf/fzf-tab"
 plug "zsh-users/zsh-history-substring-search"
+plug "jeffreytse/zsh-vi-mode"
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -63,6 +99,7 @@ export VISUAL="$EDITOR"
 export HISTSIZE=100000
 export SAVEHIST=100000
 export TERM=xterm-256color
+# export BAT_THEME="Monokai Extended Origin"
 
 # Paths
 export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
@@ -77,6 +114,8 @@ alias ltr="eza -lah --icons=always --no-user --total-size --sort=oldest"
 alias tree="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree --level 3"
 alias treedir="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --no-time --tree -D"
 alias treeall="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree"
+alias less="bat" #replacing less with bat
+alias man="batman" #replacing man pages with bat-extras man pages "batman"
 # source
 alias reload="source ~/.zshrc; source ~/.vimrc"
 # lf
@@ -93,7 +132,7 @@ alias dot="cd ~/.dotfiles; ls"
 alias down="cd ~/Downloads; ls"
 alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
-alias f="fzf"
+alias f="fzf --preview='bat --color=always {}'"
 alias lv="lvim"
 alias lvplug="lv ~/.local/share/lunarvim/lvim/lua/lvim/plugins.lua"
 alias mamba="micromamba"
