@@ -33,9 +33,9 @@ _fzf_compgen_dir() {
     fd --type=d --hidden --exclude .git . "$1"
 }
 
-## fzf-git.sh integration
-export FZF_GIT_BINDKEYS=$(bindkey -p '^g') #fix CTRL-g conflict between fzf-git and tmux
-source ~/.config/fzf-git.sh/fzf-git.sh
+# ## fzf-git.sh integration
+# export FZF_GIT_BINDKEYS=$(bindkey -p '^g') #fix CTRL-g conflict between fzf-git and tmux
+# source ~/.config/fzf-git.sh/fzf-git.sh
 
 ## fzf eza integration for previews
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
@@ -99,7 +99,6 @@ export VISUAL="$EDITOR"
 export HISTSIZE=100000
 export SAVEHIST=100000
 export TERM=xterm-256color
-# export BAT_THEME="Monokai Extended Origin"
 
 # Paths
 export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
@@ -117,7 +116,7 @@ alias treeall="eza -lah --icons=always --no-permissions --no-user --total-size -
 alias less="bat" #replacing less with bat
 alias man="batman" #replacing man pages with bat-extras man pages "batman"
 # source
-alias reload="source ~/.zshrc; source ~/.vimrc"
+alias reload="source ~/.zshrc"
 # lf
 alias lf="lfcd"
 # alias z="useful"
@@ -145,6 +144,8 @@ alias ra="ranger"
 alias starship="lv ~/.local/share/zap/plugins/zsh-starship/theme/starship.toml"
 alias v="vim"
 alias web="cd ~/Documents/website"
+# thefuck alias
+eval $(thefuck --alias)
 
 # Custom functions
 init_pipenv () {
