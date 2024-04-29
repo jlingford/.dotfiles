@@ -23,36 +23,45 @@ function yy() {
 ## fzf keybindings
 eval "$(fzf --zsh)"
 
-## fd integration into fzf
-export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+## fd integration into fzf and **<TAB> completion
+# export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
 _fzf_compgen_path() {
-    fd --hidden --exclude -git . "$1"
+    fd --hidden --follow --exclude ".git" . "$1"
 }
 _fzf_compgen_dir() {
-    fd --type=d --hidden --exclude .git . "$1"
+    fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-# ## fzf-git.sh integration
-# export FZF_GIT_BINDKEYS=$(bindkey -p '^g') #fix CTRL-g conflict between fzf-git and tmux
-# source ~/.config/fzf-git.sh/fzf-git.sh
-
-## fzf eza integration for previews
+## pretty fzf previews in **<TAB> completion
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {}'"
-
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always; else bat --color=always {}; fi"
 _fzf_comprun() {
     local command=$1
     shift
 
     case "$command" in
-        cd) fzf --preview 'eza --tree --icons=always --color=always {}' "$@" ;;
-        export|unset) fzf --preview "eval 'echo \$' {}" "$@" ;;
-        ssh) fzf --preview 'dig {}' "$@" ;;
-        *) fzf --preview "$show_file_or_dir_preview" "$@" ;;
+        cd)              fzf --preview 'eza --tree --icons=always --color=always {}' "$@" ;;
+        export|unset)    fzf --preview "eval 'echo \$' {}" "$@" ;;
+        ssh)             fzf --preview 'dig {}' "$@" ;;
+        *)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
     esac
 }
+# CTRL-/ to toggle small preview window to see the full command
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
 
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
@@ -132,6 +141,7 @@ alias down="cd ~/Downloads; ls"
 alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
 alias f="fzf --preview='bat --color=always {}'"
+alias fv="fd --type f --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse | xargs nvim" # fz = fzf into nvim
 alias lv="lvim"
 alias lvplug="lv ~/.local/share/lunarvim/lvim/lua/lvim/plugins.lua"
 alias mamba="micromamba"
