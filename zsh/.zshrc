@@ -117,7 +117,8 @@ export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 
 # Aliases
 alias ls="eza"
-alias la="eza -lah --icons=always --no-user --total-size"
+alias la="eza -lah --icons=always --no-user"
+alias las="eza -lah --icons=always --no-user --total-size" # la "size"
 alias lt="eza -lah --icons=always --no-user --total-size --sort=newest"
 alias ltr="eza -lah --icons=always --no-user --total-size --sort=oldest"
 alias tree="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree --level 3"
