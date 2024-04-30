@@ -113,6 +113,7 @@ export TERM=xterm-256color
 export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
 export PATH="/home/james/.dotfiles/scripts:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 
 # Aliases
 alias ls="eza"
