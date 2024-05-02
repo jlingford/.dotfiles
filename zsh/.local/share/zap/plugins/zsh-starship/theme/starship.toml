@@ -25,6 +25,10 @@ $rust\
 $scala\
 [\uE0B0](fg:bar_four)\
 """
+
+right_format = """
+$cmd_duration
+"""
 # cut from after "$os\"...
 # [\uE0B0](fg:bar_one bg:bar_two)\
 
@@ -217,3 +221,11 @@ disabled = false
 time_format = '%R' # Hour:Minute Format
 style = 'fg:text_three bg:bar_three'
 format = '[   $time ]($style)'
+
+[cmd_duration]
+disabled = false
+min_time = 20
+show_milliseconds = true
+format = '[   $duration ](italic gray)'
+show_notifications = false
+
