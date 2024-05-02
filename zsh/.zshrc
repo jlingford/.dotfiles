@@ -126,11 +126,12 @@ alias treedir="eza -lah --icons=always --no-permissions --no-user --total-size -
 alias treeall="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree"
 alias less="bat" #replacing less with bat
 alias man="batman" #replacing man pages with bat-extras man pages "batman"
+alias lg="lazygit"
 # source
 alias reload="source ~/.zshrc"
 # lf
 alias lf="lfcd"
-# alias z="useful"
+# alias useful dir changes
 alias cd="z"
 alias afdir="~/Dropbox/Monash/AlphaFold"
 alias alan="~/Documents/alan/alan"
