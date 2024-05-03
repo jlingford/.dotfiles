@@ -41,14 +41,15 @@ _fzf_compgen_dir() {
 
 ## pretty fzf previews in **<TAB> completion
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {}'"
-show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always; else bat --color=always {}; fi"
+# export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {}'"
+export FZF_ALT_C_OPTS="--preview 'lsd --tree --color=always {}'"
+show_file_or_dir_preview="if [ -d {} ]; then lsd --tree --color=always --icon=always {}; else bat --color=always {}; fi"
 _fzf_comprun() {
     local command=$1
     shift
 
     case "$command" in
-        cd)              fzf --preview 'eza --tree --icons=always --color=always {}' "$@" ;;
+        cd)              fzf --preview 'lsd --tree --color=always --icon=always {}' "$@" ;;
         export|unset)    fzf --preview "eval 'echo \$' {}" "$@" ;;
         ssh)             fzf --preview 'dig {}' "$@" ;;
         *)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
@@ -120,14 +121,19 @@ export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 
 # Aliases
-alias ls="eza"
-alias la="eza -lah --icons=always --no-user"
-alias las="eza -lah --icons=always --no-user --total-size" # la "size"
-alias lt="eza -lah --icons=always --no-user --total-size --sort=newest"
-alias ltr="eza -lah --icons=always --no-user --total-size --sort=oldest"
-alias tree="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree --level 3"
-alias treedir="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --no-time --tree -D"
-alias treeall="eza -lah --icons=always --no-permissions --no-user --total-size --git-ignore --tree"
+# alias ls="eza"
+# alias la="eza -lah --icon=always --no-user"
+# alias las="eza -lah --icon=always --no-user --total-size" # la "size"
+# alias lt="eza -lah --icon=always --no-user --total-size --sort=newest"
+# alias ltr="eza -lah --icon=always --no-user --total-size --sort=oldest"
+# alias tree="eza -lah --icon=always --no-permissions --no-user --total-size --git-ignore --tree --level 3"
+# alias treedir="eza -lah --icon=always --no-permissions --no-user --total-size --git-ignore --no-time --tree -D"
+# alias treeall="eza -lah --icon=always --no-permissions --no-user --total-size --git-ignore --tree"
+alias ls="lsd"
+alias la="lsd -la"
+alias lat="lsd -la --total-size"
+alias ltr="lsd -ltr"
+alias tree="lsd --tree"
 alias less="bat" #replacing less with bat
 alias man="batman" #replacing man pages with bat-extras man pages "batman"
 alias lg="lazygit"
