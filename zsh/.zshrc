@@ -69,7 +69,7 @@ plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
-plug "wintermi/zsh-starship"
+# plug "wintermi/zsh-starship"
 plug "esc/conda-zsh-completion"
 plug "zap-zsh/vim"
 plug "zap-zsh/fzf"
@@ -101,6 +101,9 @@ unset __conda_setup
 #
 # Zoxide initialize
 eval "$(zoxide init zsh)"
+
+# starship initialize
+eval "$(starship init zsh)"
 
 # Custom settings
 export EDITOR=nvim
