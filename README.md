@@ -44,3 +44,5 @@ A useful mental trick that [Christian Chiarulli](https://www.chrisatmachine.com/
 So if you were to navigate to your neovim config files from your home dir, you would `cd .config/nvim/lua/config` to get to your config file of interest.
 This is essentially how the GNU stow program sees things too, so the directory structures must follow this pattern for the program to create the symlinks in their proper locations.
 
+TODO - move yazi config to zsh dir
+TODO - move starship toml to zsh dir
