@@ -1,0 +1,22 @@
+#!/bin/zsh
+# Git log but pretty and with fzf and bat preview
+
+glog() {
+    git log \
+        --graph \
+        --color=always \
+        --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr" "$@" |
+    fzf \
+        --ansi \
+        --no-sort \
+        --reverse \
+        --tiebreak=index \
+        --toggle-sort=\` \
+        --preview "echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always % | delta | bat'" \
+        --header="ENTER to view, CTRL-Y to copy hash to xclip, CTRL-X to checkout commit" \
+        --bind "enter:execute:echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always % | delta | bat'" \
+        --bind "ctrl-y:execute:echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xclip" \
+        --bind "ctrl-x:execute:echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git checkout %'" \
+}
+
+glog "$@"
