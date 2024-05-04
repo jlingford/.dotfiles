@@ -1,5 +1,6 @@
 #!/bin/zsh
 # Git log but pretty and with fzf and bat preview
+# NOTE: just use "git forgit log" instead (does same thing but better)
 
 glog() {
     git log \
