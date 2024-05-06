@@ -130,15 +130,20 @@ vim.keymap.set({ "n", "x" }, "<leader>sr", function()
 end)
 
 -- telescope
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>", { desc = "Find files" })
 vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Find old files" })
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 vim.keymap.set("n", "<leader>fx", "<cmd>Telescope bibtex<CR>", { desc = "Find bibtex reference" })
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Find help" })
+vim.keymap.set("n", "<leader>fca", "<cmd>Telescope git_commits<CR>", { desc = "Find all git commits" })
+vim.keymap.set("n", "<leader>fcb", "<cmd>Telescope git_bcommits<CR>", { desc = "Find git commits in buffer" })
+vim.keymap.set("n", "<leader>fp", "<cmd>Telescope planets<CR>", { desc = "Planets ;)" })
+vim.keymap.set("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", { desc = "Browse colorschemes" })
+vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Browse keymaps" })
 
 -- new file
-vim.keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+vim.keymap.set("n", "<leader>nf", "<cmd>enew<cr>", { desc = "New File" })
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
