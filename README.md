@@ -46,3 +46,4 @@ This is essentially how the GNU stow program sees things too, so the directory s
 
 TODO - move yazi config to zsh dir
 TODO - move starship toml to zsh dir
+TODO - move picom config to new stow dir
