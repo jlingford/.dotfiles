@@ -42,14 +42,14 @@ _fzf_compgen_dir() {
 ## pretty fzf previews in **<TAB> completion
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
 # export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {}'"
-export FZF_ALT_C_OPTS="--preview 'lsd --tree --color=always {}'"
+export FZF_ALT_C_OPTS="--preview 'lsd -a --tree --color=always {}'"
 show_file_or_dir_preview="if [ -d {} ]; then lsd --tree --color=always --icon=always {}; else bat --color=always {}; fi"
 _fzf_comprun() {
     local command=$1
     shift
 
     case "$command" in
-        cd)              fzf --preview 'lsd --tree --color=always --icon=always {}' "$@" ;;
+        cd)              fzf --preview 'lsd -a --tree --color=always --icon=always {}' "$@" ;;
         export|unset)    fzf --preview "eval 'echo \$' {}" "$@" ;;
         ssh)             fzf --preview 'dig {}' "$@" ;;
         *)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
@@ -133,7 +133,7 @@ alias ls="lsd"
 alias la="lsd -la"
 alias lat="lsd -la --total-size"
 alias ltr="lsd -latr"
-alias tree="lsd --tree"
+alias tree="lsd -a --tree"
 alias less="bat" #replacing less with bat
 alias man="batman" #replacing man pages with bat-extras man pages "batman"
 alias lg="lazygit"
