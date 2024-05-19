@@ -1,7 +1,16 @@
+# zmodload zsh/zprof # use to time zsh startup
+
 # Boot up tmux with new terminal session
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
     exec tmux new-session -A -s ${USER} >/dev/null 2>&1
 fi
+
+# Speed up zsh start time by not loading compinit every time
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 # lf integration
 LFCD="~/.config/lf/lfcd.sh"
@@ -109,9 +118,22 @@ eval "$(starship init zsh)"
 # Custom settings
 export EDITOR=nvim
 export VISUAL="$EDITOR"
-export HISTSIZE=100000
-export SAVEHIST=100000
 export TERM=xterm-256color
+
+# History settings
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+HISTFILE=$HOME/.zsh_history
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # Paths
 export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
@@ -294,3 +316,5 @@ fi
 \builtin alias z=__zoxide_z
 \builtin alias zi=__zoxide_zi
 export PATH=$PATH:/home/james/.pixi/bin
+
+# zprof # use to time zsh startup
