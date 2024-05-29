@@ -21,6 +21,7 @@ return {
             ["<leader>c"] = { name = "+code" },
             ["<leader>s"] = { name = "+Spectre" },
             ["<leader>x"] = { name = "+Trouble" },
+            ["<leader>i"] = { name = "+Noice" },
         },
     },
     config = function(_, opts)
