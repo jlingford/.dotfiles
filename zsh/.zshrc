@@ -181,9 +181,8 @@ alias mamba="micromamba"
 alias mon="cd ~/Dropbox/Monash; ls"
 alias monr="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
-alias nv="nvim"
-alias nz="nvim ~/.zshrc"
-alias v="vim"
+alias v="nvim"
+alias vz="nvim ~/.zshrc"
 alias web="cd ~/Documents/website"
 # thefuck alias
 eval $(thefuck --alias)
