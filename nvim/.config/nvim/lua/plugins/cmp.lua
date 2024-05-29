@@ -1,14 +1,14 @@
 return {
 	"hrsh7th/nvim-cmp",
 	version = false, -- last release is way too old
-	event = "InsertEnter",
+	event = "BufEnter",
 	dependencies = {
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-emoji" },
-		{ "hrsh7th/cmp-cmdline" },
+		-- { "hrsh7th/cmp-cmdline" },
 		{ "hrsh7th/cmp-nvim-lua" },
         { "Saecki/crates.nvim" },
 	},
@@ -83,6 +83,7 @@ return {
 				tmux = "(TMUX)",
 				copilot = "(Copilot)",
 				treesitter = "(TreeSitter)",
+                cmdline = "(Cmdline)",
 			},
 			duplicates = {
 				buffer = 1,
@@ -108,7 +109,22 @@ return {
                     native_menu = false,
 				},
 			},
-			sorting = defaults.sorting,
+			-- sorting = defaults.sorting,
+   --          cmp.setup.cmdline('/', {
+   --              mapping = cmp.mapping.preset.cmdline(),
+   --              sources = {
+   --                  { name = "buffer" }
+   --              }
+   --          }),
+   --          -- TODO : fix bug: tab completion doesnt work for cmdline cmp
+            -- cmp.setup.cmdline(":", {
+            --     sources = {
+            --         {
+            --             name = "cmdline",
+            --             option = { ignore_cmds = {} }
+            --         }
+            --     }
+            -- })
 		}
 	end,
 	-- ---@param opts cmp.ConfigSchema
