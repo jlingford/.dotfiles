@@ -25,7 +25,7 @@ return {
       dashboard.button("n", " " .. " New file",        "<cmd> ene <BAR> startinsert <cr>"),
       dashboard.button("g", " " .. " Find text",       "<cmd> Telescope live_grep <cr>"),
       dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
-      dashboard.button("c", " " .. " Nvim config",     "<cmd> e ~/.dotfiles/nvim/.config/nvim/init.lua <cr>"),
+      dashboard.button("c", " " .. " Nvim config",     "<cmd> e ~/.dotfiles/nvim/.config/nvim <cr>"),
       dashboard.button("z", " " .. " Zsh config",      "<cmd> e ~/.dotfiles/zsh/.zshrc <cr>"),
       dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
       dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),

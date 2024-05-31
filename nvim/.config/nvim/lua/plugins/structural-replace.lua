@@ -1,6 +1,6 @@
 return {
 	"cshuaimin/ssr.nvim",
-	event = "VeryLazy",
+	-- event = "VeryLazy",
 	module = "ssr",
 	-- Calling setup is optional.
 	config = function()
@@ -20,4 +20,13 @@ return {
 			},
 		})
 	end,
+	keys = {
+		{
+			"<leader>ssr",
+			function()
+				require("ssr").open()
+			end,
+			desc = "Structural search and replace",
+		},
+	},
 }

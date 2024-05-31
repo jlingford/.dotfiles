@@ -1,13 +1,13 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	event = "BufRead *",
 	build = ":TSUpdate",
-    event = "VeryLazy",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
-    config = function ()
-        require('nvim-ts-autotag').setup()
-    end,
+	config = function()
+		require("nvim-ts-autotag").setup()
+	end,
 	opts = {
 		highlight = { enable = true },
 		indent = { enable = true },
@@ -32,7 +32,7 @@ return {
 			"python",
 			"r",
 			"regex",
-            "ron",
+			"ron",
 			"rust",
 			"toml",
 			"tsx",

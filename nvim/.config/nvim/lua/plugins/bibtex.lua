@@ -1,6 +1,6 @@
 return {
     "nvim-telescope/telescope-bibtex.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     dependencies = { "nvim-telescope/telescope.nvim" },
 
     -- not sure how this works...

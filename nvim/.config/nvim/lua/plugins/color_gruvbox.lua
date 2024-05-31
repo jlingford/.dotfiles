@@ -1,7 +1,7 @@
 return {
-    "ellisonleao/gruvbox.nvim",
-    event = "VeryLazy",
-    name = "gruvbox",
-    config = true,
-    opts = {},
+	"ellisonleao/gruvbox.nvim",
+	name = "gruvbox",
+	event = "VeryLazy",
+	config = true,
+	opts = {},
 }

@@ -1,6 +1,6 @@
 return {
-    "dgox16/oldworld.nvim",
-    event = "VeryLazy",
-    name = "oldworld",
-    config = true,
+	"dgox16/oldworld.nvim",
+	name = "oldworld",
+	config = true,
+	event = "VeryLazy",
 }

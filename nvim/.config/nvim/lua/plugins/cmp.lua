@@ -1,7 +1,7 @@
 return {
 	"hrsh7th/nvim-cmp",
 	version = false, -- last release is way too old
-	event = "BufEnter",
+	event = "InsertEnter",
 	dependencies = {
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
@@ -10,7 +10,7 @@ return {
 		{ "hrsh7th/cmp-emoji" },
 		-- { "hrsh7th/cmp-cmdline" },
 		{ "hrsh7th/cmp-nvim-lua" },
-        { "Saecki/crates.nvim" },
+		{ "Saecki/crates.nvim" },
 	},
 	opts = function()
 		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -54,7 +54,7 @@ return {
 				{ name = "buffer" },
 				{ name = "cmp_tabnine" },
 				{ name = "greek" },
-                { name = "crates" },
+				{ name = "crates" },
 			},
 			formatting = {
 				fields = { "abbr", "kind", "menu" },
@@ -83,7 +83,7 @@ return {
 				tmux = "(TMUX)",
 				copilot = "(Copilot)",
 				treesitter = "(TreeSitter)",
-                cmdline = "(Cmdline)",
+				cmdline = "(Cmdline)",
 			},
 			duplicates = {
 				buffer = 1,
@@ -106,25 +106,25 @@ return {
 			experimental = {
 				ghost_text = {
 					hl_group = "CmpGhostText",
-                    native_menu = false,
+					native_menu = false,
 				},
 			},
 			-- sorting = defaults.sorting,
-   --          cmp.setup.cmdline('/', {
-   --              mapping = cmp.mapping.preset.cmdline(),
-   --              sources = {
-   --                  { name = "buffer" }
-   --              }
-   --          }),
-   --          -- TODO : fix bug: tab completion doesnt work for cmdline cmp
-            -- cmp.setup.cmdline(":", {
-            --     sources = {
-            --         {
-            --             name = "cmdline",
-            --             option = { ignore_cmds = {} }
-            --         }
-            --     }
-            -- })
+			--          cmp.setup.cmdline('/', {
+			--              mapping = cmp.mapping.preset.cmdline(),
+			--              sources = {
+			--                  { name = "buffer" }
+			--              }
+			--          }),
+			--          -- TODO : fix bug: tab completion doesnt work for cmdline cmp
+			-- cmp.setup.cmdline(":", {
+			--     sources = {
+			--         {
+			--             name = "cmdline",
+			--             option = { ignore_cmds = {} }
+			--         }
+			--     }
+			-- })
 		}
 	end,
 	-- ---@param opts cmp.ConfigSchema

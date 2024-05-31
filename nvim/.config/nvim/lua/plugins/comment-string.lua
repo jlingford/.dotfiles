@@ -1,6 +1,6 @@
 return {
 	"JoosepAlviste/nvim-ts-context-commentstring",
-	lazy = true,
+    event = "BufEnter *.html",
 	opts = {
 		enable_autocmd = false,
 	},
