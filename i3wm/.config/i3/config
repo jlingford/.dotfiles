@@ -409,12 +409,12 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 # exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
 
 # set powersavings for display, screen timeout:
-exec --no-startup-id xset s 7200 dpms 600 600 600
+# exec --no-startup-id xset s 900 dpms 0 0 1800
 # set powersaving off:
-# exec --no-startup-id xset s off
+exec --no-startup-id xset s off
 
 # disable power saving (for example if using xscreensaver)
-# exec --no-startup-id xset -dpms
+exec --no-startup-id xset -dpms
 
 # use xautolock to use autosuspend rules for mobile devices
 # https://wiki.archlinux.org/title/Session_lock#xautolock

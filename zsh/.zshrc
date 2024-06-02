@@ -1,7 +1,16 @@
+# zmodload zsh/zprof # use to time zsh startup
+
 # Boot up tmux with new terminal session
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
     exec tmux new-session -A -s ${USER} >/dev/null 2>&1
 fi
+
+# Speed up zsh start time by not loading compinit every time
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 # lf integration
 LFCD="~/.config/lf/lfcd.sh"
@@ -42,14 +51,14 @@ _fzf_compgen_dir() {
 ## pretty fzf previews in **<TAB> completion
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
 # export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {}'"
-export FZF_ALT_C_OPTS="--preview 'lsd --tree --color=always {}'"
+export FZF_ALT_C_OPTS="--preview 'lsd -a --tree --color=always {}'"
 show_file_or_dir_preview="if [ -d {} ]; then lsd --tree --color=always --icon=always {}; else bat --color=always {}; fi"
 _fzf_comprun() {
     local command=$1
     shift
 
     case "$command" in
-        cd)              fzf --preview 'lsd --tree --color=always --icon=always {}' "$@" ;;
+        cd)              fzf --preview 'lsd -a --tree --color=always --icon=always {}' "$@" ;;
         export|unset)    fzf --preview "eval 'echo \$' {}" "$@" ;;
         ssh)             fzf --preview 'dig {}' "$@" ;;
         *)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
@@ -79,7 +88,7 @@ plug "hlissner/zsh-autopair"
 plug "zsh-history-substring-search"
 plug "Aloxaf/fzf-tab"
 plug "zsh-users/zsh-history-substring-search"
-plug "jeffreytse/zsh-vi-mode"
+# plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -109,15 +118,30 @@ eval "$(starship init zsh)"
 # Custom settings
 export EDITOR=nvim
 export VISUAL="$EDITOR"
-export HISTSIZE=100000
-export SAVEHIST=100000
 export TERM=xterm-256color
+
+# History settings
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+HISTFILE=$HOME/.zsh_history
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # Paths
 export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
 export PATH="/home/james/.dotfiles/scripts:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
+# export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 
 # Aliases
@@ -133,7 +157,7 @@ alias ls="lsd"
 alias la="lsd -la"
 alias lat="lsd -la --total-size"
 alias ltr="lsd -latr"
-alias tree="lsd --tree"
+alias tree="lsd -a --tree"
 alias less="bat" #replacing less with bat
 alias man="batman" #replacing man pages with bat-extras man pages "batman"
 alias lg="lazygit"
@@ -159,9 +183,8 @@ alias mamba="micromamba"
 alias mon="cd ~/Dropbox/Monash; ls"
 alias monr="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
-alias nv="nvim"
-alias nz="nvim ~/.zshrc"
-alias v="vim"
+alias v="nvim"
+alias vz="nvim ~/.zshrc"
 alias web="cd ~/Documents/website"
 # thefuck alias
 eval $(thefuck --alias)
@@ -294,3 +317,5 @@ fi
 \builtin alias z=__zoxide_z
 \builtin alias zi=__zoxide_zi
 export PATH=$PATH:/home/james/.pixi/bin
+
+# zprof # use to time zsh startup

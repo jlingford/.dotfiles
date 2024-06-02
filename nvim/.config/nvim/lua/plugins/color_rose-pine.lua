@@ -1,5 +1,5 @@
 return {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    event = "VeryLazy"
+	"rose-pine/neovim",
+	name = "rose-pine",
+	event = "VeryLazy",
 }

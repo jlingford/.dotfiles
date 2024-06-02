@@ -1,6 +1,6 @@
 return {
 	"echasnovski/mini.bufremove",
-	event = "BufEnter",
+	-- event = "BufEnter",
 	keys = {
 		{
 			"<leader>bd",

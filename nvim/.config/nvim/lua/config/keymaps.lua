@@ -16,7 +16,9 @@ vim.keymap.set("v", ";", ":", { noremap = true }) -- maps semicolon to colon
 vim.keymap.set("v", ":", ";", { noremap = true }) -- maps colon to semicolon
 vim.keymap.set("x", ";", ":", { noremap = true }) -- maps semicolon to colon
 vim.keymap.set("x", ":", ";", { noremap = true }) -- maps colon to semicolon
-vim.keymap.set("n", "<Caps>", "<ctrl>", { noremap = true }) -- maps Caps to Ctrl
+vim.keymap.set("c", ";", ":", { noremap = true }) -- maps semicolon to colon
+vim.keymap.set("c", ":", ";", { noremap = true }) -- maps colon to semicolon
+-- vim.keymap.set("n", "<Caps>", "<ctrl>", { noremap = true }) -- maps Caps to Ctrl
 
 -- autocomplete brackets and quotes
 vim.keymap.set("i", "(", "()<ESC>hli", { noremap = true })
@@ -130,8 +132,14 @@ vim.keymap.set({ "n", "x" }, "<leader>sr", function()
 end)
 
 -- telescope
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>", { desc = "Find files" })
+vim.keymap.set(
+	"n",
+	"<leader>ff",
+	"<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>",
+	{ desc = "Find files in current dir" }
+)
 vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Find old files" })
+vim.keymap.set("n", "<leader>fr", "<cmd>Telescope registers<CR>", { desc = "Search :register" })
 vim.keymap.set("n", "<leader>ft", "<cmd>Telescope live_grep<CR>", { desc = "Live grep text" })
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 vim.keymap.set("n", "<leader>fx", "<cmd>Telescope bibtex<CR>", { desc = "Find bibtex reference" })
@@ -139,8 +147,14 @@ vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags theme=ivy<CR>", { de
 vim.keymap.set("n", "<leader>fga", "<cmd>Telescope git_commits theme=ivy<CR>", { desc = "Find all git commits" })
 vim.keymap.set("n", "<leader>fgb", "<cmd>Telescope git_bcommits theme=ivy<CR>", { desc = "Find git commits in buffer" })
 vim.keymap.set("n", "<leader>fp", "<cmd>Telescope planets<CR>", { desc = "Planets ;)" })
-vim.keymap.set("n", "<leader>fc", "<cmd>Telescope colorscheme theme=dropdown<CR>", { desc = "Browse colorschemes" })
+vim.keymap.set("n", "<leader>fC", "<cmd>Telescope colorscheme theme=dropdown<CR>", { desc = "Browse colorschemes" })
 vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Browse keymaps" })
+vim.keymap.set(
+	"n",
+	"<leader>fc",
+	"<cmd>Telescope command_history theme=dropdown<CR>",
+	{ desc = "Search command history" }
+)
 
 -- new file
 vim.keymap.set("n", "<leader>nf", "<cmd>enew<cr>", { desc = "New File" })
@@ -156,12 +170,27 @@ vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
 -- Terminal
 vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle Open/Close Terminal" })
-vim.keymap.set("n", "<leader>t|", "<cmd>ToggleTerm direction=vertical size=90<cr>", { desc = "Open Terminal Vertically" })
+vim.keymap.set(
+	"n",
+	"<leader>t|",
+	"<cmd>ToggleTerm direction=vertical size=90<cr>",
+	{ desc = "Open Terminal Vertically" }
+)
 vim.keymap.set("n", "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open Terminal Horizontally" })
 vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float size=80<cr>", { desc = "Open Terminal in Float" })
 vim.keymap.set("n", "<leader>ts", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send Current Line to Terminal" })
-vim.keymap.set("v", "<leader>ts", "<cmd>ToggleTermSendVisualLines<cr>", { desc = "Send Visually Selected Lines to Terminal" })
-vim.keymap.set("v", "<leader>tv", "<cmd>ToggleTermSendVisualSelection<cr>", { desc = "Send Visually Selected Text Only to Terminal" })
+vim.keymap.set(
+	"v",
+	"<leader>ts",
+	"<cmd>ToggleTermSendVisualLines<cr>",
+	{ desc = "Send Visually Selected Lines to Terminal" }
+)
+vim.keymap.set(
+	"v",
+	"<leader>tv",
+	"<cmd>ToggleTermSendVisualSelection<cr>",
+	{ desc = "Send Visually Selected Text Only to Terminal" }
+)
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
 vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
@@ -185,3 +214,8 @@ vim.keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" 
 vim.keymap.set("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 vim.keymap.set("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 vim.keymap.set("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- change working dir to match current file
+vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<cr>", { desc = "Change dir to current file" })
+
+-- Open Netrw to m3.massive.org.au

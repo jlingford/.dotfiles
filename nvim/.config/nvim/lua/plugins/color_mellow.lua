@@ -1,5 +1,5 @@
 return {
-    "mellow-theme/mellow.nvim",
-    event = "VeryLazy",
-    name = "mellow",
+	"mellow-theme/mellow.nvim",
+	name = "mellow",
+	event = "VeryLazy",
 }

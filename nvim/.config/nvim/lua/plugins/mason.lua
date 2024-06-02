@@ -1,6 +1,8 @@
 return {
 	{
 		"williamboman/mason.nvim",
+		cmd = "Mason",
+		keys = { "leader<m>", "<cmd>Mason<cr>", desc = "Mason" },
 		config = function()
 			require("mason").setup()
 		end,
@@ -14,17 +16,17 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"bashls",
-					"clangd",
-					"cmake",
-					"html",
-					"jsonls",
-					"lua_ls",
-					"marksman",
-					"pyright",
-                    "taplo",
-					"texlab",
-					"yamlls",
+					-- "bashls",
+					-- "clangd",
+					-- "cmake",
+					-- "html",
+					-- "jsonls",
+					-- "lua_ls",
+					-- "marksman",
+					-- "pyright",
+					-- "taplo",
+					-- "texlab",
+					-- "yamlls",
 				},
 			})
 		end,
