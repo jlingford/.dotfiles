@@ -1,28 +1,49 @@
 return {
-    -- "rcarriga/nvim-notify",
-    -- event = "BufEnter",
-    -- config = function ()
-    --     vim.notify = require("notify")
-    -- end,
-    -- -- keys = {
-    -- --     {
-    -- --     "<leader>un",
-    -- --     function()
-    -- --         require("notify").dismiss({ silent = true, pending = true })
-    -- --     end,
-    -- --     desc = "Dismiss all Notifications",
-    -- --     },
-    -- -- },
-    -- opts = {
-    --     timeout = 3000,
-    --     max_height = function()
-    --         return math.floor(vim.o.lines * 0.75)
-    --     end,
-    --     max_width = function()
-    --         return math.floor(vim.o.columns * 0.75)
-    --     end,
-    --     on_open = function(win)
-    --         vim.api.nvim_win_set_config(win, { zindex = 100 })
-    --     end,
-    -- },
+	"rcarriga/nvim-notify",
+	event = "BufEnter",
+	config = function()
+		vim.notify = require("notify")
+	end,
+	keys = {
+		{
+			"<leader>un",
+			function()
+				require("notify").dismiss({ silent = true, pending = true })
+			end,
+			desc = "Dismiss all Notifications",
+		},
+	},
+	opts = {
+		timeout = 3000,
+		max_height = function()
+			return math.floor(vim.o.lines * 0.75)
+		end,
+		max_width = function()
+			return math.floor(vim.o.columns * 0.75)
+		end,
+		on_open = function(win)
+			vim.api.nvim_win_set_config(win, { zindex = 100 })
+		end,
+	},
+	-- OR??
+	opts = {
+		render = "wrapped-compact", -- best for shorter max_width
+		max_width = math.floor(vim.o.columns * 0.4),
+		minimum_width = 15,
+		top_down = false,
+		level = vim.log.levels.TRACE, -- minimum severity
+		timeout = 4000,
+		stages = "slide", -- slide|fade
+		icons = { ERROR = "", WARN = "▲", INFO = "●", TRACE = "", DEBUG = "" },
+		on_open = function(win)
+			-- set borderstyle
+			if not vim.api.nvim_win_is_valid(win) then
+				return
+			end
+			vim.api.nvim_win_set_config(win, { border = vim.g.borderStyle })
+
+			local bufnr = vim.api.nvim_win_get_buf(win)
+			highlightsInStacktrace(bufnr)
+		end,
+	},
 }
