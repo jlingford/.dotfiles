@@ -88,7 +88,7 @@ plug "hlissner/zsh-autopair"
 plug "zsh-history-substring-search"
 plug "Aloxaf/fzf-tab"
 plug "zsh-users/zsh-history-substring-search"
-plug "jeffreytse/zsh-vi-mode"
+# plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -140,6 +140,8 @@ export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
 export PATH="/home/james/.dotfiles/scripts:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
+# export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 
 # Aliases
