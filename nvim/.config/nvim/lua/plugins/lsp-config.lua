@@ -3,7 +3,7 @@ return {
 	event = "BufRead *",
 	dependencies = {
 		{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-		-- { "folke/neodev.nvim", opts = {} }, -- disable: replaced with lazydev.lua
+		{ "folke/neodev.nvim", opts = {} }, -- disable: replaced with lazydev.lua
 		"mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	},

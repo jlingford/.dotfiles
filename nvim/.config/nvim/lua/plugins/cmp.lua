@@ -101,6 +101,7 @@ return {
 				documentation = {
 					border = "single",
 					winhighlight = "Normal:CmpDocNormal,FloatBorder:FloatBorder,Search:None",
+					cmp.config.window.bordered(),
 				},
 			},
 			experimental = {

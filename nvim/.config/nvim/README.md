@@ -9,4 +9,5 @@ toc: true
 
 Uses lazy.nvim as its <sup>package manager</sup>.
 
-TODO : add keympas for quick netrw/ssh usage
+TODO : add keymaps for quick netrw/ssh usage
+TODO : fix noice "override" throwing errors in markdown files
