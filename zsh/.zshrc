@@ -119,6 +119,7 @@ eval "$(starship init zsh)"
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 export TERM=xterm-256color
+# export TERM=alacritty
 
 # History settings
 export HISTSIZE=1000000
@@ -143,6 +144,7 @@ export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 # export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
+export PATH="$HOME/Documents/foldseek/bin/:$PATH"
 
 # Aliases
 # alias ls="eza"
