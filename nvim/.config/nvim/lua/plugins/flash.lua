@@ -5,7 +5,8 @@ return {
 	opts = {},
     -- stylua: ignore
     keys = {
-        { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+        -- changed "s" to "f" to avoid conflicts with nvim-surround. makes an enhanced "f" function
+        { "f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
         -- { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
         -- disabled because it conflicts with surround.nvim
         { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },

@@ -9,6 +9,7 @@ return {
 	},
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- local on_attach = require("on_attach")
 		local lspconfig = require("lspconfig")
 		lspconfig.bashls.setup({
 			capabilities = capabilities,
@@ -16,8 +17,13 @@ return {
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
 		})
-		lspconfig.pyright.setup({
+		lspconfig.ruff.setup({
 			capabilities = capabilities,
+		})
+		lspconfig.pyright.setup({
+			-- on_attach = on_attach,
+			capabilities = capabilities,
+			filetypes = { "python" },
 		})
 		lspconfig.marksman.setup({
 			capabilities = capabilities,
@@ -37,7 +43,6 @@ return {
 	end,
 	---@class PluginLspOpts
 	opts = {
-		-- options for vim.diagnostic.config()
 		diagnostics = {
 			underline = true,
 			update_in_insert = false,

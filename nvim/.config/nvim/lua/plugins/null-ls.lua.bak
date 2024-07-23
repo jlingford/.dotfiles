@@ -1,5 +1,7 @@
 -- local null_ls = require("null-ls")
 return {
+	-- NOTE : deprecated: use nmfussenegger/nvim-lint instead
+	-- see "linter.lua" file
 	"jose-elias-alvarez/null-ls.nvim",
 	event = "VeryLazy",
 	config = function()

@@ -1,6 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = "BufRead *",
+	-- event = "BufRead *",
+	lazy = false,
 	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
@@ -29,11 +30,13 @@ return {
 			"luap",
 			"markdown",
 			"markdown_inline",
+			"ninja",
 			"python",
 			"r",
 			"regex",
 			"ron",
 			"rust",
+			"rst",
 			"toml",
 			"tsx",
 			"typescript",
