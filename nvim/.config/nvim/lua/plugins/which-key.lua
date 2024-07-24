@@ -11,6 +11,7 @@ return {
 		-- refer to the configuration section below
 		plugins = { spelling = true },
 		defaults = {
+			-- old mappings
 			mode = { "n", "v" },
 			["<leader>f"] = { name = "+find (Telescope)" },
 			["<leader>t"] = { name = "+terminal" },
@@ -23,6 +24,19 @@ return {
 			["<leader>x"] = { name = "+Trouble" },
 			["<leader>i"] = { name = "+Noice" },
 		},
+		-- new mappings?
+		-- 	mode = { "n", "v" },
+		-- 	{ "<leader>b", group = "buffer" },
+		-- 	{ "<leader>c", group = "code" },
+		-- 	{ "<leader>f", group = "find (Telescope)" },
+		-- 	{ "<leader>g", group = "git" },
+		-- 	{ "<leader>gh", group = "git hunks" },
+		-- 	{ "<leader>i", group = "Noice" },
+		-- 	{ "<leader>s", group = "Spectre" },
+		-- 	{ "<leader>t", group = "terminal" },
+		-- 	{ "<leader>w", group = "windows" },
+		-- 	{ "<leader>x", group = "Trouble" },
+		-- },
 	},
 	config = function(_, opts)
 		local wk = require("which-key")

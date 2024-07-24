@@ -20,9 +20,18 @@ return {
 		lspconfig.ruff.setup({
 			capabilities = capabilities,
 		})
-		lspconfig.pyright.setup({
-			-- on_attach = on_attach,
+		lspconfig.pylsp.setup({
 			capabilities = capabilities,
+			-- for autobrackets in cmp completion
+			settings = {
+				pylsp = {
+					plugins = {
+						jedi_completion = {
+							include_params = true,
+						},
+					},
+				},
+			},
 			filetypes = { "python" },
 		})
 		lspconfig.marksman.setup({

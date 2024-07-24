@@ -2,6 +2,7 @@
 return {
 	-- NOTE : deprecated: use nmfussenegger/nvim-lint instead
 	-- see "linter.lua" file
+	-- for formatting, see conform.lua instead
 	"jose-elias-alvarez/null-ls.nvim",
 	event = "VeryLazy",
 	config = function()
