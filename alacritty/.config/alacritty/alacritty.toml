@@ -3,24 +3,25 @@ save_to_clipboard = true
 
 [env]
 TERM = "xterm-256color"
+# TERM = "alacritty"
 
 [font]
 # Normal font style
-normal = { family = "monospace", style = "Regular" }  # Default for Linux/BSD: "monospace", Regular
+normal = { family = "Hack Nerd Font Mono", style = "Regular" } # Default for Linux/BSD: "monospace", Regular
 # Bold font style
-bold = { family = "monospace", style = "Bold" }  # Inherits family from normal, Default style: Bold
+bold = { family = "Hack Nerd Font Mono", style = "Bold" } # Inherits family from normal, Default style: Bold
 # Italic font style
-italic = { family = "monospace", style = "Italic" }  # Inherits family from normal, Default style: Italic
+italic = { family = "Hack Nerd Font Mono", style = "Italic" } # Inherits family from normal, Default style: Italic
 # Bold Italic font style
-bold_italic = { family = "monospace", style = "Bold Italic" }  # Inherits family from normal, Default style: Bold Italic
+bold_italic = { family = "Hack Nerd Font Mono", style = "Bold Italic" } # Inherits family from normal, Default style: Bold Italic
 # Font size in points
-size = 11.25  # Default: 11.25
+size = 11.25 # Default: 11.25
 # Offset is extra space around each character
-offset = { x = 0, y = 0 }  # Default: x = 0, y = 0
+offset = { x = 0, y = 0 } # Default: x = 0, y = 0
 # Glyph offset determines the locations of the glyphs within their cells
-glyph_offset = { x = 0, y = 0 }  # Default: x = 0, y = 0
+glyph_offset = { x = 0, y = 0 } # Default: x = 0, y = 0
 # Use built-in font for box drawing characters
-builtin_box_drawing = true  # Default: true
+builtin_box_drawing = true # Default: true
 # settings taken from: https://github.com/alacritty/alacritty/issues/6999
 
 
@@ -34,3 +35,5 @@ builtin_box_drawing = true  # Default: true
 
 # Notes:
 # https://alacritty.org/config-alacritty.html
+# Some Nerd Fonts have "Oblique" instead of "Italics" as a style
+# The default "monospace" font doesn't support italics and bold italics (at least on alacritty)

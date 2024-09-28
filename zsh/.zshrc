@@ -119,6 +119,7 @@ eval "$(starship init zsh)"
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 export TERM=xterm-256color
+# export TERM=alacritty
 
 # History settings
 export HISTSIZE=1000000
@@ -143,6 +144,7 @@ export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 # export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
+export PATH="$HOME/Documents/foldseek/bin/:$PATH"
 
 # Aliases
 # alias ls="eza"
@@ -179,6 +181,7 @@ alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
 alias f="fzf --preview='bat --color=always {}'"
 alias fv="fd --type f --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse | xargs nvim" # fz = fzf into nvim
+# alias c="cd $(fd --type d --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse)" # fz = fzf into nvim
 alias mamba="micromamba"
 alias mon="cd ~/Dropbox/Monash; ls"
 alias monr="cd ~/Dropbox/Monash/Rubisco_project; ls"

@@ -1,15 +1,20 @@
 -- local null_ls = require("null-ls")
---
--- return {
---     "jose-elias-alvarez/null-ls.nvim",
---     event = "VeryLazy",
---     null_ls.setup({
---         sources = {
---             null_ls.builtins.formatting.stylua,
---             null_ls.builtins.diagnostics.eslint,
---             null_ls.builtins.completion.spell,
---         },
---     })
--- }
---
-
+return {
+	-- NOTE : deprecated: use nmfussenegger/nvim-lint instead
+	-- see "linter.lua" file
+	-- for formatting, see conform.lua instead
+	"jose-elias-alvarez/null-ls.nvim",
+	event = "VeryLazy",
+	config = function()
+		require("null-ls").setup({
+			sources = {},
+		})
+	end,
+	-- null_ls.setup({
+	-- 	sources = {
+	-- 		null_ls.builtins.formatting.stylua,
+	-- 		null_ls.builtins.diagnostics.eslint,
+	-- 		null_ls.builtins.completion.spell,
+	-- 	},
+	-- }),
+}
