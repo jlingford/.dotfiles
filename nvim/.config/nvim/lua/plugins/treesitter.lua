@@ -1,15 +1,22 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	-- event = "BufRead *",
-	lazy = false,
+	-- lazy = false,
+	event = "VeryLazy",
 	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
+	cmd = { "TSUpdate", "TSUpdateSync", "TSInstall" },
+	keys = {
+		{ "<leader>h", "<cmd>TSEnable highlight<cr>", desc = "Treesitter enable highlight", mode = "n" },
+	},
 	config = function()
 		require("nvim-ts-autotag").setup()
 	end,
+	opts_extend = { "ensure_installed" },
 	opts = {
+		sync_install = true,
 		highlight = { enable = true },
 		indent = { enable = true },
 		ensure_installed = {

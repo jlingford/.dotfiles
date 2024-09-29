@@ -1,4 +1,5 @@
 return {
 	"numirias/semshi",
-	ft = { "python" },
+	-- ft = { "python" },
+	event = "VeryLazy",
 }
