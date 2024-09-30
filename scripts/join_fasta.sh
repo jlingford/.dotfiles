@@ -2,6 +2,7 @@
 
 # provide the input fasta file and the name of the output fasta file.
 # e.g. join_fasta.sh input.faa output.fasta
+# will join all lines of amino acids into one line. will not join lines starting with >
 
 input_fasta="$1"
 output_fasta="$2"
