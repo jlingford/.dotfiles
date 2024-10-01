@@ -6,16 +6,19 @@ return {
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
+		{ "hrsh7th/cmp-calc" },
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-emoji" },
-		-- { "hrsh7th/cmp-cmdline" },
+		-- { "hrsh7th/cmp-cmdline" }, -- buggy
 		{ "hrsh7th/cmp-nvim-lua" },
 		{ "Saecki/crates.nvim" },
+		{ "jmbuhr/cmp-pandoc-references" },
+		{ "jmbuhr/otter.nvim" },
 	},
 	opts = function()
 		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 		local cmp = require("cmp")
-		local defaults = require("cmp.config.default")()
+		-- local defaults = require("cmp.config.default")()
 		local icons = require("config.icons")
 		return {
 			completion = {
@@ -55,18 +58,22 @@ return {
 				{ name = "cmp_tabnine" },
 				{ name = "greek" },
 				{ name = "crates" },
+				{ name = "pandoc_references" },
 			},
 			formatting = {
 				fields = { "abbr", "kind", "menu" },
 				format = function(entry, vim_item)
 					vim_item.kind = icons.kind[vim_item.kind]
 					vim_item.menu = ({
-						nvim_lsp = "LSP",
-						nvim_lua = "Lua",
-						luasnip = "Snippet",
-						buffer = "Buffer",
-						path = "Path",
-						emoji = "Emoji",
+						nvim_lsp = "[LSP]",
+						nvim_lua = "[lua]",
+						luasnip = "[snippet]",
+						buffer = "[buffer]",
+						path = "[path]",
+						emoji = "[emoji]",
+						pandoc_references = "[ref]",
+						calc = "[calc]",
+						otter = "[🦦]",
 					})[entry.source.name]
 					return vim_item
 				end,
@@ -84,6 +91,7 @@ return {
 				copilot = "(Copilot)",
 				treesitter = "(TreeSitter)",
 				cmdline = "(Cmdline)",
+				pandoc_references = "(Citation)",
 			},
 			duplicates = {
 				buffer = 1,
