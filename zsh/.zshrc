@@ -183,6 +183,11 @@ alias f="fzf --preview='bat --color=always {}'"
 alias fv="fd --type f --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse | xargs nvim" # fz = fzf into nvim
 # alias c="cd $(fd --type d --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse)" # fz = fzf into nvim
 alias mamba="micromamba"
+function mkdircd ()
+{
+    mkdir -p $1 && cd $1
+}
+alias mkdir="mkdircd"
 alias mon="cd ~/Dropbox/Monash; ls"
 alias monr="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
