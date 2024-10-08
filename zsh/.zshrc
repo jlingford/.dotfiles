@@ -73,6 +73,25 @@ export FZF_CTRL_R_OPTS="
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 
+# Neovim config changer
+alias v-lazy="NVIM_APPNAME=LazyVim nvim"
+alias v-kick="NVIM_APPNAME=kickstart nvim"
+alias v-chad="NVIM_APPNAME=NvChad nvim"
+alias v-astro="NVIM_APPNAME=AstroNvim nvim"
+alias v-quarto="NVIM_APPNAME=QuartoNvim nvim"
+
+function ns() {
+  items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "QuartoNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
+
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
