@@ -1,4 +1,4 @@
 return {
-	"rebelot/kanagawa.nvim",
-	event = "VeryLazy",
+    "rebelot/kanagawa.nvim",
+    event = "VeryLazy",
 }
