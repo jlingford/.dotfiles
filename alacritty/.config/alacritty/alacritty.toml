@@ -1,3 +1,5 @@
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+
 [selection]
 save_to_clipboard = true
 
