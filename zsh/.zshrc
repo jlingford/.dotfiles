@@ -74,12 +74,6 @@ export FZF_CTRL_R_OPTS="
   --header 'Press CTRL-Y to copy command into clipboard'"
 
 # Neovim config changer
-alias v-lazy="NVIM_APPNAME=LazyVim nvim"
-alias v-kick="NVIM_APPNAME=kickstart nvim"
-alias v-chad="NVIM_APPNAME=NvChad nvim"
-alias v-astro="NVIM_APPNAME=AstroNvim nvim"
-alias v-quarto="NVIM_APPNAME=QuartoNvim nvim"
-
 function ns() {
   items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "QuartoNvim")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
@@ -200,6 +194,7 @@ alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
 alias f="fzf --preview='bat --color=always {}'"
 alias fv="fd --type f --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse | xargs nvim" # fz = fzf into nvim
+alias ff="fastfetch -c examples/17"
 # alias c="cd $(fd --type d --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse)" # fz = fzf into nvim
 alias mamba="micromamba"
 function mkdircd ()
@@ -211,11 +206,18 @@ alias mon="cd ~/Dropbox/Monash; ls"
 alias monr="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/sec_traces; ls"
-alias v="nvim"
-alias vz="nvim ~/.zshrc"
 alias web="cd ~/Documents/website"
 # thefuck alias
 eval $(thefuck --alias)
+# Neovim aliases
+alias vl="NVIM_APPNAME=LazyVim nvim"
+alias vk="NVIM_APPNAME=kickstart nvim"
+alias vc="NVIM_APPNAME=NvChad nvim"
+alias va="NVIM_APPNAME=AstroNvim nvim"
+alias vq="NVIM_APPNAME=QuartoNvim nvim"
+alias v="nvim"
+alias vz="nvim ~/.zshrc"
+
 
 # Custom functions
 init_pipenv () {
