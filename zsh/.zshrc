@@ -75,7 +75,7 @@ export FZF_CTRL_R_OPTS="
 
 # Neovim config changer
 function ns() {
-  items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "QuartoNvim")
+  items=("default" "Kickstart" "LazyVim" "NvChad" "AstroNvim" "QuartoNvim")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
@@ -202,7 +202,7 @@ function mkdircd ()
 {
     mkdir -p $1 && cd $1
 }
-alias mkdir="mkdircd"
+alias mkd="mkdircd"
 alias mon="cd ~/Dropbox/Monash; ls"
 alias monr="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
@@ -212,7 +212,7 @@ alias web="cd ~/Documents/website"
 eval $(thefuck --alias)
 # Neovim aliases
 alias vl="NVIM_APPNAME=LazyVim nvim"
-alias vk="NVIM_APPNAME=kickstart nvim"
+alias vk="NVIM_APPNAME=KickstartNvim nvim"
 alias vc="NVIM_APPNAME=NvChad nvim"
 alias va="NVIM_APPNAME=AstroNvim nvim"
 alias vq="NVIM_APPNAME=QuartoNvim nvim"
