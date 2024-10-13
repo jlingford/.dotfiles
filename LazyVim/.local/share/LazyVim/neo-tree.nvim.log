@@ -1,0 +1,8 @@
+[INFO  Thu 10 Oct 2024 22:33:25] ...ree.nvim/lua/neo-tree/sources/filesystem/lib/fs_scan.lua:110: No items, skipping git ignored/status lookups
+[INFO  Thu 10 Oct 2024 22:33:26] ...ree.nvim/lua/neo-tree/sources/filesystem/lib/fs_scan.lua:110: No items, skipping git ignored/status lookups
+[INFO  Thu 10 Oct 2024 22:33:26] ...ree.nvim/lua/neo-tree/sources/filesystem/lib/fs_scan.lua:110: No items, skipping git ignored/status lookups
+[INFO  Thu 10 Oct 2024 22:33:26] ...ree.nvim/lua/neo-tree/sources/filesystem/lib/fs_scan.lua:110: No items, skipping git ignored/status lookups
+[INFO  Thu 10 Oct 2024 22:35:53] ...o-tree.nvim/lua/neo-tree/sources/filesystem/commands.lua:245: Toggling hidden files: true
+[INFO  Sat 12 Oct 2024 14:37:54] ...o-tree.nvim/lua/neo-tree/sources/filesystem/commands.lua:245: Toggling hidden files: true
+[INFO  Sun 13 Oct 2024 13:01:06] ....nvim/lua/neo-tree/sources/filesystem/lib/fs_actions.lua:594: Renamed colors.lua successfully
+[INFO  Sun 13 Oct 2024 13:06:57] ....nvim/lua/neo-tree/sources/filesystem/lib/fs_actions.lua:594: Renamed color_defualt.lua successfully

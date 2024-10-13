@@ -1,0 +1,1 @@
+{"links":{"opt":{},"bin":{"proselint":"venv\/bin\/proselint"},"share":{}},"metrics":{"start_time":1728705546002,"completion_time":1728705555718},"primary_source":{"id":"pkg:pypi\/proselint@0.14.0","type":"registry+v1"},"schema_version":"1.1","secondary_sources":[],"name":"proselint"}
