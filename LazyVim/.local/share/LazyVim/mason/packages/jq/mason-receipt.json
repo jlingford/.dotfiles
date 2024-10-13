@@ -1,1 +1,0 @@
-{"links":{"opt":{},"bin":{"jq":"jq-linux-amd64"},"share":{}},"metrics":{"start_time":1728705468827,"completion_time":1728705471060},"primary_source":{"id":"pkg:github\/stedolan\/jq@jq-1.7","type":"registry+v1"},"schema_version":"1.1","secondary_sources":[],"name":"jq"}
