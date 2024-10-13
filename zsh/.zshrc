@@ -187,6 +187,7 @@ alias alan="~/Documents/alan/alan"
 alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
+alias share="cd ~/.local/share; ls"
 alias doc="cd ~/Documents; ls"
 alias dot="cd ~/.dotfiles; ls"
 alias down="cd ~/Downloads; ls"
@@ -217,7 +218,6 @@ alias va="NVIM_APPNAME=AstroNvim nvim"
 alias vq="NVIM_APPNAME=QuartoNvim nvim"
 alias v="nvim"
 alias vz="nvim ~/.zshrc"
-
 
 # Custom functions
 init_pipenv () {
