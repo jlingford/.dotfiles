@@ -1,1 +1,0 @@
-{"schema_version":"1.1","links":{"bin":{"julia-lsp":"julia-lsp"},"share":{"mason-schemas\/lsp\/julia-lsp.json":"mason-schemas\/lsp.json"},"opt":{}},"name":"julia-lsp","secondary_sources":[],"primary_source":{"id":"pkg:github\/mason-org\/julia-lsp@v1.124.2","type":"registry+v1"},"metrics":{"start_time":1728186603941,"completion_time":1728186608665}}

@@ -1,1 +1,0 @@
-{"schema_version":"1.1","links":{"bin":{"dot-language-server":"node_modules\/.bin\/dot-language-server"},"share":{},"opt":{}},"name":"dot-language-server","secondary_sources":[],"primary_source":{"id":"pkg:npm\/dot-language-server@1.2.0","type":"registry+v1"},"metrics":{"start_time":1728186596279,"completion_time":1728186603570}}
