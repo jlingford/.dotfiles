@@ -18,7 +18,7 @@ awk -v out="$output_dir" '
   }
   /^>/ {
     # Extract the sequence name
-    seqname = substr($0, 2, 19)
+    seqname = substr($0, 2, 22)
     # Sanitize the sequence name for the file
     seqname = gensub(/[^a-zA-Z0-9]/, "_", "g", seqname)
     # Close the previous file if the sequence name changes

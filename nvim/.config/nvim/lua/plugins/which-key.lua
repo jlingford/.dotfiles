@@ -27,6 +27,7 @@ return {
 			{ "<leader>s", group = "Spectre" },
 			{ "<leader>x", group = "Trouble" },
 			{ "<leader>i", group = "Noice" },
+			{ "<leader>h", group = "Treesitter" },
 		},
 	},
 }

@@ -73,6 +73,19 @@ export FZF_CTRL_R_OPTS="
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 
+# Neovim config changer
+function ns() {
+  items=("default" "Kickstart" "LazyVim" "NvChad" "AstroNvim" "QuartoNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
+
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
@@ -174,6 +187,7 @@ alias alan="~/Documents/alan/alan"
 alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
+alias share="cd ~/.local/share; ls"
 alias doc="cd ~/Documents; ls"
 alias dot="cd ~/.dotfiles; ls"
 alias down="cd ~/Downloads; ls"
@@ -181,16 +195,29 @@ alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
 alias f="fzf --preview='bat --color=always {}'"
 alias fv="fd --type f --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse | xargs nvim" # fz = fzf into nvim
+alias ff="fastfetch -c examples/17"
 # alias c="cd $(fd --type d --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse)" # fz = fzf into nvim
 alias mamba="micromamba"
+function mkdircd ()
+{
+    mkdir -p $1 && cd $1
+}
+alias mkd="mkdircd"
 alias mon="cd ~/Dropbox/Monash; ls"
 alias monr="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
-alias v="nvim"
-alias vz="nvim ~/.zshrc"
+alias sec="cd ~/Documents/sec_traces; ls"
 alias web="cd ~/Documents/website"
 # thefuck alias
 eval $(thefuck --alias)
+# Neovim aliases
+alias vl="NVIM_APPNAME=LazyVim nvim"
+alias vk="NVIM_APPNAME=KickstartNvim nvim"
+alias vc="NVIM_APPNAME=NvChad nvim"
+alias va="NVIM_APPNAME=AstroNvim nvim"
+alias vq="NVIM_APPNAME=QuartoNvim nvim"
+alias v="nvim"
+alias vz="nvim ~/.zshrc"
 
 # Custom functions
 init_pipenv () {
