@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec "/home/james/.local/share/QuartoNvim/mason/packages/julia-lsp/libexec/bin/julia-lsp" "$@"

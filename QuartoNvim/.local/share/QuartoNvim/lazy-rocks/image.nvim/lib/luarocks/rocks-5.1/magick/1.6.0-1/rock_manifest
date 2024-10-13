@@ -1,0 +1,27 @@
+rock_manifest = {
+   doc = {
+      ["README.md"] = "006ef793e52423589a46daf9848a783a"
+   },
+   lua = {
+      magick = {
+         ["base_image.lua"] = "e1ec92429707ad67c7d63d959733bf52",
+         ["enum.lua"] = "65d50834dc74e972d50502f8e85742a9",
+         gmwand = {
+            ["data.lua"] = "f48effa8f6ffe32354d2ca931e05dfbf",
+            ["image.lua"] = "76f48de66c2a3c51bf073e0e29dc2b41",
+            ["lib.lua"] = "7cfdc8b47c1e5ab2105680f9dac310c9"
+         },
+         ["gmwand.lua"] = "98b2a380dfc2feb4805600b5d7d6cab9",
+         ["init.lua"] = "72a34bc2b845005370ecd6de6b8b77b0",
+         ["thumb.lua"] = "a7227759d3eb27377f0a80146eeb136c",
+         ["version.lua"] = "8adabf79cf076964107ea3c12ae197dd",
+         wand = {
+            ["data.lua"] = "f1ef053ea6f9813e76ecdea7c2375020",
+            ["image.lua"] = "a2f2c393e16d0d483a3399b24416cff5",
+            ["lib.lua"] = "6788b408dda91249bfd9c44ebc97fb3c"
+         },
+         ["wand.lua"] = "24ab1ae37c3126a213f1368589a497af"
+      }
+   },
+   ["magick-1.6.0-1.rockspec"] = "054387e4edd19522b8b4be6710c9f540"
+}

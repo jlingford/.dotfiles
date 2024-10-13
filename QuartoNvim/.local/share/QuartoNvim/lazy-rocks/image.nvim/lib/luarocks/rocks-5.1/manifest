@@ -1,0 +1,221 @@
+commands = {}
+dependencies = {
+   ["image.nvim"] = {
+      ["1.3.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         },
+         {
+            constraints = {},
+            name = "magick"
+         }
+      }
+   },
+   magick = {
+      ["1.6.0-1"] = {
+         {
+            constraints = {
+               {
+                  op = "==",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   }
+}
+modules = {
+   ["image.backends.kitty.codes"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.backends.kitty.helpers"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.backends.kitty.init"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.backends.ueberzug"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.image"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.init"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.integrations.css"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.integrations.html"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.integrations.markdown"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.integrations.neorg"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.integrations.syslang"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.magick"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.renderer"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.base64"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.document"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.hash"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.init"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.logger"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.magic"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.math"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.offsets"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.random"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.term"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.tmux"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["image.utils.window"] = {
+      "image.nvim/1.3.0-1"
+   },
+   ["magick.base_image"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.enum"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.gmwand"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.gmwand.data"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.gmwand.image"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.gmwand.lib"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.init"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.thumb"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.version"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.wand"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.wand.data"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.wand.image"] = {
+      "magick/1.6.0-1"
+   },
+   ["magick.wand.lib"] = {
+      "magick/1.6.0-1"
+   },
+   types = {
+      "image.nvim/1.3.0-1"
+   }
+}
+repository = {
+   ["image.nvim"] = {
+      ["1.3.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {
+               magick = "1.6.0-1"
+            },
+            modules = {
+               ["image.backends.kitty.codes"] = "image/backends/kitty/codes.lua",
+               ["image.backends.kitty.helpers"] = "image/backends/kitty/helpers.lua",
+               ["image.backends.kitty.init"] = "image/backends/kitty/init.lua",
+               ["image.backends.ueberzug"] = "image/backends/ueberzug.lua",
+               ["image.image"] = "image/image.lua",
+               ["image.init"] = "image/init.lua",
+               ["image.integrations.css"] = "image/integrations/css.lua",
+               ["image.integrations.html"] = "image/integrations/html.lua",
+               ["image.integrations.markdown"] = "image/integrations/markdown.lua",
+               ["image.integrations.neorg"] = "image/integrations/neorg.lua",
+               ["image.integrations.syslang"] = "image/integrations/syslang.lua",
+               ["image.magick"] = "image/magick.lua",
+               ["image.renderer"] = "image/renderer.lua",
+               ["image.utils.base64"] = "image/utils/base64.lua",
+               ["image.utils.document"] = "image/utils/document.lua",
+               ["image.utils.hash"] = "image/utils/hash.lua",
+               ["image.utils.init"] = "image/utils/init.lua",
+               ["image.utils.logger"] = "image/utils/logger.lua",
+               ["image.utils.magic"] = "image/utils/magic.lua",
+               ["image.utils.math"] = "image/utils/math.lua",
+               ["image.utils.offsets"] = "image/utils/offsets.lua",
+               ["image.utils.random"] = "image/utils/random.lua",
+               ["image.utils.term"] = "image/utils/term.lua",
+               ["image.utils.tmux"] = "image/utils/tmux.lua",
+               ["image.utils.window"] = "image/utils/window.lua",
+               types = "types.lua"
+            }
+         }
+      }
+   },
+   magick = {
+      ["1.6.0-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["magick.base_image"] = "magick/base_image.lua",
+               ["magick.enum"] = "magick/enum.lua",
+               ["magick.gmwand"] = "magick/gmwand.lua",
+               ["magick.gmwand.data"] = "magick/gmwand/data.lua",
+               ["magick.gmwand.image"] = "magick/gmwand/image.lua",
+               ["magick.gmwand.lib"] = "magick/gmwand/lib.lua",
+               ["magick.init"] = "magick/init.lua",
+               ["magick.thumb"] = "magick/thumb.lua",
+               ["magick.version"] = "magick/version.lua",
+               ["magick.wand"] = "magick/wand.lua",
+               ["magick.wand.data"] = "magick/wand/data.lua",
+               ["magick.wand.image"] = "magick/wand/image.lua",
+               ["magick.wand.lib"] = "magick/wand/lib.lua"
+            }
+         }
+      }
+   }
+}

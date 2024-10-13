@@ -1,0 +1,1 @@
+{"primary_source":{"type":"registry+v1","id":"pkg:pypi\/jupytext@1.16.4"},"metrics":{"completion_time":1728186511236,"start_time":1728186498734},"secondary_sources":[],"schema_version":"1.1","links":{"share":{},"opt":{},"bin":{"jupytext":"venv\/bin\/jupytext"}},"name":"jupytext"}
