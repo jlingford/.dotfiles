@@ -12,11 +12,17 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 
-# lf integration
-LFCD="~/.config/lf/lfcd.sh"
-if [ -f "$LFCD" ]; then
-    source "$LFCD"
-fi
+# # lf integration
+# LFCD="~/.config/lf/lfcd.sh"
+# if [ -f "$LFCD" ]; then
+#     source "$LFCD"
+# fi
+#
+# mmseqs2 autocompletion
+# MMSEQS="/home/james/Documents/MMseqs2/util/bash-completion.sh"
+# if [ -f "$MMSEQS" ]; then
+#     source "$MMSEQS"
+# fi
 
 # yazi integration
 function yy() {
