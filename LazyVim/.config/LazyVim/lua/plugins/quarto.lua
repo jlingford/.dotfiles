@@ -1,5 +1,6 @@
 return {
   "quarto-dev/quarto-nvim",
+  enabled = false,
   ft = {
     -- { "python" },
     -- { "rmd" },
