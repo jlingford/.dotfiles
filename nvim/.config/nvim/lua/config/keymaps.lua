@@ -45,40 +45,40 @@ vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true })
 
 -- Movement around wrapped lines
 vim.keymap.set(
-	"n",
-	"j",
-	'v:count ? "j" : "gj"',
-	{ noremap = true, expr = true, desc = "Move down (including wrapping lines)" }
+    "n",
+    "j",
+    'v:count ? "j" : "gj"',
+    { noremap = true, expr = true, desc = "Move down (including wrapping lines)" }
 )
 vim.keymap.set(
-	"n",
-	"k",
-	'v:count ? "k" : "gk"',
-	{ noremap = true, expr = true, desc = "Move up (including wrapping lines)" }
+    "n",
+    "k",
+    'v:count ? "k" : "gk"',
+    { noremap = true, expr = true, desc = "Move up (including wrapping lines)" }
 )
 vim.keymap.set(
-	"n",
-	"<Up>",
-	'v:count ? "k" : "gk"',
-	{ noremap = true, expr = true, desc = "Move up (including wrapping lines)" }
+    "n",
+    "<Up>",
+    'v:count ? "k" : "gk"',
+    { noremap = true, expr = true, desc = "Move up (including wrapping lines)" }
 )
 vim.keymap.set(
-	"n",
-	"<Down>",
-	'v:count ? "j" : "gj"',
-	{ noremap = true, expr = true, desc = "Move down (including wrapping lines)" }
+    "n",
+    "<Down>",
+    'v:count ? "j" : "gj"',
+    { noremap = true, expr = true, desc = "Move down (including wrapping lines)" }
 )
 vim.keymap.set(
-	"i",
-	"<Up>",
-	'pumvisible() ? "k" : "<C-o>gk"',
-	{ noremap = true, expr = true, desc = "Move up (including wrapping lines)" }
+    "i",
+    "<Up>",
+    'pumvisible() ? "k" : "<C-o>gk"',
+    { noremap = true, expr = true, desc = "Move up (including wrapping lines)" }
 )
 vim.keymap.set(
-	"i",
-	"<Down>",
-	'pumvisible() ? "j" : "<C-o>gj"',
-	{ noremap = true, expr = true, desc = "Move down (including wrapping lines)" }
+    "i",
+    "<Down>",
+    'pumvisible() ? "j" : "<C-o>gj"',
+    { noremap = true, expr = true, desc = "Move down (including wrapping lines)" }
 )
 
 -- Move to window using the <ctrl> hjkl keys
@@ -107,10 +107,10 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 vim.keymap.set(
-	"n",
-	"<leader>ur",
-	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-	{ desc = "Redraw / clear hlsearch / diff update" }
+    "n",
+    "<leader>ur",
+    "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+    { desc = "Redraw / clear hlsearch / diff update" }
 )
 
 -- better indenting
@@ -128,15 +128,15 @@ vim.keymap.set("n", "<leader>m", "<cmd>Mason<CR>", { desc = "Mason" })
 
 -- structural replace
 vim.keymap.set({ "n", "x" }, "<leader>sr", function()
-	require("ssr").open()
+    require("ssr").open()
 end)
 
 -- telescope
 vim.keymap.set(
-	"n",
-	"<leader>ff",
-	"<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>",
-	{ desc = "Find files in current dir" }
+    "n",
+    "<leader><space>",
+    "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>",
+    { desc = "Find files in current dir" }
 )
 vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Find old files" })
 vim.keymap.set("n", "<leader>fr", "<cmd>Telescope registers<CR>", { desc = "Search :register" })
@@ -150,10 +150,10 @@ vim.keymap.set("n", "<leader>fp", "<cmd>Telescope planets<CR>", { desc = "Planet
 vim.keymap.set("n", "<leader>fC", "<cmd>Telescope colorscheme theme=dropdown<CR>", { desc = "Browse colorschemes" })
 vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Browse keymaps" })
 vim.keymap.set(
-	"n",
-	"<leader>fc",
-	"<cmd>Telescope command_history theme=dropdown<CR>",
-	{ desc = "Search command history" }
+    "n",
+    "<leader>fc",
+    "<cmd>Telescope command_history theme=dropdown<CR>",
+    { desc = "Search command history" }
 )
 
 -- new file
@@ -171,25 +171,25 @@ vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 -- Terminal
 vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle Open/Close Terminal" })
 vim.keymap.set(
-	"n",
-	"<leader>t|",
-	"<cmd>ToggleTerm direction=vertical size=90<cr>",
-	{ desc = "Open Terminal Vertically" }
+    "n",
+    "<leader>t|",
+    "<cmd>ToggleTerm direction=vertical size=90<cr>",
+    { desc = "Open Terminal Vertically" }
 )
 vim.keymap.set("n", "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open Terminal Horizontally" })
 vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float size=80<cr>", { desc = "Open Terminal in Float" })
 vim.keymap.set("n", "<leader>ts", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send Current Line to Terminal" })
 vim.keymap.set(
-	"v",
-	"<leader>ts",
-	"<cmd>ToggleTermSendVisualLines<cr>",
-	{ desc = "Send Visually Selected Lines to Terminal" }
+    "v",
+    "<leader>ts",
+    "<cmd>ToggleTermSendVisualLines<cr>",
+    { desc = "Send Visually Selected Lines to Terminal" }
 )
 vim.keymap.set(
-	"v",
-	"<leader>tv",
-	"<cmd>ToggleTermSendVisualSelection<cr>",
-	{ desc = "Send Visually Selected Text Only to Terminal" }
+    "v",
+    "<leader>tv",
+    "<cmd>ToggleTermSendVisualSelection<cr>",
+    { desc = "Send Visually Selected Text Only to Terminal" }
 )
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
