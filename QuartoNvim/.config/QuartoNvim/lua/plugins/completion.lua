@@ -61,11 +61,11 @@ return {
               fallback()
             end
           end, { 'i', 's' }),
-          ['<C-e>'] = cmp.mapping.abort(),
+          ['<S-Right>'] = cmp.mapping.abort(),
           ['<c-y>'] = cmp.mapping.confirm {
             select = true,
           },
-          ['<CR>'] = cmp.mapping.confirm {
+          ['<Right>'] = cmp.mapping.confirm {
             select = true,
           },
 

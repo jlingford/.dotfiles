@@ -12,11 +12,17 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 
-# lf integration
-LFCD="~/.config/lf/lfcd.sh"
-if [ -f "$LFCD" ]; then
-    source "$LFCD"
-fi
+# # lf integration
+# LFCD="~/.config/lf/lfcd.sh"
+# if [ -f "$LFCD" ]; then
+#     source "$LFCD"
+# fi
+#
+# mmseqs2 autocompletion
+# MMSEQS="/home/james/Documents/MMseqs2/util/bash-completion.sh"
+# if [ -f "$MMSEQS" ]; then
+#     source "$MMSEQS"
+# fi
 
 # yazi integration
 function yy() {
@@ -69,7 +75,7 @@ _fzf_comprun() {
 export FZF_CTRL_R_OPTS="
   --preview 'echo {}' --preview-window up:3:hidden:wrap
   --bind 'ctrl-/:toggle-preview'
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -se c)+abort'
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 

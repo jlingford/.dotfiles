@@ -1,7 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
+---
 --- MAPPINGS ---
 -- Modes
 --   normal_mode = "n",
@@ -172,37 +172,37 @@ vim.keymap.set("c", ":", ";", { noremap = true }) -- maps colon to semicolon
 -- --   Util.format({ force = true })
 -- -- end, { desc = "Format" })
 --
--- -- Terminal
--- vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle Open/Close Terminal" })
--- vim.keymap.set(
--- 	"n",
--- 	"<leader>t|",
--- 	"<cmd>ToggleTerm direction=vertical size=90<cr>",
--- 	{ desc = "Open Terminal Vertically" }
--- )
--- vim.keymap.set("n", "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open Terminal Horizontally" })
--- vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float size=80<cr>", { desc = "Open Terminal in Float" })
--- vim.keymap.set("n", "<leader>ts", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send Current Line to Terminal" })
--- vim.keymap.set(
--- 	"v",
--- 	"<leader>ts",
--- 	"<cmd>ToggleTermSendVisualLines<cr>",
--- 	{ desc = "Send Visually Selected Lines to Terminal" }
--- )
--- vim.keymap.set(
--- 	"v",
--- 	"<leader>tv",
--- 	"<cmd>ToggleTermSendVisualSelection<cr>",
--- 	{ desc = "Send Visually Selected Text Only to Terminal" }
--- )
--- vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
--- vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
--- vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
--- vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
--- vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
--- vim.keymap.set("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
--- vim.keymap.set("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
---
+-- Terminal
+vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle Open/Close Terminal" })
+vim.keymap.set(
+  "n",
+  "<leader>t|",
+  "<cmd>ToggleTerm direction=vertical size=90<cr>",
+  { desc = "Open Terminal Vertically" }
+)
+vim.keymap.set("n", "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open Terminal Horizontally" })
+vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float size=80<cr>", { desc = "Open Terminal in Float" })
+vim.keymap.set("n", "<leader>ts", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send Current Line to Terminal" })
+vim.keymap.set(
+  "v",
+  "<leader>ts",
+  "<cmd>ToggleTermSendVisualLines<cr>",
+  { desc = "Send Visually Selected Lines to Terminal" }
+)
+vim.keymap.set(
+  "v",
+  "<leader>tv",
+  "<cmd>ToggleTermSendVisualSelection<cr>",
+  { desc = "Send Visually Selected Text Only to Terminal" }
+)
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
+vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
+vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
+vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
+vim.keymap.set("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+vim.keymap.set("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
+
 -- -- windows
 -- vim.keymap.set("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
 -- vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
