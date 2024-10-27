@@ -37,4 +37,14 @@ return {
     "yorumicolors/yorumi.nvim",
     event = "VeryLazy",
   },
+  {
+    "aktersnurra/no-clown-fiesta.nvim",
+    name = "no-clown-fiesta",
+    event = "VeryLazy",
+  },
+  {
+    "shaunsingh/nord.nvim",
+    name = "nord",
+    event = "VeryLazy",
+  },
 }
