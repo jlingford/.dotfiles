@@ -177,6 +177,7 @@ export PATH="$HOME/Documents/foldseek/bin/:$PATH"
 alias ls="lsd"
 alias la="lsd -la"
 alias lat="lsd -la --total-size"
+alias lt="lsd -lat"
 alias ltr="lsd -latr"
 alias tree="lsd -a --tree"
 alias less="bat" #replacing less with bat
@@ -194,6 +195,7 @@ alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
 alias share="cd ~/.local/share; ls"
+alias lab="cd ~/Dropbox/Monash/Notebooks; ls"
 alias doc="cd ~/Documents; ls"
 alias dot="cd ~/.dotfiles; ls"
 alias down="cd ~/Downloads; ls"
@@ -210,19 +212,19 @@ function mkdircd ()
 }
 alias mkd="mkdircd"
 alias mon="cd ~/Dropbox/Monash; ls"
-alias monr="cd ~/Dropbox/Monash/Rubisco_project; ls"
+alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/sec_traces; ls"
 alias web="cd ~/Documents/website"
 # thefuck alias
 eval $(thefuck --alias)
 # Neovim aliases
-alias vl="NVIM_APPNAME=LazyVim nvim"
+alias v="NVIM_APPNAME=LazyVim nvim"
 alias vk="NVIM_APPNAME=KickstartNvim nvim"
 alias vc="NVIM_APPNAME=NvChad nvim"
 alias va="NVIM_APPNAME=AstroNvim nvim"
 alias vq="NVIM_APPNAME=QuartoNvim nvim"
-alias v="nvim"
+alias vn="nvim"
 alias vz="nvim ~/.zshrc"
 
 # Custom functions
