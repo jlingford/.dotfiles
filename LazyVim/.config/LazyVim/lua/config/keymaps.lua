@@ -26,14 +26,14 @@ vim.keymap.set("c", ":", ";", { noremap = true }) -- maps colon to semicolon
 
 -- -- autocomplete brackets and quotes
 -- -- vim.keymap.set("i", "(", "()<ESC>hli", { noremap = true })
--- -- vim.keymap.set("i", "{", "{}<ESC>hli", { noremap = true })
--- -- vim.keymap.set("i", "}", "{},<ESC>hhli", { noremap = true })
--- -- vim.keymap.set("i", "[", "[]<ESC>hli", { noremap = true })
--- -- vim.keymap.set("i", '"', '""<ESC>hli', { noremap = true })
--- -- vim.keymap.set("i", "'", "''<ESC>hli", { noremap = true })
--- -- vim.keymap.set("i", "<", "<><ESC>hli", { noremap = true })
+vim.keymap.set("i", "{", "{}<ESC>hli", { noremap = true })
+vim.keymap.set("i", "}", "{},<ESC>hhli", { noremap = true })
+vim.keymap.set("i", "[", "[]<ESC>hli", { noremap = true })
+-- vim.keymap.set("i", '"', '""<ESC>hli', { noremap = true })
+-- vim.keymap.set("i", "'", "''<ESC>hli", { noremap = true })
+vim.keymap.set("i", "<", "<><ESC>hli", { noremap = true })
 -- vim.keymap.set("i", "`", "``<ESC>hli", { noremap = true })
--- vim.keymap.set("i", "*", "**<ESC>hli", { noremap = true })
+vim.keymap.set("i", "*", "**<ESC>hli", { noremap = true })
 --
 -- -- moving lines and visual blocks of lines easily
 -- vim.keymap.set("n", "<A-j>", "<cmd>m+<CR>==", { noremap = true })
@@ -182,18 +182,26 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open Terminal Horizontally" })
 vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float size=80<cr>", { desc = "Open Terminal in Float" })
-vim.keymap.set("n", "<leader>ts", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send Current Line to Terminal" })
+vim.keymap.set("n", "<leader>tl", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send Current Line to Terminal" })
 vim.keymap.set(
   "v",
-  "<leader>ts",
+  "<leader>tv",
   "<cmd>ToggleTermSendVisualLines<cr>",
   { desc = "Send Visually Selected Lines to Terminal" }
 )
 vim.keymap.set(
   "v",
-  "<leader>tv",
+  "<leader>ts",
   "<cmd>ToggleTermSendVisualSelection<cr>",
   { desc = "Send Visually Selected Text Only to Terminal" }
+)
+vim.keymap.set("n", "<leader>tp", "vip<cmd>ToggleTermSendVisualLines<cr>", { desc = "Send paragraph to Terminal" })
+vim.keymap.set("n", "<leader>ta", "ggVG<cmd>ToggleTermSendVisualLines<cr>", { desc = "Send all lines to Terminal" })
+vim.keymap.set(
+  "n",
+  "<leader>tb",
+  "VG<cmd>ToggleTermSendVisualLines<cr>",
+  { desc = "Send all lines after current line to Terminal" }
 )
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
