@@ -134,11 +134,6 @@ eval "$(zoxide init zsh)"
 # starship initialize
 eval "$(starship init zsh)"
 
-# Custom settings
-export EDITOR=nvim
-export VISUAL="$EDITOR"
-export TERM=xterm-256color
-# export TERM=alacritty
 
 # History settings
 export HISTSIZE=1000000
@@ -226,6 +221,13 @@ alias va="NVIM_APPNAME=AstroNvim nvim"
 alias vq="NVIM_APPNAME=QuartoNvim nvim"
 alias vn="nvim"
 alias vz="nvim ~/.zshrc"
+
+# Custom settings
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+export TERM=xterm-256color
+# export TERM=alacritty
+
 
 # Custom functions
 init_pipenv () {

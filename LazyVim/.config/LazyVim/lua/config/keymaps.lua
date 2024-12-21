@@ -177,7 +177,7 @@ vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle Open/C
 vim.keymap.set(
   "n",
   "<leader>t|",
-  "<cmd>ToggleTerm direction=vertical size=90<cr>",
+  "<cmd>ToggleTerm direction=vertical size=40<cr>",
   { desc = "Open Terminal Vertically" }
 )
 vim.keymap.set("n", "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open Terminal Horizontally" })
