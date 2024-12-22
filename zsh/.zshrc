@@ -166,6 +166,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 export PATH="$HOME/Documents/foldseek/bin/:$PATH"
 
+# bindkey
+bindkey "^[[3~" delete-char
+
 # Aliases
 # alias ls="eza"
 # alias la="eza -lah --icon=always --no-user"
