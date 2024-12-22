@@ -23,6 +23,12 @@ compinit -C
 # if [ -f "$MMSEQS" ]; then
 #     source "$MMSEQS"
 # fi
+# Custom settings
+# export EDITOR="nvim"
+export EDITOR=editor #see ~/.dotfiles/scripts/editor for details (works with yazi)
+export VISUAL="$EDITOR"
+export TERM=xterm-256color
+# export TERM=alacritty
 
 # yazi integration
 function yy() {
@@ -222,11 +228,6 @@ alias vq="NVIM_APPNAME=QuartoNvim nvim"
 alias vn="nvim"
 alias vz="nvim ~/.zshrc"
 
-# Custom settings
-export EDITOR="nvim"
-export VISUAL="$EDITOR"
-export TERM=xterm-256color
-# export TERM=alacritty
 
 
 # Custom functions
