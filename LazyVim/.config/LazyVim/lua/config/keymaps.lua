@@ -25,14 +25,14 @@ vim.keymap.set("c", ":", ";", { noremap = true }) -- maps colon to semicolon
 -- vim.keymap.set("n", "<Caps>", "<ctrl>", { noremap = true }) -- maps Caps to Ctrl
 
 -- -- autocomplete brackets and quotes
--- -- vim.keymap.set("i", "(", "()<ESC>hli", { noremap = true })
+vim.keymap.set("i", "(", "()<ESC>hli", { noremap = true })
 vim.keymap.set("i", "{", "{}<ESC>hli", { noremap = true })
 vim.keymap.set("i", "}", "{},<ESC>hhli", { noremap = true })
 vim.keymap.set("i", "[", "[]<ESC>hli", { noremap = true })
--- vim.keymap.set("i", '"', '""<ESC>hli', { noremap = true })
--- vim.keymap.set("i", "'", "''<ESC>hli", { noremap = true })
+vim.keymap.set("i", '"', '""<ESC>hli', { noremap = true })
+vim.keymap.set("i", "'", "''<ESC>hli", { noremap = true })
 vim.keymap.set("i", "<", "<><ESC>hli", { noremap = true })
--- vim.keymap.set("i", "`", "``<ESC>hli", { noremap = true })
+vim.keymap.set("i", "`", "``<ESC>hli", { noremap = true })
 vim.keymap.set("i", "*", "**<ESC>hli", { noremap = true })
 --
 -- -- moving lines and visual blocks of lines easily
