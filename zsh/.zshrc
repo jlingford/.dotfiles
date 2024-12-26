@@ -23,6 +23,12 @@ compinit -C
 # if [ -f "$MMSEQS" ]; then
 #     source "$MMSEQS"
 # fi
+# Custom settings
+# export EDITOR="nvim"
+export EDITOR=editor #see ~/.dotfiles/scripts/editor for details (works with yazi)
+export VISUAL="$EDITOR"
+export TERM=xterm-256color
+# export TERM=alacritty
 
 # yazi integration
 function yy() {
@@ -96,18 +102,18 @@ function ns() {
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
-plug "zap-zsh/zap-prompt"
+# plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
 # plug "wintermi/zsh-starship"
 plug "esc/conda-zsh-completion"
-plug "zap-zsh/vim"
-plug "zap-zsh/fzf"
-plug "zap-zsh/exa"
+# plug "zap-zsh/vim"
+# plug "zap-zsh/fzf"
+# plug "zap-zsh/exa"
 plug "hlissner/zsh-autopair"
-plug "zsh-history-substring-search"
+# plug "zsh-history-substring-search"
 plug "Aloxaf/fzf-tab"
 plug "zsh-users/zsh-history-substring-search"
-# plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
+plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -134,11 +140,6 @@ eval "$(zoxide init zsh)"
 # starship initialize
 eval "$(starship init zsh)"
 
-# Custom settings
-export EDITOR=nvim
-export VISUAL="$EDITOR"
-export TERM=xterm-256color
-# export TERM=alacritty
 
 # History settings
 export HISTSIZE=1000000
@@ -165,6 +166,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 export PATH="$HOME/Documents/foldseek/bin/:$PATH"
 
+# bindkey
+bindkey "^[[3~" delete-char
+
 # Aliases
 # alias ls="eza"
 # alias la="eza -lah --icon=always --no-user"
@@ -177,6 +181,7 @@ export PATH="$HOME/Documents/foldseek/bin/:$PATH"
 alias ls="lsd"
 alias la="lsd -la"
 alias lat="lsd -la --total-size"
+alias lt="lsd -lat"
 alias ltr="lsd -latr"
 alias tree="lsd -a --tree"
 alias less="bat" #replacing less with bat
@@ -194,13 +199,14 @@ alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
 alias share="cd ~/.local/share; ls"
+alias lab="cd ~/Dropbox/Monash/Notebooks; ls"
 alias doc="cd ~/Documents; ls"
 alias dot="cd ~/.dotfiles; ls"
 alias down="cd ~/Downloads; ls"
 alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
 alias f="fzf --preview='bat --color=always {}'"
-alias fv="fd --type f --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse | xargs nvim" # fz = fzf into nvim
+alias fv="fd --type f --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse | xargs ${EDITOR}" # fz = fzf into nvim
 alias ff="fastfetch -c examples/17"
 # alias c="cd $(fd --type d --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse)" # fz = fzf into nvim
 alias mamba="micromamba"
@@ -210,20 +216,22 @@ function mkdircd ()
 }
 alias mkd="mkdircd"
 alias mon="cd ~/Dropbox/Monash; ls"
-alias monr="cd ~/Dropbox/Monash/Rubisco_project; ls"
+alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/sec_traces; ls"
 alias web="cd ~/Documents/website"
 # thefuck alias
 eval $(thefuck --alias)
 # Neovim aliases
-alias vl="NVIM_APPNAME=LazyVim nvim"
+alias v="NVIM_APPNAME=LazyVim nvim"
 alias vk="NVIM_APPNAME=KickstartNvim nvim"
 alias vc="NVIM_APPNAME=NvChad nvim"
 alias va="NVIM_APPNAME=AstroNvim nvim"
 alias vq="NVIM_APPNAME=QuartoNvim nvim"
-alias v="nvim"
+alias vn="nvim"
 alias vz="nvim ~/.zshrc"
+
+
 
 # Custom functions
 init_pipenv () {
