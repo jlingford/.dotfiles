@@ -1,0 +1,6 @@
+return {
+  "luk400/vim-jukit",
+  enabled = false,
+  -- ft = { "ipynb" },
+  event = "VeryLazy",
+}
