@@ -335,14 +335,14 @@ assign [class="kitty"] $ws1
 assign [class="brave"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="qbittorrent"] $ws4
-assign [class="flatpak run com.discordapp.Discord"] $ws5
+# assign [class=""] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=kitty] focus
 for_window [class=brave] focus
 for_window [class=Thunar] focus
 for_window [class=qbittorrent] focus
-for_window [class=flatpak run com.discordapp.Discord] focus
+# for_window [class=] focus
 
 ##############
 # compositor #
