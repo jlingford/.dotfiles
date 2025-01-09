@@ -47,4 +47,9 @@ return {
     name = "nord",
     event = "VeryLazy",
   },
+  {
+    "philosofonusus/morta.nvim",
+    name = "morta",
+    event = "VeryLazy",
+  },
 }
