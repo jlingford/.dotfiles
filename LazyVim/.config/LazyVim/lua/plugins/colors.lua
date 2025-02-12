@@ -52,4 +52,9 @@ return {
     name = "morta",
     event = "VeryLazy",
   },
+  {
+    "Mofiqul/dracula.nvim",
+    name = "dracula",
+    event = "VeryLazy",
+  },
 }
