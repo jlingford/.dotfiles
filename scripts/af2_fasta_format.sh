@@ -6,9 +6,9 @@
 # output_dir=$2
 
 # create new output dir if none exists
-# if [ ! -d ${output_dir} ]; then
-#     mkdir ${output_dir}
-# fi
+if [ ! -d formatted_fastas ]; then
+    mkdir formatted_fastas
+fi
 
 # loop over all fasta files and reformat them
 for file in "$@"; do
@@ -24,4 +24,4 @@ for file in "$@"; do
 done
 
 # move all reformatted fasta files to output_dir
-# mv ./*_AF2.fasta ${output_dir}
+mv ./*_AF2.fasta formatted_fastas
