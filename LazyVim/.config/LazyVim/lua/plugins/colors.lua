@@ -57,4 +57,9 @@ return {
     name = "dracula",
     event = "VeryLazy",
   },
+  {
+    "EdenEast/nightfox.nvim",
+    name = "nightfox",
+    event = "VeryLazy",
+  },
 }
