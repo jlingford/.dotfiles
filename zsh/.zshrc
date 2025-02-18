@@ -113,7 +113,7 @@ plug "hlissner/zsh-autopair"
 # plug "zsh-history-substring-search"
 plug "Aloxaf/fzf-tab"
 plug "zsh-users/zsh-history-substring-search"
-plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
+# plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
 
 # Load and initialise completion system
 autoload -Uz compinit
