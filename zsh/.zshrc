@@ -157,8 +157,8 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
 # Paths
+export PATH="$HOME/bin:$PATH"
 export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
-export PATH="/home/james/.dotfiles/scripts:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 # export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
@@ -195,6 +195,7 @@ alias lf="lfcd"
 alias cd="z"
 alias afdir="~/Dropbox/Monash/AlphaFold"
 alias alan="~/Documents/alan/alan"
+alias bin="~/bin; ls"
 alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
