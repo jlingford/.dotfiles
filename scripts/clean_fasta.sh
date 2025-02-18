@@ -21,8 +21,14 @@ sed -i 's/^\w.*$/&:/g' *.fasta
 # remove : from last sequence
 sed -i '$s/://g' *.fasta
 
+# add name of file to top of fasta file
+awk 'NR==1 {printf ">" FILENAME "\n"} 1' *.fasta > 
+
 # get only names of outputs
 # ls -l output/NuoEFG_test1/*.pdb | awk -F "/" '{print $3}' | sed -E 's/_unrelaxed.*$//g'
 
 # join lines in fasta file. only use if a single sequence
 # sed -n '2,$p' *.fasta | tr -d '\n'
+#
+# cat Gerd_N.fasta | awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' | sed '/^$/d' | sed 's/*//g' | sed '2,$s/^>.*$//g' | sed '/^$/d' |  sed 's/^\w.*$/&:/g' | sed '$s/://g'
+

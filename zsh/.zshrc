@@ -87,7 +87,7 @@ export FZF_CTRL_R_OPTS="
 
 # Neovim config changer
 function ns() {
-  items=("default" "Kickstart" "LazyVim" "NvChad" "AstroNvim" "QuartoNvim")
+  items=("default" "Kickstart" "LazyVim" "NvChad" "AstroNvim" "QuartoNvim" "SciVim")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
@@ -113,7 +113,7 @@ plug "hlissner/zsh-autopair"
 # plug "zsh-history-substring-search"
 plug "Aloxaf/fzf-tab"
 plug "zsh-users/zsh-history-substring-search"
-plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
+# plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -228,10 +228,9 @@ alias vk="NVIM_APPNAME=KickstartNvim nvim"
 alias vc="NVIM_APPNAME=NvChad nvim"
 alias va="NVIM_APPNAME=AstroNvim nvim"
 alias vq="NVIM_APPNAME=QuartoNvim nvim"
+alias vs="NVIM_APPNAME=SciVim nvim"
 alias vn="nvim"
-alias vz="nvim ~/.zshrc"
-
-
+alias vz="NVIM_APPNAME=LazyVim nvim ~/.zshrc"
 
 # Custom functions
 init_pipenv () {
@@ -243,7 +242,6 @@ init_pipenv () {
     echo "installing ipykernel"
     pipenv install ipykernel
 }
-
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!

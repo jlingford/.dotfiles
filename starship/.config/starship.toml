@@ -1,0 +1,230 @@
+format = """
+$os\
+$custom$directory\
+[\uE0B0](fg:bar_two bg:bar_three)\
+$git_branch\
+$git_status\
+[\uE0B0](fg:bar_three bg:bar_four)\
+$c\
+$conda\
+$dart\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$lua\
+$nodejs\
+$nim\
+$php\
+$python\
+$rlang\
+$ruby\
+$rust\
+$scala\
+[\uE0B0](fg:bar_four)\
+"""
+
+right_format = """
+$cmd_duration
+"""
+# cut from after "$os\"...
+# [\uE0B0](fg:bar_one bg:bar_two)\
+
+palette = 'theme'
+
+# Defines the colour palette for the theme
+[palettes.theme]
+bar_one = '#24415C'
+bar_two = '#0C4F68'
+bar_three = '#394260'
+bar_four = '#212736'
+bar_five = '#1D2230'
+text_one = '#090C0C'
+text_two = '#EEEEEE'
+text_three = '#A3AED2'
+
+[os]
+style = 'bg:bar_one fg:text_one'
+format = '[ $symbol ]($style)'
+disabled = true
+
+[os.symbols]
+Alpine = ''
+Amazon = ''
+Android = ''
+Arch = ''
+CentOS = ''
+Debian = ''
+DragonFly = ''
+Emscripten = ''
+EndeavourOS = ''
+# 
+Fedora = ''
+FreeBSD = ''
+Garuda = '﯑'
+Gentoo = ''
+HardenedBSD = 'ﲊ'
+Illumos = ''
+Linux = "\uE712"
+Macos = "\uE711"
+Manjaro = ''
+Mariner = ''
+MidnightBSD = ''
+Mint = ''
+NetBSD = ''
+NixOS = ''
+OpenBSD = ''
+openSUSE = ''
+OracleLinux = ''
+Pop = ''
+Raspbian = ''
+Redhat = "\uE7BB"
+RedHatEnterprise = "\uE7BB"
+Redox = ''
+Solus = 'ﴱ'
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Windows = ''
+
+[directory]
+truncation_length = 0
+truncation_symbol = '.../'
+truncate_to_repo = false
+fish_style_pwd_dir_length = 1
+style = 'bold fg:text_two bg:bar_two'
+format = '[ $path ]($style)'
+
+[custom.home]
+when = ''' test '$HOME' = '$PWD' '''
+style = 'bold fg:text_two bg:bar_two'
+symbol = ' '
+
+[custom.folder]
+when = ''' test '$HOME' != '$PWD' '''
+style = 'bold fg:text_two bg:bar_two'
+symbol = ''
+
+[directory.substitutions]
+'Documents' = '  '
+'Dropbox' = ' '
+'Downloads' = ' '
+'Music' = ' '
+'Pictures' = ' '
+
+[git_branch]
+symbol = ''
+style = 'fg:text_three bg:bar_three'
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = 'fg:text_three bg:bar_three'
+format = '[$all_status$ahead_behind ]($style)'
+
+[c]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[conda]
+symbol = '🅒 '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol $environment ]($style)'
+truncation_length = 1
+ignore_base = false
+disabled = false
+
+[dart]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[elixir]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[lua]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[php]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ''
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) (${virtualenv} )]($style)'
+
+[rlang]
+symbol = 'R '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol($version) ]($style)'
+
+[ruby]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = ' '
+style = 'fg:text_three bg:bar_four'
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = '%R'                   # Hour:Minute Format
+style = 'fg:text_three bg:bar_three'
+format = '[   $time ]($style)'
+
+[cmd_duration]
+disabled = false
+min_time = 20
+show_milliseconds = true
+format = '[   $duration ](italic gray)'
+show_notifications = false

@@ -36,6 +36,10 @@ format:
         code-fold: true
         code-tools: true
         html-math-method: katex
+        embed-resources: true
+        theme:
+            light: default
+            dark: darkly
 ---
 
 # ${TITLE}

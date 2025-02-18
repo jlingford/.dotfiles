@@ -47,4 +47,19 @@ return {
     name = "nord",
     event = "VeryLazy",
   },
+  {
+    "philosofonusus/morta.nvim",
+    name = "morta",
+    event = "VeryLazy",
+  },
+  {
+    "Mofiqul/dracula.nvim",
+    name = "dracula",
+    event = "VeryLazy",
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    name = "nightfox",
+    event = "VeryLazy",
+  },
 }
