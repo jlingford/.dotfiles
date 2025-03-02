@@ -217,6 +217,7 @@ function mkdircd ()
 }
 alias mkd="mkdircd"
 alias mon="cd ~/Dropbox/Monash; ls"
+alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
 alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/sec_traces; ls"
