@@ -234,6 +234,9 @@ alias vs="NVIM_APPNAME=SciVim nvim"
 alias vn="nvim"
 alias vz="NVIM_APPNAME=LazyVim nvim ~/.zshrc"
 
+# add ssh key on startup
+ssh-add -q ~/.ssh/m3key_DellLaptop
+
 # Custom functions
 init_pipenv () {
     echo "setting up .venv"
