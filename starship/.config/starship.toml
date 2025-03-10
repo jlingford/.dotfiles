@@ -32,7 +32,7 @@ $cmd_duration
 # cut from after "$os\"...
 # [\uE0B0](fg:bar_one bg:bar_two)\
 
-palette = 'theme'
+palette = 'theme_cat'
 
 # Defines the colour palette for the theme
 [palettes.theme]
@@ -44,6 +44,46 @@ bar_five = '#1D2230'
 text_one = '#090C0C'
 text_two = '#EEEEEE'
 text_three = '#A3AED2'
+
+[palettes.theme_cat]
+bar_one = '##b4befe'
+bar_two = '#89b4fa'
+bar_three = '#394260'
+bar_four = '#212736'
+bar_five = '#1D2230'
+text_one = '#090C0C'
+text_two = '#1e1e2e'
+text_three = '#A3AED2'
+text_four = '#f38ba8'
+text_five = '#a6e3a1'
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
 
 [os]
 style = 'bg:bar_one fg:text_one'
@@ -120,7 +160,7 @@ style = 'fg:text_three bg:bar_three'
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = 'fg:text_three bg:bar_three'
+style = 'fg:text_four bg:bar_three'
 format = '[$all_status$ahead_behind ]($style)'
 
 [c]
@@ -130,7 +170,7 @@ format = '[ $symbol ($version) ]($style)'
 
 [conda]
 symbol = '🅒 '
-style = 'fg:text_three bg:bar_four'
+style = 'fg:text_five bg:bar_four'
 format = '[ $symbol $environment ]($style)'
 truncation_length = 1
 ignore_base = false
