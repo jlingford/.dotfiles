@@ -98,26 +98,10 @@ function ns() {
   NVIM_APPNAME=$config nvim $@
 }
 
-# Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-plug "zsh-users/zsh-autosuggestions"
-plug "zap-zsh/supercharge"
-# plug "zap-zsh/zap-prompt"
-plug "zsh-users/zsh-syntax-highlighting"
-# plug "wintermi/zsh-starship"
-plug "esc/conda-zsh-completion"
-# plug "zap-zsh/vim"
-# plug "zap-zsh/fzf"
-# plug "zap-zsh/exa"
-plug "hlissner/zsh-autopair"
-# plug "zsh-history-substring-search"
-plug "Aloxaf/fzf-tab"
-plug "zsh-users/zsh-history-substring-search"
-# plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
-
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -157,8 +141,8 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
 # Paths
+export PATH="$HOME/bin:$PATH"
 export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
-export PATH="/home/james/.dotfiles/scripts:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 # export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
@@ -195,6 +179,7 @@ alias lf="lfcd"
 alias cd="z"
 alias afdir="~/Dropbox/Monash/AlphaFold"
 alias alan="~/Documents/alan/alan"
+alias bin="~/bin; ls"
 alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
@@ -216,6 +201,7 @@ function mkdircd ()
 }
 alias mkd="mkdircd"
 alias mon="cd ~/Dropbox/Monash; ls"
+alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
 alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/sec_traces; ls"
@@ -231,6 +217,9 @@ alias vq="NVIM_APPNAME=QuartoNvim nvim"
 alias vs="NVIM_APPNAME=SciVim nvim"
 alias vn="nvim"
 alias vz="NVIM_APPNAME=LazyVim nvim ~/.zshrc"
+
+# add ssh key on startup
+ssh-add -q ~/.ssh/m3key_DellLaptop
 
 # Custom functions
 init_pipenv () {
@@ -359,5 +348,23 @@ fi
 \builtin alias z=__zoxide_z
 \builtin alias zi=__zoxide_zi
 export PATH=$PATH:/home/james/.pixi/bin
+
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/supercharge"
+# plug "zap-zsh/zap-prompt"
+plug "zsh-users/zsh-syntax-highlighting"
+# plug "wintermi/zsh-starship"
+plug "esc/conda-zsh-completion"
+# plug "zap-zsh/vim"
+# plug "zap-zsh/fzf"
+# plug "zap-zsh/exa"
+plug "hlissner/zsh-autopair"
+# plug "zsh-history-substring-search"
+plug "Aloxaf/fzf-tab"
+plug "zsh-users/zsh-history-substring-search"
+plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
+
 
 # zprof # use to time zsh startup
