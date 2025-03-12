@@ -102,20 +102,20 @@ function ns() {
 autoload -Uz compinit
 compinit
 
-
+# get rid of conda (just use mamba)
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/james/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/james/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/james/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/james/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/home/james/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/james/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/james/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/james/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 #
 # Zoxide initialize
@@ -149,6 +149,30 @@ export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 export PATH="$HOME/Documents/foldseek/bin/:$PATH"
+
+# ANTIDOTE
+# source ~/.zsh/.antidote/antidote.zsh
+# antidote load
+# Set the root name of the plugins files (.txt and .zsh) antidote will use.
+zsh_plugins=${ZDOTDIR:-~}/.zsh/.zsh_plugins
+# Ensure the .zsh_plugins.txt file exists so you can add plugins.
+[[ -f ${zsh_plugins}.txt ]] || touch ${zsh_plugins}.txt
+# Lazy-load antidote from its functions directory.
+fpath=(~/.zsh/.antidote/functions $fpath)
+autoload -Uz antidote
+# Generate a new static file whenever .zsh_plugins.txt is updated.
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+  antidote bundle <${zsh_plugins}.txt >|${zsh_plugins}.zsh
+fi
+# Source your static plugins file.
+source ${zsh_plugins}.zsh
+
+# bug fixes to stop zsh-vi-mode conflicting with zsh-autopair and fzf-history
+zvm_after_init_commands=(autopair-init)
+ZVM_INIT_MODE=sourcing
+function zvm_after_init() {
+  zvm_bindkey viins "^R" fzf-history-widget
+}
 
 # bindkey
 bindkey "^[[3~" delete-char
@@ -350,21 +374,21 @@ fi
 export PATH=$PATH:/home/james/.pixi/bin
 
 # Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-plug "zsh-users/zsh-autosuggestions"
-plug "zap-zsh/supercharge"
-# plug "zap-zsh/zap-prompt"
-plug "zsh-users/zsh-syntax-highlighting"
-# plug "wintermi/zsh-starship"
-plug "esc/conda-zsh-completion"
-# plug "zap-zsh/vim"
-# plug "zap-zsh/fzf"
-# plug "zap-zsh/exa"
-plug "hlissner/zsh-autopair"
-# plug "zsh-history-substring-search"
-plug "Aloxaf/fzf-tab"
-plug "zsh-users/zsh-history-substring-search"
-plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
+# [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+# plug "zsh-users/zsh-autosuggestions"
+# plug "zap-zsh/supercharge"
+# # plug "zap-zsh/zap-prompt"
+# plug "zsh-users/zsh-syntax-highlighting"
+# # plug "wintermi/zsh-starship"
+# plug "esc/conda-zsh-completion"
+# # plug "zap-zsh/vim"
+# # plug "zap-zsh/fzf"
+# # plug "zap-zsh/exa"
+# plug "hlissner/zsh-autopair"
+# # plug "zsh-history-substring-search"
+# plug "Aloxaf/fzf-tab"
+# plug "zsh-users/zsh-history-substring-search"
+# plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
 
 
 # zprof # use to time zsh startup
