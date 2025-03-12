@@ -98,26 +98,10 @@ function ns() {
   NVIM_APPNAME=$config nvim $@
 }
 
-# Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-plug "zsh-users/zsh-autosuggestions"
-plug "zap-zsh/supercharge"
-# plug "zap-zsh/zap-prompt"
-plug "zsh-users/zsh-syntax-highlighting"
-# plug "wintermi/zsh-starship"
-plug "esc/conda-zsh-completion"
-# plug "zap-zsh/vim"
-# plug "zap-zsh/fzf"
-# plug "zap-zsh/exa"
-plug "hlissner/zsh-autopair"
-# plug "zsh-history-substring-search"
-plug "Aloxaf/fzf-tab"
-plug "zsh-users/zsh-history-substring-search"
-plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
-
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -364,5 +348,23 @@ fi
 \builtin alias z=__zoxide_z
 \builtin alias zi=__zoxide_zi
 export PATH=$PATH:/home/james/.pixi/bin
+
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/supercharge"
+# plug "zap-zsh/zap-prompt"
+plug "zsh-users/zsh-syntax-highlighting"
+# plug "wintermi/zsh-starship"
+plug "esc/conda-zsh-completion"
+# plug "zap-zsh/vim"
+# plug "zap-zsh/fzf"
+# plug "zap-zsh/exa"
+plug "hlissner/zsh-autopair"
+# plug "zsh-history-substring-search"
+plug "Aloxaf/fzf-tab"
+plug "zsh-users/zsh-history-substring-search"
+plug "jeffreytse/zsh-vi-mode"  # is blocking CTRL-R mode for fzf history search.
+
 
 # zprof # use to time zsh startup
