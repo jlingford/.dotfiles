@@ -27,11 +27,13 @@ blueman
 bluez
 bluez-utils
 brightnessctl
+broot
 btop
 btrfs-progs
 cantarell-fonts
 cowsay
 cryptsetup
+csvkit
 device-mapper
 dex
 dhclient
@@ -42,6 +44,7 @@ dmidecode
 dmraid
 dnsmasq
 docker
+docker-compose
 dosfstools
 downgrade
 dracut
@@ -51,9 +54,9 @@ dust
 e2fsprogs
 efibootmgr
 efitools
+endeavouros-branding
 endeavouros-keyring
 endeavouros-mirrorlist
-endeavouros-theming
 endeavouros-xfce4-terminal-colors
 entr
 eos-apps-info
@@ -86,6 +89,7 @@ garcon
 git
 git-delta
 git-filter-repo
+github-cli
 glances
 grex
 grub-btrfs
@@ -108,6 +112,7 @@ htop
 hugo
 hwdetect
 hwinfo
+hyperfine
 i3-wm
 i3blocks
 i3lock
@@ -139,6 +144,7 @@ logrotate
 lsb-release
 lsd
 lsscsi
+luarocks
 lvm2
 lxappearance-gtk3
 man-db
@@ -154,6 +160,7 @@ mpv
 mtools
 nano
 nano-syntax-highlighting
+navi
 ncdu
 neovim
 netctl
@@ -164,13 +171,13 @@ networkmanager-openvpn
 nfs-utils
 nilfs-utils
 nnn
+nodejs-lts-iron
 noto-fonts
 noto-fonts-emoji
 nss-mdns
 ntfs-3g
 ntp
 numlockx
-nvidia-container-toolkit
 nvidia-dkms
 nvidia-hook
 nvidia-inst
@@ -182,6 +189,7 @@ pandoc-cli
 parole
 pavucontrol
 perl
+perl-rename
 picom
 pipewire-alsa
 pipewire-jack
@@ -193,6 +201,7 @@ polkit-gnome
 poppler-glib
 power-profiles-daemon
 procs
+pueue
 pv
 python
 python-capng
@@ -205,7 +214,6 @@ r
 rebuild-detector
 reflector
 reflector-simple
-reiserfsprogs
 ripgrep
 ripgrep-all
 ristretto
@@ -228,7 +236,13 @@ sudo
 sysfsutils
 sysstat
 systemd-sysvcompat
+television
 texinfo
+texlive-basic
+texlive-fontsextra
+texlive-latex
+texlive-latexextra
+texlive-mathscience
 thefuck
 thunar
 thunar-archive-plugin
@@ -237,6 +251,7 @@ thunar-volman
 timeshift
 tk
 tmux
+tokei
 tor
 torbrowser-launcher
 tree
@@ -249,6 +264,7 @@ ttf-nerd-fonts-symbols-mono
 ttf-noto-nerd
 ttf-opensans
 tumbler
+ueberzugpp
 unarchiver
 unicode-emoji
 unrar
@@ -305,7 +321,9 @@ xorg-xinput
 xorg-xkill
 xorg-xrandr
 xsel
+xsv
 xterm
+yay
 yazi
 yq
 zathura
