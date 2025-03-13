@@ -99,8 +99,8 @@ function ns() {
 }
 
 # Load and initialise completion system
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 
 # get rid of conda (just use mamba)
 # >>> conda initialize >>>
@@ -167,15 +167,25 @@ fi
 # Source your static plugins file.
 source ${zsh_plugins}.zsh
 
-# bug fixes to stop zsh-vi-mode conflicting with zsh-autopair and fzf-history
+# bug fixes to stop zsh-vi-mode conflicting with zsh-autopair and fzf-history, and history substring search
 zvm_after_init_commands=(autopair-init)
 ZVM_INIT_MODE=sourcing
 function zvm_after_init() {
   zvm_bindkey viins "^R" fzf-history-widget
 }
+function zvm_before_init() {
+  zvm_bindkey viins '^[[A' history-substring-search-up
+  zvm_bindkey viins '^[[B' history-substring-search-down
+  zvm_bindkey vicmd '^[[A' history-substring-search-up
+  zvm_bindkey vicmd '^[[B' history-substring-search-down
+}
+
 
 # bindkey
 bindkey "^[[3~" delete-char
+# bindkey '^l' forward-word
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 
 # Aliases
 # alias ls="eza"

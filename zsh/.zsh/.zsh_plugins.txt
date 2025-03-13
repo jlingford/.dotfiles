@@ -8,3 +8,4 @@ hlissner/zsh-autopair
 aloxaf/fzf-tab
 zsh-users/zsh-history-substring-search
 zdharma-continuum/fast-syntax-highlighting
+
