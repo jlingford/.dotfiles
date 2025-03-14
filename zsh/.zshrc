@@ -36,6 +36,9 @@ function yy() {
 # FZF
 ## fzf keybindings
 eval "$(fzf --zsh)"
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
 
 ## fd integration into fzf and **<TAB> completion
 # export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
@@ -54,9 +57,9 @@ _fzf_compgen_dir() {
 }
 
 ## pretty fzf previews in **<TAB> completion
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
-# export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {}'"
-export FZF_ALT_C_OPTS="--preview 'lsd -a --tree --color=always {}'"
+# export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
+export FZF_CTRL_T_OPTS="--preview 'if [ -d {} ]; then lsd --tree --color=always --icon=always {}; else bat --color=always {}; fi'"
+export FZF_ALT_C_OPTS="--preview 'lsd -a --tree --color=always --icon=always {}'"
 show_file_or_dir_preview="if [ -d {} ]; then lsd --tree --color=always --icon=always {}; else bat --color=always {}; fi"
 _fzf_comprun() {
     local command=$1
@@ -171,8 +174,8 @@ ssh-add -q ~/.ssh/m3key_DellLaptop
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
 
 # =============================================================================
 
