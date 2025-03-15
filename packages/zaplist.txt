@@ -1,11 +1,8 @@
 zsh-autosuggestions
 supercharge
-zap-prompt
 zsh-syntax-highlighting
 conda-zsh-completion
-vim
-fzf
-exa
 zsh-autopair
 fzf-tab
 zsh-history-substring-search
+zsh-vi-mode

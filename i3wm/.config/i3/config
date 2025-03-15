@@ -603,7 +603,7 @@ bindsym $mod+t exec rofi -show window \
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
 
-exec_always feh --bg-scale /home/james/Pictures/Wallpapers/arch.png
+exec_always feh --bg-scale /home/james/Pictures/Wallpapers/arch-magenta-blue-1920x1080.png
 
 
 

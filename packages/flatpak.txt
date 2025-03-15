@@ -1,6 +1,7 @@
 Discord
 Steam
 VSCodium
+UCSF ChimeraX
 Audacity
 Codecs
 Blender
@@ -8,28 +9,34 @@ Codecs
 Freedesktop Platform
 Freedesktop Platform
 i386
-Mesa
-Mesa (Extra)
-Mesa
-Mesa (Extra)
-nvidia-560-35-03
-Mesa
-Mesa (Extra)
-nvidia-560-35-03
-Intel
-Intel
 i386
-ffmpeg-full
-ffmpeg-full
+Mesa
+Mesa (Extra)
+Mesa
+Mesa (Extra)
+nvidia-570-124-04
+nvidia-570-86-16
+Mesa
+Mesa (Extra)
+Mesa
+Mesa (Extra)
+nvidia-570-86-16
+Intel VAAPI driver
+Intel VAAPI driver
+i386
+i386
+FFmpeg extension with extra codecs
 openh264
 openh264
 Freedesktop SDK
+Freedesktop SDK
 GNU Image Manipulation Program
-GNOME Application Platform version 45
 GNOME Application Platform version 46
+GNOME Application Platform version 47
 Adwaita dark GTK theme
 Inkscape
 JabRef
+KDE Application Platform
 KDE Application Platform
 KDE Application Platform
 KDE Application Platform

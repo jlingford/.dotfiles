@@ -1,0 +1,11 @@
+# Basic Zsh plugins are defined in user/repo format
+
+jeffreytse/zsh-vi-mode
+# zsh-users/zsh-syntax-highlighting
+mattmc3/ez-compinit
+zsh-users/zsh-autosuggestions
+hlissner/zsh-autopair
+aloxaf/fzf-tab
+zsh-users/zsh-history-substring-search
+zdharma-continuum/fast-syntax-highlighting
+

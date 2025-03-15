@@ -1,0 +1,68 @@
+# Aliases
+alias ls="lsd"
+alias la="lsd -la"
+alias lat="lsd -la --total-size"
+alias lt="lsd -lat"
+alias ltr="lsd -latr"
+alias tree="lsd -a --tree"
+alias less="bat" #replacing less with bat
+alias man="batman" #replacing man pages with bat-extras man pages "batman"
+alias lg="lazygit"
+# source
+alias reload="source ~/.zshrc"
+# lf
+alias lf="lfcd"
+# alias useful dir changes
+alias cd="z"
+alias afdir="~/Dropbox/Monash/AlphaFold"
+alias alan="~/Documents/alan/alan"
+alias bin="~/bin; ls"
+alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
+alias clr="clear"
+alias conf="cd ~/.config; ls"
+alias share="cd ~/.local/share; ls"
+alias lab="cd ~/Dropbox/Monash/Notebooks; ls"
+alias doc="cd ~/Documents; ls"
+alias dot="cd ~/.dotfiles; ls"
+alias down="cd ~/Downloads; ls"
+alias drop="cd ~/Dropbox; ls"
+alias epg="cd ~/Documents/epg-blog; ls"
+alias f="fzf --preview='bat --color=always {}'"
+alias fv="fd --type f --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse | xargs ${EDITOR}" # fz = fzf into nvim
+alias ff="fastfetch -c examples/17"
+# alias c="cd $(fd --type d --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse)" # fz = fzf into nvim
+alias mamba="micromamba"
+function mkdircd ()
+{
+    mkdir -p $1 && cd $1
+}
+alias mkd="mkdircd"
+alias mon="cd ~/Dropbox/Monash; ls"
+alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
+alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
+alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
+alias sec="cd ~/Documents/sec_traces; ls"
+alias web="cd ~/Documents/website"
+# thefuck alias
+eval $(thefuck --alias)
+# Neovim aliases
+alias v="NVIM_APPNAME=LazyVim nvim"
+alias vk="NVIM_APPNAME=KickstartNvim nvim"
+alias vc="NVIM_APPNAME=NvChad nvim"
+alias va="NVIM_APPNAME=AstroNvim nvim"
+alias vq="NVIM_APPNAME=QuartoNvim nvim"
+alias vs="NVIM_APPNAME=SciVim nvim"
+alias vn="nvim"
+alias vz="NVIM_APPNAME=LazyVim nvim ~/.zshrc"
+
+
+# Custom functions
+function init_pipenv () {
+    echo "setting up .venv"
+    python3 -m venv .venv
+    source .venv/bin/activate
+    echo "installing pipenv"
+    python3 -m pip install pipenv
+    echo "installing ipykernel"
+    pipenv install ipykernel
+}
