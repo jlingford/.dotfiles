@@ -55,14 +55,16 @@ _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 show_file_or_dir_preview="if [ -d {} ]; then lsd -a --tree --color=always --icon=always {}; else bat --color=always {}; fi"
-# context aware fzf preview triggered by: <command> <TAB>
+show_dir_preview="lsd -a --tree --color=always --icon=always {}"
+show_file_preview="bat --color=always {}"
+# context aware fzf preview triggered by: <command> **<TAB>
 _fzf_comprun() {
     local command=$1
     shift
 
     case "$command" in
-        cd)              fzf --preview "$show_file_or_dir_preview" "$@" ;;
-        v)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
+        cd)              fzf --preview "$show_dir_preview" "$@" ;;
+        v)               fzf --preview "$show_file_preview" "$@" ;;
         export|unset)    fzf --preview "eval 'echo \$' {}" "$@" ;;
         ssh)             fzf --preview 'dig {}' "$@" ;;
         *)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
@@ -166,8 +168,9 @@ function zvm_before_init() {
 
 # set bindkeys
 bindkey "^[[3~" delete-char
-export FZF_COMPLETION_TRIGGER=''
-bindkey '^T' fzf-completion # allow fzf trigger with CTRL-T/I without need for TAB**
+bindkey "^[l" forward-word
+# export FZF_COMPLETION_TRIGGER='' # to disable **<TAB>, make fzf trigger on <TAB>
+bindkey '^T' fzf-completion # allow fzf trigger with CTRL-T FZF without need for **TAB
 bindkey '^I' $fzf_default_completion
 
 # Aliases
@@ -182,6 +185,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
+setopt COMPLETE_ALIASES
+zstyle ':fzf-tab:complete:v:*' fzf-preview 'bat --color=always $realpath'
 
 # =============================================================================
 
