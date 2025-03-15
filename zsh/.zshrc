@@ -23,6 +23,18 @@ export TERM=xterm-256color
 
 # =============================================================================
 
+# yazi integration
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# =============================================================================
+
 # Fzf initialize
 eval "$(fzf --zsh)"
 # Zoxide initialize
@@ -151,7 +163,6 @@ function ns() {
   NVIM_APPNAME=$config nvim $@
 }
 
-
 # =============================================================================
 
 # ANTIDOTE plugin manager
@@ -180,18 +191,6 @@ function zvm_before_init() {
   zvm_bindkey viins '^[[B' history-substring-search-down
   zvm_bindkey vicmd '^[[A' history-substring-search-up
   zvm_bindkey vicmd '^[[B' history-substring-search-down
-}
-
-# =============================================================================
-
-# yazi integration
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
 }
 
 # =============================================================================
