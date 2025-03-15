@@ -21,6 +21,8 @@ export EDITOR=editor #see ~/.dotfiles/scripts/editor for details (works with yaz
 export VISUAL="$EDITOR"
 export TERM=xterm-256color
 
+# =============================================================================
+
 # yazi integration
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -33,9 +35,45 @@ function yy() {
 
 # =============================================================================
 
-# FZF
-# fzf keybindings
+# Fzf initialize
 eval "$(fzf --zsh)"
+# Zoxide initialize
+eval "$(zoxide init zsh)"
+# starship initialize
+eval "$(starship init zsh)"
+
+# =============================================================================
+
+# History settings
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+export HISTFILE=$HOME/.zsh_history
+export HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# =============================================================================
+
+# Paths
+export PATH="$HOME/bin:$PATH"
+# export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
+# export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export STARSHIP_CONFIG="$HOME/.config/starship.toml"
+export PATH="$HOME/Documents/foldseek/bin/:$PATH"
+
+# =============================================================================
+
+# FZF
 ## fd integration into fzf
 export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
 # use Catppuccin colors for fzf
@@ -46,23 +84,25 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475a \
 --color=border:#313244,label:#cdd6f4"
 # **<TAB> changed to just <TAB> with zstyle and bindkey changes
-# for vim <TAB>
+# for vim **<TAB>
 _fzf_compgen_path() {
     fd --type f --hidden --follow --exclude ".git" . "$1"
 }
-# for cd <TAB>
+# for cd **<TAB>
 _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 show_file_or_dir_preview="if [ -d {} ]; then lsd -a --tree --color=always --icon=always {}; else bat --color=always {}; fi"
-# context aware fzf preview triggered by: <command> <TAB>
+show_dir_preview="lsd -a --tree --color=always --icon=always {}"
+show_file_preview="bat --color=always {}"
+# context aware fzf preview triggered by: <command> **<TAB>
 _fzf_comprun() {
     local command=$1
     shift
 
     case "$command" in
-        cd)              fzf --preview "$show_file_or_dir_preview" "$@" ;;
-        v)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
+        cd)              fzf --preview "$show_dir_preview" "$@" ;;
+        v)               fzf --preview "$show_file_preview" "$@" ;;
         export|unset)    fzf --preview "eval 'echo \$' {}" "$@" ;;
         ssh)             fzf --preview 'dig {}' "$@" ;;
         *)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
@@ -86,6 +126,30 @@ export FZF_CTRL_R_OPTS="
 
 # =============================================================================
 
+# set bindkeys
+bindkey "^[[3~" delete-char
+bindkey "^[l" forward-word # alt-l as a right-arrow substitute
+# export FZF_COMPLETION_TRIGGER='' # to disable **<TAB>, make fzf trigger on <TAB>
+bindkey '^T' fzf-completion # allow fzf trigger with CTRL-T FZF without need for **TAB
+bindkey '^I' $fzf_default_completion
+
+# Aliases
+source $HOME/.zsh/.zsh_aliases
+
+# add ssh key on startup
+ssh-add -q ~/.ssh/m3key_DellLaptop
+
+# completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case insensitive autocompletion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
+# setopt COMPLETE_ALIASES
+# zstyle ':fzf-tab:complete:v:*' fzf-preview 'bat --color=always $realpath'
+
+# =============================================================================
+
 # Neovim config changer
 function ns() {
   items=("default" "Kickstart" "LazyVim" "NvChad" "AstroNvim" "QuartoNvim" "SciVim")
@@ -98,39 +162,6 @@ function ns() {
   fi
   NVIM_APPNAME=$config nvim $@
 }
-
-# Zoxide initialize
-eval "$(zoxide init zsh)"
-
-# starship initialize
-eval "$(starship init zsh)"
-
-# =============================================================================
-
-# History settings
-export HISTSIZE=1000000
-export SAVEHIST=$HISTSIZE
-export HISTFILE=$HOME/.zsh_history
-export HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-
-# Paths
-export PATH="$HOME/bin:$PATH"
-# export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
-# export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export STARSHIP_CONFIG="$HOME/.config/starship.toml"
-export PATH="$HOME/Documents/foldseek/bin/:$PATH"
 
 # =============================================================================
 
@@ -161,27 +192,6 @@ function zvm_before_init() {
   zvm_bindkey vicmd '^[[A' history-substring-search-up
   zvm_bindkey vicmd '^[[B' history-substring-search-down
 }
-
-# =============================================================================
-
-# set bindkeys
-bindkey "^[[3~" delete-char
-export FZF_COMPLETION_TRIGGER=''
-bindkey '^T' fzf-completion # allow fzf trigger with CTRL-T/I without need for TAB**
-bindkey '^I' $fzf_default_completion
-
-# Aliases
-source $HOME/.zsh/.zsh_aliases
-
-# add ssh key on startup
-ssh-add -q ~/.ssh/m3key_DellLaptop
-
-# completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case insensitive autocompletion
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
 
 # =============================================================================
 
