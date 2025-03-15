@@ -65,4 +65,24 @@ function init_pipenv () {
     python3 -m pip install pipenv
     echo "installing ipykernel"
     pipenv install ipykernel
+# ripgrep->fzf->vim [QUERY]
+# https://junegunn.github.io/fzf/tips/ripgrep-integration/
+function g() (
+  RELOAD='reload:rg --column --hidden --color=always --smart-case {q} || :'
+  OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+            $EDITOR {1} +{2}     # No selection. Open the current line in Vim.
+          else
+            $EDITOR +cw -q {+f}  # Build quickfix list for the selected items.
+          fi'
+  fzf --disabled --ansi --multi \
+      --bind "start:$RELOAD" --bind "change:$RELOAD" \
+      --bind "enter:become:$OPENER" \
+      --bind "ctrl-o:execute:$OPENER" \
+      --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+      --delimiter : \
+      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+      --tmux center,85%,85% \
+      --reverse \
+      --query "$*"
+)
 }
