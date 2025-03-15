@@ -36,7 +36,7 @@ function yy() {
 # FZF
 # fzf keybindings
 eval "$(fzf --zsh)"
-## fd integration into fzf and **<TAB> completion
+## fd integration into fzf
 export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
 # use Catppuccin colors for fzf
 export FZF_DEFAULT_OPTS=" \
@@ -45,27 +45,30 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
 --color=border:#313244,label:#cdd6f4"
-# default functions for fzf
+# **<TAB> changed to just <TAB> with zstyle and bindkey changes
+# for vim <TAB>
 _fzf_compgen_path() {
-    fd --hidden --follow --exclude ".git" . "$1"
+    fd --type f --hidden --follow --exclude ".git" . "$1"
 }
+# for cd <TAB>
 _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 show_file_or_dir_preview="if [ -d {} ]; then lsd -a --tree --color=always --icon=always {}; else bat --color=always {}; fi"
-show_dir_preview="lsd -a --tree --color=always --icon=always {}"
+# context aware fzf preview triggered by: <command> <TAB>
 _fzf_comprun() {
     local command=$1
     shift
 
     case "$command" in
-        cd)              fzf --preview "$show_dir_preview" "$@" ;;
+        cd)              fzf --preview "$show_file_or_dir_preview" "$@" ;;
+        v)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
         export|unset)    fzf --preview "eval 'echo \$' {}" "$@" ;;
         ssh)             fzf --preview 'dig {}' "$@" ;;
         *)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
     esac
 }
-# pretty fzf previews in CTRL-T and **<TAB> completion
+# pretty fzf previews in CTRL-T
 export FZF_CTRL_T_OPTS="
     --preview '$show_file_or_dir_preview'
     --walker-skip .git,node_modules,target
