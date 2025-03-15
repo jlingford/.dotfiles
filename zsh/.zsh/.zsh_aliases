@@ -9,7 +9,7 @@ alias less="bat" #replacing less with bat
 alias man="batman" #replacing man pages with bat-extras man pages "batman"
 alias lg="lazygit"
 # source
-alias reload="source ~/.zshrc"
+alias src="source ~/.zshrc"
 # lf
 alias lf="lfcd"
 # alias useful dir changes
@@ -27,24 +27,17 @@ alias dot="cd ~/.dotfiles; ls"
 alias down="cd ~/Downloads; ls"
 alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
-alias f="fzf --preview='bat --color=always {}'"
-alias fv="fd --type f --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse | xargs ${EDITOR}" # fz = fzf into nvim
+# search for files in fzf and open them in nvim
+alias f="fzf -m --preview 'bat --color=always {}' --reverse --tmux center,80%,80% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
 alias ff="fastfetch -c examples/17"
-# alias c="cd $(fd --type d --hidden --exclude .git | fzf-tmux --preview='bat --color=always {}' --reverse)" # fz = fzf into nvim
 alias mamba="micromamba"
-function mkdircd ()
-{
-    mkdir -p $1 && cd $1
-}
-alias mkd="mkdircd"
+# mkdir and cd into it in one go
 alias mon="cd ~/Dropbox/Monash; ls"
 alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
 alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/sec_traces; ls"
 alias web="cd ~/Documents/website"
-# thefuck alias
-eval $(thefuck --alias)
 # Neovim aliases
 alias v="NVIM_APPNAME=LazyVim nvim"
 alias vk="NVIM_APPNAME=KickstartNvim nvim"
@@ -55,14 +48,32 @@ alias vs="NVIM_APPNAME=SciVim nvim"
 alias vn="nvim"
 alias vz="NVIM_APPNAME=LazyVim nvim ~/.zshrc"
 
-
 # Custom functions
-function init_pipenv () {
-    echo "setting up .venv"
-    python3 -m venv .venv
-    source .venv/bin/activate
-    echo "installing pipenv"
-    python3 -m pip install pipenv
-    echo "installing ipykernel"
-    pipenv install ipykernel
+
+# ripgrep->fzf->vim [QUERY]
+# https://junegunn.github.io/fzf/tips/ripgrep-integration/
+function g() (
+  RELOAD='reload:rg --column --hidden --color=always --smart-case {q} || :'
+  OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+            $EDITOR {1} +{2}     # No selection. Open the current line in Vim.
+          else
+            $EDITOR +cw -q {+f}  # Build quickfix list for the selected items.
+          fi'
+  fzf --disabled --ansi --multi \
+      --bind "start:$RELOAD" --bind "change:$RELOAD" \
+      --bind "enter:become:$OPENER" \
+      --bind "ctrl-o:execute:$OPENER" \
+      --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+      --delimiter : \
+      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+      --tmux center,85%,85% \
+      --reverse \
+      --query "$*"
+)
+
+function mkdircd ()
+{
+    mkdir -p $1 && cd $1
 }
+alias mkd="mkdircd"
+

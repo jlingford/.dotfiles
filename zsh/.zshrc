@@ -23,6 +23,7 @@ export TERM=xterm-256color
 
 # =============================================================================
 
+# keep this function early in the zshrc!
 # yazi integration
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -41,6 +42,8 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 # starship initialize
 eval "$(starship init zsh)"
+# thefuck alias
+eval $(thefuck --alias)
 
 # =============================================================================
 
@@ -123,6 +126,9 @@ export FZF_CTRL_R_OPTS="
   --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -se c)+abort'
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
+
+# for cd completion: 'ALT-C' or 'cd TAB' or 'cd **TAB' or 'cd CTRL-T'
+# for vim completion: 'v CTRL-T' or 'v **TAB' or 'fv'
 
 # =============================================================================
 
