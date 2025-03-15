@@ -34,46 +34,46 @@ function yy() {
 # =============================================================================
 
 # FZF
-## fzf keybindings
+# fzf keybindings
 eval "$(fzf --zsh)"
-export FZF_COMPLETION_TRIGGER=''
-bindkey '^T' fzf-completion
-bindkey '^I' $fzf_default_completion
-
 ## fd integration into fzf and **<TAB> completion
-# export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# Preview file content using bat (https://github.com/sharkdp/bat)
-export FZF_CTRL_T_OPTS="
-  --walker-skip .git,node_modules,target
-  --preview 'bat -n --color=always {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-
+export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git"
+# use Catppuccin colors for fzf
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--color=border:#313244,label:#cdd6f4"
+# default functions for fzf
 _fzf_compgen_path() {
     fd --hidden --follow --exclude ".git" . "$1"
 }
 _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
-
-## pretty fzf previews in **<TAB> completion
-# export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
-export FZF_CTRL_T_OPTS="--preview 'if [ -d {} ]; then lsd --tree --color=always --icon=always {}; else bat --color=always {}; fi'"
-export FZF_ALT_C_OPTS="--preview 'lsd -a --tree --color=always --icon=always {}'"
-show_file_or_dir_preview="if [ -d {} ]; then lsd --tree --color=always --icon=always {}; else bat --color=always {}; fi"
+show_file_or_dir_preview="if [ -d {} ]; then lsd -a --tree --color=always --icon=always {}; else bat --color=always {}; fi"
+show_dir_preview="lsd -a --tree --color=always --icon=always {}"
 _fzf_comprun() {
     local command=$1
     shift
 
     case "$command" in
-        cd)              fzf --preview 'lsd -a --tree --color=always --icon=always {}' "$@" ;;
+        cd)              fzf --preview "$show_dir_preview" "$@" ;;
         export|unset)    fzf --preview "eval 'echo \$' {}" "$@" ;;
         ssh)             fzf --preview 'dig {}' "$@" ;;
         *)               fzf --preview "$show_file_or_dir_preview" "$@" ;;
     esac
 }
-# CTRL-/ to toggle small preview window to see the full command
-# CTRL-Y to copy the command into clipboard using pbcopy
+# pretty fzf previews in CTRL-T and **<TAB> completion
+export FZF_CTRL_T_OPTS="
+    --preview '$show_file_or_dir_preview'
+    --walker-skip .git,node_modules,target
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# pretty fzf preview in ALT-C completion
+export FZF_ALT_C_OPTS="--preview '$show_dir_preview'"
+# fzf history search
+# CTRL-/ to toggle small preview window to see the full command # CTRL-Y to copy the command into clipboard using pbcopy
 export FZF_CTRL_R_OPTS="
   --preview 'echo {}' --preview-window up:3:hidden:wrap
   --bind 'ctrl-/:toggle-preview'
@@ -107,8 +107,8 @@ eval "$(starship init zsh)"
 # History settings
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
-HISTFILE=$HOME/.zsh_history
-HISTDUP=erase
+export HISTFILE=$HOME/.zsh_history
+export HISTDUP=erase
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -163,6 +163,9 @@ function zvm_before_init() {
 
 # set bindkeys
 bindkey "^[[3~" delete-char
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion # allow fzf trigger with CTRL-T/I without need for TAB**
+bindkey '^I' $fzf_default_completion
 
 # Aliases
 source $HOME/.zsh/.zsh_aliases
@@ -171,7 +174,7 @@ source $HOME/.zsh/.zsh_aliases
 ssh-add -q ~/.ssh/m3key_DellLaptop
 
 # completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case insensitive autocompletion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
