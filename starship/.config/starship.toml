@@ -23,8 +23,9 @@ $ruby\
 $rust\
 $scala\
 $conda\
-[\uE0B0](fg:bar_four)\n \
-[❯ ](text_five)
+[\uE0B0](fg:bar_four)\
+$linebreak
+$character
 """
 
 # remove the "[❯ ](text_five)" if you want prompt on the same line as the bar...
@@ -90,6 +91,10 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+[character]
+success_symbol = "[❯](text_five)"
+error_symbol = "[❯](text_four)"
 
 [os]
 style = 'bg:bar_one fg:text_one'
