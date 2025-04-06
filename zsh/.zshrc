@@ -68,11 +68,11 @@ bindkey '^n' history-search-forward
 export PATH="$HOME/bin:$PATH"
 # export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
+# export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 # export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
-export PATH="$HOME/Documents/foldseek/bin/:$PATH"
+# export PATH="$HOME/Documents/foldseek/bin/:$PATH"
 
 # =============================================================================
 
