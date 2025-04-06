@@ -32,7 +32,8 @@ alias epg="cd ~/Documents/epg-blog; ls"
 # search for files in fzf and open them in nvim
 alias f="fzf -m --preview 'bat --color=always {}' --reverse --tmux center,80%,80% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
 alias ff="fastfetch -c examples/17"
-alias mamba="micromamba"
+# alias mamba="micromamba"
+# alias conda="micromamba"
 # mkdir and cd into it in one go
 alias mon="cd ~/Dropbox/Monash; ls"
 alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
@@ -78,4 +79,5 @@ function mkdircd ()
     mkdir -p $1 && cd $1
 }
 alias mkd="mkdircd"
+
 

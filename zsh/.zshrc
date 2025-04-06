@@ -143,7 +143,7 @@ bindkey '^I' $fzf_default_completion
 source $HOME/.zsh/.zsh_aliases
 
 # add ssh key on startup
-ssh-add -q ~/.ssh/m3key_DellLaptop
+# ssh-add -q ~/.ssh/m3key_DellLaptop
 
 # completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case insensitive autocompletion
@@ -172,6 +172,9 @@ function ns() {
 # =============================================================================
 
 # ANTIDOTE plugin manager
+# first time loading it:
+# source ~/.zsh/.antidote/antidote.zsh
+# antidote load
 # Set the root name of the plugins files (.txt and .zsh) antidote will use.
 zsh_plugins=${ZDOTDIR:-~}/.zsh/.zsh_plugins
 # Ensure the .zsh_plugins.txt file exists so you can add plugins.
@@ -202,17 +205,19 @@ function zvm_before_init() {
 # =============================================================================
 
 # >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE='/home/james/.local/bin/micromamba';
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/home/james/.local/bin/mamba';
 export MAMBA_ROOT_PREFIX='/home/james/micromamba';
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
 else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+    alias mamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# =============================================================================
 
 # Utility functions for zoxide.
 # pwd based on the value of _ZO_RESOLVE_SYMLINKS.
