@@ -51,6 +51,7 @@ dmraid
 dnsmasq
 docker
 docker-compose
+docker-machine
 dosfstools
 downgrade
 dracut
@@ -104,6 +105,7 @@ git-delta
 git-filter-repo
 github-cli
 glances
+gparted
 grex
 grub-btrfs
 gst-libav
@@ -240,6 +242,7 @@ reiserfsprogs
 ripgrep
 ripgrep-all
 ristretto
+rkhunter
 rofi
 rstudio-desktop-bin
 rsync
