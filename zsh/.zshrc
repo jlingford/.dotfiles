@@ -144,11 +144,11 @@ bindkey '^I' $fzf_default_completion
 # Aliases
 source $HOME/.zsh/.zsh_aliases
 
-# add ssh key on startup
+# add ssh keys on startup
+eval $(keychain --eval --quiet)
 # ssh-add -q ~/.ssh/m3key_DellLaptop
 # ssh-add -q ~/.ssh/github_key
-eval "$(keychain --eval --quiet ~/.ssh/github_key)"
-eval "$(keychain --eval --quiet ~/.ssh/m3key_DellLaptop)"
+# eval "$(keychain --eval --quiet ~/.ssh/m3key_DellLaptop)"
 # add github ssh key
 # plugins=(git ssh-agent)
 
