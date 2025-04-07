@@ -73,6 +73,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 # export PATH="$HOME/Documents/foldseek/bin/:$PATH"
+# Docker completions
+FPATH="$HOME/.docker/completions:$FPATH"
 
 # =============================================================================
 
