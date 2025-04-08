@@ -35,13 +35,14 @@ alias epg="cd ~/Documents/epg-blog; ls"
 alias f="fzf -m --preview 'bat --color=always {}' --reverse --tmux center,80%,80% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
 alias ff="fastfetch -c examples/17"
 # alias mamba="micromamba"
-# alias conda="micromamba"
+alias conda="mamba"
 # mkdir and cd into it in one go
 alias mon="cd ~/Dropbox/Monash; ls"
 alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
 alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
-alias sec="cd ~/Documents/sec_traces; ls"
+alias sec="cd ~/Documents/plotting; ls"
+alias jalview="~/Documents/biotools/jalview/bin/jalview &"
 alias web="cd ~/Documents/website"
 # Neovim aliases
 alias v="NVIM_APPNAME=LazyVim nvim"
