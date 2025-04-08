@@ -52,6 +52,7 @@ export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export HISTFILE=$HOME/.zsh_history
 export HISTDUP=erase
+setopt globdots # autocompletion for hidden files and dirs
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
