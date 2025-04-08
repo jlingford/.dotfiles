@@ -40,7 +40,11 @@ function yy() {
 eval "$(fzf --zsh)"
 # Zoxide initialize
 eval "$(zoxide init zsh)"
-# starship initialize
+# starship initialize (fix from: https://github.com/starship/starship/issues/3418#issuecomment-2477375663)
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+    zle -N zle-keymap-select "";
+fi
 eval "$(starship init zsh)"
 # thefuck alias
 eval $(thefuck --alias)
