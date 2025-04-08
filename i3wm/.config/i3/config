@@ -374,7 +374,7 @@ for_window [class=qbittorrent] focus
 #exec_always --no-startup-id picom -b
 #
 # for custom config:
-#exec_always --no-startup-id picom --config  ~/.config/picom.conf
+exec_always --no-startup-id picom --config  ~/.config/picom.conf
 
 #############################################
 # autostart applications/services on login: #
@@ -405,7 +405,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/screen1.sh
+exec --no-startup-id ~/.screenlayout/screen2.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
