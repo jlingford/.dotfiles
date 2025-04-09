@@ -151,11 +151,6 @@ source $HOME/.zsh/.zsh_aliases
 
 # add ssh keys on startup
 eval $(keychain --eval --quiet)
-# ssh-add -q ~/.ssh/m3key_DellLaptop
-# ssh-add -q ~/.ssh/github_key
-# eval "$(keychain --eval --quiet ~/.ssh/m3key_DellLaptop)"
-# add github ssh key
-# plugins=(git ssh-agent)
 
 # completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case insensitive autocompletion
