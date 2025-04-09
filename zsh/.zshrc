@@ -142,7 +142,7 @@ export FZF_CTRL_R_OPTS="
 # set bindkeys
 bindkey "^[[3~" delete-char
 bindkey "^[l" forward-word # alt-l as a right-arrow substitute
-# export FZF_COMPLETION_TRIGGER='' # to disable **<TAB>, make fzf trigger on <TAB>
+export FZF_COMPLETION_TRIGGER='' # to disable **<TAB>, make fzf trigger on <TAB>
 bindkey '^T' fzf-completion # allow fzf trigger with CTRL-T FZF without need for **TAB
 bindkey '^I' $fzf_default_completion
 
@@ -158,8 +158,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
-# setopt COMPLETE_ALIASES
-# zstyle ':fzf-tab:complete:v:*' fzf-preview 'bat --color=always $realpath'
+setopt COMPLETE_ALIASES
+zstyle ':fzf-tab:complete:v:*' fzf-preview 'bat --color=always $realpath'
 
 # =============================================================================
 
