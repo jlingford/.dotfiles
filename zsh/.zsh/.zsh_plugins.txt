@@ -5,7 +5,8 @@ jeffreytse/zsh-vi-mode
 mattmc3/ez-compinit
 zsh-users/zsh-autosuggestions
 hlissner/zsh-autopair
-aloxaf/fzf-tab
+Aloxaf/fzf-tab
 zsh-users/zsh-history-substring-search
 zdharma-continuum/fast-syntax-highlighting
+# conda-incubator/conda-zsh-completion
 
