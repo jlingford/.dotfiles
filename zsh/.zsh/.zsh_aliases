@@ -32,7 +32,7 @@ alias down="cd ~/Downloads; ls"
 alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
 # search for files in fzf and open them in nvim
-alias f="fzf -m --preview 'bat --color=always {}' --reverse --tmux center,80%,80% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
+alias f="fzf -m --color=border:#cba6f7,label:#cdd6f4 --preview 'bat --color=always {}' --reverse --tmux center,80%,80% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
 alias ff="fastfetch -c examples/17"
 # alias mamba="micromamba"
 alias conda="mamba"
@@ -70,6 +70,7 @@ function g() (
       --bind "enter:become:$OPENER" \
       --bind "ctrl-o:execute:$OPENER" \
       --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+      --color 'border:#cba6f7,label:#cdd6f4' \
       --delimiter : \
       --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
       --tmux center,85%,85% \
