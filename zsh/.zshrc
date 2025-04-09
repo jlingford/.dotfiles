@@ -195,7 +195,6 @@ if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
 fi
 # Source your static plugins file.
 source ${zsh_plugins}.zsh
-
 # bug fixes to stop zsh-vi-mode conflicting with zsh-autopair and fzf-history, and history substring search
 zvm_after_init_commands=(autopair-init)
 ZVM_INIT_MODE=sourcing
