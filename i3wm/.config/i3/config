@@ -180,7 +180,9 @@ bindsym $mod+i exec brave
 bindsym $mod+o exec Thunar
 
 # take a screenshot
-bindsym $mod+p exec xfce4-screenshooter
+bindsym $mod+p exec xfce4-screenshooter -rc
+bindsym $mod+Shift+u exec xfce4-screenshooter -r --save ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
+
 
 # kill focused window
 bindsym $mod+q kill
@@ -302,7 +304,7 @@ bindsym $mod+m exec ~/bin/system/touchpad_toggler.sh
 ## App shortcuts
 bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -461,7 +463,7 @@ exec --no-startup-id /usr/bin/dunst
 #exec --no-startup-id nm-applet
 
 # clipman-applet
-#exec --no-startup-id xfce4-clipman
+exec --no-startup-id xfce4-clipman
 
 ##################
 # floating rules #
