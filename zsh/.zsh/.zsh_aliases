@@ -41,7 +41,7 @@ alias mon="cd ~/Dropbox/Monash; ls"
 alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
 alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
-alias sec="cd ~/Documents/plotting; ls"
+alias sec="cd ~/Documents/plotting; mamba activate sec_env; ls"
 alias jalview="~/Documents/biotools/jalview/bin/jalview &"
 alias web="cd ~/Documents/website"
 # Neovim aliases
