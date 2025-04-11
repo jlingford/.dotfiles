@@ -16,27 +16,33 @@ alias lf="lfcd"
 alias cd="z"
 alias afdir="~/Dropbox/Monash/AlphaFold"
 alias alan="~/Documents/alan/alan"
-alias bin="~/bin; ls"
-alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
+alias bin="cd ~/bin; ls"
+# alias chimerax="/home/james/Documents/chimerax-2024.03.13/bin/ChimeraX &"
+# alias fpchimerax="flatpak run edu.ucsf.rbvi.ChimeraX &"
+# alias chimera="flatpak run edu.ucsf.rbvi.ChimeraX-daily &"
+alias chimera="flatpak run edu.ucsf.rbvi.ChimeraX &"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
 alias share="cd ~/.local/share; ls"
 alias lab="cd ~/Dropbox/Monash/Notebooks; ls"
+alias hyd="cd ~/Dropbox/Monash/HydDB; ls"
 alias doc="cd ~/Documents; ls"
 alias dot="cd ~/.dotfiles; ls"
 alias down="cd ~/Downloads; ls"
 alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
 # search for files in fzf and open them in nvim
-alias f="fzf -m --preview 'bat --color=always {}' --reverse --tmux center,80%,80% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
+alias f="fzf -m --color=border:#cba6f7,label:#cdd6f4 --preview 'bat --color=always {}' --reverse --tmux center,80%,80% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
 alias ff="fastfetch -c examples/17"
-alias mamba="micromamba"
+# alias mamba="micromamba"
+alias conda="mamba"
 # mkdir and cd into it in one go
 alias mon="cd ~/Dropbox/Monash; ls"
 alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
 alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
-alias sec="cd ~/Documents/sec_traces; ls"
+alias sec="cd ~/Documents/plotting; mamba activate sec_env; ls"
+alias jalview="~/Documents/biotools/jalview/bin/jalview &"
 alias web="cd ~/Documents/website"
 # Neovim aliases
 alias v="NVIM_APPNAME=LazyVim nvim"
@@ -64,6 +70,7 @@ function g() (
       --bind "enter:become:$OPENER" \
       --bind "ctrl-o:execute:$OPENER" \
       --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+      --color 'border:#cba6f7,label:#cdd6f4' \
       --delimiter : \
       --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
       --tmux center,85%,85% \
@@ -76,4 +83,5 @@ function mkdircd ()
     mkdir -p $1 && cd $1
 }
 alias mkd="mkdircd"
+
 

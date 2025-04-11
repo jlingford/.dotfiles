@@ -40,7 +40,11 @@ function yy() {
 eval "$(fzf --zsh)"
 # Zoxide initialize
 eval "$(zoxide init zsh)"
-# starship initialize
+# starship initialize (fix from: https://github.com/starship/starship/issues/3418#issuecomment-2477375663)
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+    zle -N zle-keymap-select "";
+fi
 eval "$(starship init zsh)"
 # thefuck alias
 eval $(thefuck --alias)
@@ -52,6 +56,7 @@ export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export HISTFILE=$HOME/.zsh_history
 export HISTDUP=erase
+setopt globdots # autocompletion for hidden files and dirs
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -68,11 +73,13 @@ bindkey '^n' history-search-forward
 export PATH="$HOME/bin:$PATH"
 # export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
+# export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
 # export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
-export PATH="$HOME/Documents/foldseek/bin/:$PATH"
+# export PATH="$HOME/Documents/foldseek/bin/:$PATH"
+# Docker completions
+FPATH="$HOME/.docker/completions:$FPATH"
 
 # =============================================================================
 
@@ -135,15 +142,15 @@ export FZF_CTRL_R_OPTS="
 # set bindkeys
 bindkey "^[[3~" delete-char
 bindkey "^[l" forward-word # alt-l as a right-arrow substitute
-# export FZF_COMPLETION_TRIGGER='' # to disable **<TAB>, make fzf trigger on <TAB>
+export FZF_COMPLETION_TRIGGER='' # to disable **<TAB>, make fzf trigger on <TAB>
 bindkey '^T' fzf-completion # allow fzf trigger with CTRL-T FZF without need for **TAB
 bindkey '^I' $fzf_default_completion
 
 # Aliases
 source $HOME/.zsh/.zsh_aliases
 
-# add ssh key on startup
-ssh-add -q ~/.ssh/m3key_DellLaptop
+# add ssh keys on startup
+eval $(keychain --eval --quiet)
 
 # completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case insensitive autocompletion
@@ -151,8 +158,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'lsd -a --tree --depth=1 --color=always --icon=always $realpath'
-# setopt COMPLETE_ALIASES
-# zstyle ':fzf-tab:complete:v:*' fzf-preview 'bat --color=always $realpath'
+setopt COMPLETE_ALIASES
+zstyle ':fzf-tab:complete:v:*' fzf-preview 'bat --color=always $realpath'
 
 # =============================================================================
 
@@ -172,6 +179,9 @@ function ns() {
 # =============================================================================
 
 # ANTIDOTE plugin manager
+# first time loading it:
+# source ~/.zsh/.antidote/antidote.zsh
+# antidote load
 # Set the root name of the plugins files (.txt and .zsh) antidote will use.
 zsh_plugins=${ZDOTDIR:-~}/.zsh/.zsh_plugins
 # Ensure the .zsh_plugins.txt file exists so you can add plugins.
@@ -185,7 +195,6 @@ if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
 fi
 # Source your static plugins file.
 source ${zsh_plugins}.zsh
-
 # bug fixes to stop zsh-vi-mode conflicting with zsh-autopair and fzf-history, and history substring search
 zvm_after_init_commands=(autopair-init)
 ZVM_INIT_MODE=sourcing
@@ -202,17 +211,19 @@ function zvm_before_init() {
 # =============================================================================
 
 # >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE='/home/james/.local/bin/micromamba';
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/home/james/.local/bin/mamba';
 export MAMBA_ROOT_PREFIX='/home/james/micromamba';
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
 else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+    alias mamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# =============================================================================
 
 # Utility functions for zoxide.
 # pwd based on the value of _ZO_RESOLVE_SYMLINKS.

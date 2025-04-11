@@ -180,7 +180,9 @@ bindsym $mod+i exec brave
 bindsym $mod+o exec Thunar
 
 # take a screenshot
-bindsym $mod+p exec xfce4-screenshooter
+bindsym $mod+p exec xfce4-screenshooter -rc
+bindsym $mod+Shift+u exec xfce4-screenshooter -r --save ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
+
 
 # kill focused window
 bindsym $mod+q kill
@@ -293,13 +295,16 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# mouse touchpad control (mod+m to toggle touchpad on/off)
+bindsym $mod+m exec ~/bin/system/touchpad_toggler.sh
+
 # Redirect sound to headphones
 #bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
 bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -371,7 +376,7 @@ for_window [class=qbittorrent] focus
 #exec_always --no-startup-id picom -b
 #
 # for custom config:
-#exec_always --no-startup-id picom --config  ~/.config/picom.conf
+exec_always --no-startup-id picom --config  ~/.config/picom.conf
 
 #############################################
 # autostart applications/services on login: #
@@ -402,7 +407,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id ~/.screenlayout/screen2.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
@@ -458,7 +463,7 @@ exec --no-startup-id /usr/bin/dunst
 #exec --no-startup-id nm-applet
 
 # clipman-applet
-#exec --no-startup-id xfce4-clipman
+exec --no-startup-id xfce4-clipman
 
 ##################
 # floating rules #
@@ -493,17 +498,22 @@ for_window [class="urxvt"] border pixel 1
 ######################################
 
 # Define colors variables:
-set $darkbluetrans	#08052be6
-set $darkblue		#08052b
-set $lightblue		#5294e2
-set $urgentred		#e53935
-set $white		#ffffff
+set $darkbluetrans	#74c7ec
+# set $darkblue		#08052b
+set $darkblue		#1e1e2e
+set $lightblue		#89b4fa
+set $urgentred		#f38ba8
+# set $white		#ffffff
+# set $white      #cdd6f4
+set $white      #b4befe
 set $black		#000000
-set $purple		#e345ff
-set $darkgrey		#383c4a
+set $purple		##cba6f7
+# set $darkgrey		#383c4a
+set $darkgrey       #1e1e2e
 set $grey		#b0b5bd
-set $mediumgrey		#8b8b8b
-set $yellowbrown	#e1b700
+# set $mediumgrey		#8b8b8b
+set $mediumgrey		#cba6f7
+set $yellowbrown	#fab387
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
@@ -511,6 +521,43 @@ client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
 client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
 client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+
+set $rosewater #f5e0dc
+set $flamingo #f2cdcd
+set $pink #f5c2e7
+set $mauve #cba6f7
+set $red #f38ba8
+set $maroon #eba0ac
+set $peach #fab387
+set $yellow #f9e2af
+set $green #a6e3a1
+set $teal #94e2d5
+set $sky #89dceb
+set $sapphire #74c7ec
+set $blue #89b4fa
+set $lavender #b4befe
+set $text #cdd6f4
+set $subtext1 #bac2de
+set $subtext0 #a6adc8
+set $overlay2 #9399b2
+set $overlay1 #7f849c
+set $overlay0 #6c7086
+set $surface2 #585b70
+set $surface1 #45475a
+set $surface0 #313244
+set $base #1e1e2e
+set $mantle #181825
+set $crust #11111b
+
+# catppuccin-mocha colors
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -552,30 +599,50 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
 # #08052be6 --> e6=90%
 
-# bar {
-#	font pango: Noto Sans Regular 10
-#	status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#	i3bar_command i3bar --transparency
-#	output HDMI-0
-#	position bottom
-#
+
+
+bar {
+	font pango: Noto Sans Regular 10
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
+	# i3bar_command i3bar --transparency
+	# output HDMI-0
+
 # When strip_workspace_numbers is set to yes,
 # any workspace that has a name of the form
 # “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
-#
-#	colors {
-#		separator          $purple
-#		background         $darkbluetrans
-#        	statusline         $white
-#					border		bg		txt		indicator
-#		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
-#		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
-#		inactive_workspace	$darkblue	$darkblue	$lightdblue	$purple
-#		urgent_workspace	$urgentred	$urgentred	$white		$purple
-#	}
-#}
+    strip_workspace_numbers yes
+#strip_workspace_name no
+
+    # catppuccin-mocha colors
+    colors {
+        background         $base
+        statusline         $text
+        focused_statusline $lavender
+        focused_separator  $base
+
+        # target           border bg        text
+        focused_workspace  $base  $mauve    $crust
+        active_workspace   $base  $surface2 $text
+        inactive_workspace $base  $base     $text
+        urgent_workspace   $base  $red      $crust
+  }
+
+# # default colors
+# 	colors {
+# 		separator          $purple
+# 		background         $darkgrey
+#         statusline         $white
+#                             # border		bg		txt		indicator
+# 		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
+# 		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
+# 		inactive_workspace	$darkblue	$darkblue	$lightdblue	$purple
+# 		urgent_workspace	$urgentred	$urgentred	$white		$purple
+# 	}
+}
+
+# toggle show/hide bar
+bindsym $mod+y bar mode toggle
 
 #####################################
 # Application menu handled by rofi: #
@@ -604,6 +671,3 @@ bindsym $mod+t exec rofi -show window \
 #		-config ~/.config/rofi/rofidmenu.rasi
 
 exec_always feh --bg-scale /home/james/Pictures/Wallpapers/dark-waves.jpg
-
-
-
