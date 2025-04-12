@@ -43,6 +43,7 @@ alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/plotting; mamba activate sec_env; ls"
 alias gogo='cd ~/Documents/plotting; mamba activate sec_env; la; tmux split-pane -h; tmux send-keys "mamba activate sec_env" Enter; tmux send-keys "ipython" Enter; tmux select-pane -L'
+alias gohyd='cd ~/Dropbox/Monash/HydDB/notebook; mamba activate sec_env; la; tmux split-pane -h; tmux send-keys "mamba activate sec_env" Enter; tmux send-keys "hyd" Enter; tmux select-pane -L'
 # alias gogo='cd ~/Documents/plotting; mamba activate sec_env; la; tmux split-pane -h; tmux select-pane -R; la; tmux select-pane -L'
 alias jalview="~/Documents/biotools/jalview/bin/jalview &"
 alias web="cd ~/Documents/website"
