@@ -1,7 +1,16 @@
+envs_dirs:
+  - /home/james/micromamba/envs
+pkgs_dirs:
+  - /home/james/micromamba/pkgs
 channels:
-  - bioconda
   - conda-forge
+  - bioconda
+  - pytorch
+  - nvidia
   - nodefaults
+  - https://conda.graylab.jhu.edu
+  - https://conda.rosettacommons.org
 channel_priority: strict
 changeps1: False
 env_prompt: ""
+solver: libmamba
