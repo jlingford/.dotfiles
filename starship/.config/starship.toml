@@ -54,12 +54,18 @@ text_three = '#a6adc8'
 # use this instead
 [palettes.theme_cat]
 bar_one = '##b4befe'
-bar_two = '#89b4fa'
+# bar_two = '#89b4fa'
+# bar_two = '#94e2d5'
+bar_two = '#cba6f7'
+# bar_two = '#b4befe'
+# bar_two = '#7f849c'
+# bar_two = "#181825"
 bar_three = '#394260'
 bar_four = '#212736'
 bar_five = '#1D2230'
 text_one = '#090C0C'
 text_two = '#181825'
+# text_two = "#cdd6f4"
 text_three = '#a6adc8'
 text_four = '#f38ba8'
 text_five = '#94e2d5'
@@ -160,10 +166,10 @@ symbol = ''
 
 [directory.substitutions]
 'Documents' = '  '
-'Dropbox' = ' '
-'Downloads' = ' '
-'Music' = ' '
-'Pictures' = ' '
+'Dropbox' = '  '
+'Downloads' = '  '
+'Music' = '  '
+'Pictures' = '  '
 
 [git_branch]
 symbol = ''
