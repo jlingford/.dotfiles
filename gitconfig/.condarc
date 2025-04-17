@@ -8,9 +8,9 @@ channels:
   - pytorch
   - nvidia
   - nodefaults
-  - https://conda.graylab.jhu.edu
-  - https://conda.rosettacommons.org
-channel_priority: strict
 changeps1: False
 env_prompt: ""
 solver: libmamba
+# - https://conda.graylab.jhu.edu
+# - https://conda.rosettacommons.org
+
