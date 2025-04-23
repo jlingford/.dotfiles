@@ -20,10 +20,8 @@ zap list | awk 'NR>2 {print $3}' > zaplist.txt
 
 # Make a list of flatpak packages
 
-flatpak list | awk -F '\t' '{print $1}' > flatpak.txt
+flatpak list | awk -F '\t' '{print $2}' > flatpak.txt
 
 # Install flatpak packages from list
 
 flatpak update < flatpak.txt
-
-
