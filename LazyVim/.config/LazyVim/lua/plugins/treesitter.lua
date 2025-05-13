@@ -3,8 +3,6 @@ return {
   opts = {
     highlight = { enable = true },
     indent = { enable = true },
-    ensure_installed = {
-      "r",
-    },
+    ensure_installed = {},
   },
 }
