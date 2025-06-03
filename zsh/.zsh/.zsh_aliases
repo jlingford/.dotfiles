@@ -87,4 +87,7 @@ function mkdircd ()
 }
 alias mkd="mkdircd"
 
-
+function con () {
+    mamba deactivate
+    mamba activate "$(mamba info --envs | fzf --color 'border:#94e2d5,label:#cdd6f4' --reverse --tmux center,40%,40% | awk '{print $1}')"
+}
