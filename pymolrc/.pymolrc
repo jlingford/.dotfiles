@@ -31,3 +31,5 @@ set stick_ball, on
 set stick_ball_ratio, 1.6
 set cartoon_side_chain_helper, on
 run https://raw.githubusercontent.com/cbalbin-bio/pymol-color-alphafold/master/coloraf.py
+run /home/james/Documents/pymol_scripts/coloraf_catppuccin.py
+run /home/james/Documents/pymol_scripts/viridis.py
