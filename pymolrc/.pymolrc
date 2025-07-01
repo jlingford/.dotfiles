@@ -13,7 +13,7 @@ set reflect, 1
 set reflect_power, 0
 set ribbon_width, 8
 set line_width, 2.5
-set cartoon_transparency, 0.45
+set cartoon_transparency, 0
 set cartoon_flat_sheets, off
 set valence, off
 set dash_length, 0.06
