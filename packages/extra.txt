@@ -1,6 +1,5 @@
 accountsservice
 acpi
-aliview
 alsa-firmware
 alsa-plugins
 alsa-utils
@@ -19,7 +18,6 @@ bat-extras
 bind
 bluez
 bluez-utils
-brave-bin
 brightnessctl
 btop
 btrfs-progs
@@ -35,12 +33,10 @@ dmidecode
 dmraid
 dnsmasq
 docker
-docker-desktop
 docker-machine
 dosfstools
 downgrade
 dracut
-dropbox
 duf
 dunst
 dust
@@ -51,7 +47,6 @@ endeavouros-branding
 endeavouros-keyring
 endeavouros-mirrorlist
 endeavouros-xfce4-terminal-colors
-envycontrol
 eos-apps-info
 eos-dracut
 eos-hooks
@@ -71,7 +66,6 @@ ffmpegthumbnailer
 firefox
 firewalld
 flatpak
-forgit
 galculator
 gimp
 git
@@ -108,7 +102,6 @@ jfsutils
 jq
 keychain
 kitty
-lazydocker
 lazygit
 less
 libdvdcss
@@ -136,7 +129,6 @@ mesa-utils
 modemmanager
 mpv
 mtools
-mullvad-vpn
 nano
 nano-syntax-highlighting
 neovim
@@ -169,7 +161,6 @@ pavucontrol
 peek
 perl
 perl-rename
-pfetch
 picom
 pipewire-alsa
 pipewire-jack
@@ -186,16 +177,13 @@ python
 python-defusedxml
 python-packaging
 python-pyqt6
-python-pywal16
 qbittorrent
-quarto-cli-bin-pre-release
 r
 rebuild-detector
 reflector
 reflector-simple
 rkhunter
 rofi
-rstudio-desktop-bin
 rsync
 rtkit
 s-nail
@@ -226,7 +214,6 @@ tldr
 tmux
 tor
 ttf-bitstream-vera
-ttf-courier-prime
 ttf-dejavu
 ttf-hack-nerd
 ttf-liberation
@@ -241,7 +228,6 @@ uv
 vi
 vim
 vlc
-vscodium-bin
 welcome
 wget
 which
@@ -281,6 +267,5 @@ yq
 zathura
 zathura-pdf-poppler
 zip
-zoom
 zoxide
 zsh

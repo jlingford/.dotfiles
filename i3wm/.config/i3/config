@@ -57,7 +57,8 @@ gaps inner 6
 gaps outer 3
 
 # show window title bars (not officially supported with i3gaps)
-#default_border normal
+# default_border normal
+default_border pixel 2
 
 # window title alignment
 #title_align center
@@ -484,7 +485,9 @@ for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
 
 # set border of floating window
-for_window [class="urxvt"] border pixel 1
+# for_window [class="urxvt"] border pixel 0
+# this setting shows a border around a window when focused on said window
+for_window [class="^.*"] border pixel 0
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
@@ -517,10 +520,10 @@ set $yellowbrown	#fab387
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
-client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
-client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
-client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+# client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
+# client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
+# client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
+# client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd
@@ -551,11 +554,11 @@ set $crust #11111b
 
 # catppuccin-mocha colors
 # target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $rosewater $lavender
-client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.focused           $lavender $base $text  $rosewater $overlay1
+# client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+# client.unfocused         $overlay0 $base $text  $rosewater $overlay0
 client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+# client.placeholder       $overlay0 $base $text  $overlay0  $base
 client.background        $base
 
 
@@ -670,4 +673,4 @@ bindsym $mod+t exec rofi -show window \
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
 
-exec_always feh --bg-scale /home/james/Pictures/Wallpapers/dark-waves.jpg
+exec_always feh --bg-scale /home/james/Pictures/Wallpapers/endeavour-blue-black-1920x1080.png

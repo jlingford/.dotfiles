@@ -1,53 +1,20 @@
-Discord
-Steam
-VSCodium
-UCSF ChimeraX
-Audacity
-Codecs
-Blender
-Codecs
-Freedesktop Platform
-Freedesktop Platform
-i386
-i386
-Mesa
-Mesa (Extra)
-Mesa
-Mesa (Extra)
-nvidia-570-124-04
-nvidia-570-133-07
-Mesa
-Mesa (Extra)
-Mesa
-Mesa (Extra)
-nvidia-570-124-04
-nvidia-570-133-07
-nvidia-570-86-16
-Intel VAAPI driver
-Intel VAAPI driver
-i386
-i386
-FFmpeg extension with extra codecs
-openh264
-openh264
-openh264
-Freedesktop SDK
-Freedesktop SDK
-GNU Image Manipulation Program
-HEIC
-GNOME Application Platform version 46
-GNOME Application Platform version 47
-GNOME Application Platform version 48
-Adwaita dark GTK theme
-Inkscape
-JabRef
-KDE Application Platform
-KDE Application Platform
-KDE Application Platform
-KDE Application Platform
-Okular
-Python Molecular Graphics
-Tor Browser Launcher
-VLC
-Zotero
-Zoom
+com.discordapp.Discord
+edu.ucsf.rbvi.ChimeraX
+org.blender.Blender
+org.blender.Blender.Codecs
+org.freedesktop.Platform
+org.freedesktop.Platform
+org.freedesktop.Platform.GL.default
+org.freedesktop.Platform.GL.default
+org.freedesktop.Platform.GL.default
+org.freedesktop.Platform.GL.default
+org.freedesktop.Platform.GL.nvidia-570-133-07
+org.freedesktop.Platform.VAAPI.Intel
+org.freedesktop.Platform.VAAPI.Intel
+org.freedesktop.Platform.ffmpeg-full
+org.freedesktop.Platform.openh264
+org.freedesktop.Platform.openh264
+org.gnome.Platform
+org.kde.KStyle.Adwaita
+org.kde.Platform
+org.kde.okular

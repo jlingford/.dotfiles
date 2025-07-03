@@ -121,10 +121,15 @@ _fzf_comprun() {
 # pretty fzf previews in CTRL-T
 export FZF_CTRL_T_OPTS="
     --preview '$show_file_or_dir_preview'
+    --walker dir,follow,hidden
     --walker-skip .git,node_modules,target
     --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 # pretty fzf preview in ALT-C completion
-export FZF_ALT_C_OPTS="--preview '$show_dir_preview'"
+export FZF_ALT_C_OPTS="
+    --preview '$show_dir_preview'
+    --walker dir,follow,hidden
+    --walker-skip .git,node_modules,target
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 # fzf history search
 # CTRL-/ to toggle small preview window to see the full command # CTRL-Y to copy the command into clipboard using pbcopy
 export FZF_CTRL_R_OPTS="

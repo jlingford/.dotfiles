@@ -24,17 +24,84 @@ vim.keymap.set("c", ";", ":", { noremap = true }) -- maps semicolon to colon
 vim.keymap.set("c", ":", ";", { noremap = true }) -- maps colon to semicolon
 -- vim.keymap.set("n", "<Caps>", "<ctrl>", { noremap = true }) -- maps Caps to Ctrl
 
--- -- autocomplete brackets and quotes
-vim.keymap.set("i", "(", "()<ESC>hli", { noremap = true })
-vim.keymap.set("i", "{", "{}<ESC>hli", { noremap = true })
-vim.keymap.set("i", "}", "{},<ESC>hhli", { noremap = true })
-vim.keymap.set("i", "[", "[]<ESC>hli", { noremap = true })
-vim.keymap.set("i", '"', '""<ESC>hli', { noremap = true })
-vim.keymap.set("i", "'", "''<ESC>hli", { noremap = true })
+-- autocomplete for some useful symbols
 vim.keymap.set("i", "<", "<><ESC>hli", { noremap = true })
 vim.keymap.set("i", "`", "``<ESC>hli", { noremap = true })
 vim.keymap.set("i", "*", "**<ESC>hli", { noremap = true })
+
+-- ToggleTerm Terminal
+vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle Open/Close Terminal" })
+vim.keymap.set(
+  "n",
+  "<leader>t|",
+  "<cmd>ToggleTerm direction=vertical size=40<cr>",
+  { desc = "Open Terminal Vertically" }
+)
+vim.keymap.set("n", "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open Terminal Horizontally" })
+vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float size=80<cr>", { desc = "Open Terminal in Float" })
+vim.keymap.set("n", "<leader>tl", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send Current Line to Terminal" })
+vim.keymap.set(
+  "v",
+  "<leader>tv",
+  "<cmd>ToggleTermSendVisualLines<cr>",
+  { desc = "Send Visually Selected Lines to Terminal" }
+)
+vim.keymap.set(
+  "v",
+  "<leader>ts",
+  "<cmd>ToggleTermSendVisualSelection<cr>",
+  { desc = "Send Visually Selected Text Only to Terminal" }
+)
+vim.keymap.set("n", "<leader>tp", "vip<cmd>ToggleTermSendVisualLines<cr>", { desc = "Send paragraph to Terminal" })
+vim.keymap.set("n", "<leader>ta", "ggVG<cmd>ToggleTermSendVisualLines<cr>", { desc = "Send all lines to Terminal" })
+vim.keymap.set(
+  "n",
+  "<leader>tb",
+  "VG<cmd>ToggleTermSendVisualLines<cr>",
+  { desc = "Send all lines after current line to Terminal" }
+)
+-- keymaps needed to make ToggleTerm work properly. See: https://github.com/akinsho/toggleterm.nvim?tab=readme-ov-file#terminal-window-mappings
+function _G.set_terminal_keymaps()
+  local opts = { buffer = 0 }
+  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+  vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+end
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
+
+-- Keymap graveyard: not needed in LazyVim, but kept for reference
+
+-- -- -- autocomplete brackets and quotes
+-- vim.keymap.set("i", "(", "()<ESC>hli", { noremap = true })
+-- vim.keymap.set("i", "{", "{}<ESC>hli", { noremap = true })
+-- vim.keymap.set("i", "}", "{},<ESC>hhli", { noremap = true })
+-- vim.keymap.set("i", "[", "[]<ESC>hli", { noremap = true })
+-- vim.keymap.set("i", '"', '""<ESC>hli', { noremap = true })
+
+-- -- windows
+-- vim.keymap.set("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
+-- vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
+-- vim.keymap.set("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
+-- vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
+-- vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
+-- vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 --
+-- -- tabs
+-- vim.keymap.set("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
+-- vim.keymap.set("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+-- vim.keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+-- vim.keymap.set("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+-- vim.keymap.set("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+-- vim.keymap.set("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+--
+-- -- change working dir to match current file
+-- vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<cr>", { desc = "Change dir to current file" })
+
 -- -- moving lines and visual blocks of lines easily
 -- vim.keymap.set("n", "<A-j>", "<cmd>m+<CR>==", { noremap = true })
 -- vim.keymap.set("n", "<A-k>", "<cmd>m-2<CR>==", { noremap = true })
@@ -171,61 +238,3 @@ vim.keymap.set("i", "*", "**<ESC>hli", { noremap = true })
 -- -- vim.keymap.set({ "n", "v" }, "<leader>cf", function()
 -- --   Util.format({ force = true })
 -- -- end, { desc = "Format" })
---
--- Terminal
-vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle Open/Close Terminal" })
-vim.keymap.set(
-  "n",
-  "<leader>t|",
-  "<cmd>ToggleTerm direction=vertical size=40<cr>",
-  { desc = "Open Terminal Vertically" }
-)
-vim.keymap.set("n", "<leader>t-", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open Terminal Horizontally" })
-vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float size=80<cr>", { desc = "Open Terminal in Float" })
-vim.keymap.set("n", "<leader>tl", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send Current Line to Terminal" })
-vim.keymap.set(
-  "v",
-  "<leader>tv",
-  "<cmd>ToggleTermSendVisualLines<cr>",
-  { desc = "Send Visually Selected Lines to Terminal" }
-)
-vim.keymap.set(
-  "v",
-  "<leader>ts",
-  "<cmd>ToggleTermSendVisualSelection<cr>",
-  { desc = "Send Visually Selected Text Only to Terminal" }
-)
-vim.keymap.set("n", "<leader>tp", "vip<cmd>ToggleTermSendVisualLines<cr>", { desc = "Send paragraph to Terminal" })
-vim.keymap.set("n", "<leader>ta", "ggVG<cmd>ToggleTermSendVisualLines<cr>", { desc = "Send all lines to Terminal" })
-vim.keymap.set(
-  "n",
-  "<leader>tb",
-  "VG<cmd>ToggleTermSendVisualLines<cr>",
-  { desc = "Send all lines after current line to Terminal" }
-)
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
-vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
-vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
-vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
-vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
-vim.keymap.set("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-vim.keymap.set("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
-
--- -- windows
--- vim.keymap.set("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
--- vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
--- vim.keymap.set("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
--- vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
--- vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
--- vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
---
--- -- tabs
--- vim.keymap.set("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
--- vim.keymap.set("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
--- vim.keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
--- vim.keymap.set("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
--- vim.keymap.set("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
--- vim.keymap.set("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
---
--- -- change working dir to match current file
--- vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<cr>", { desc = "Change dir to current file" })

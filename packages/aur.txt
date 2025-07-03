@@ -1,0 +1,15 @@
+aliview
+brave-bin
+docker-desktop
+dropbox
+envycontrol
+forgit
+lazydocker
+mullvad-vpn
+pfetch
+python-pywal16
+quarto-cli-bin-pre-release
+rstudio-desktop-bin
+ttf-courier-prime
+vscodium-bin
+zoom
