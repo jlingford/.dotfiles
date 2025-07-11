@@ -16,5 +16,13 @@ return {
       },
     },
     tmux_show_only_in_active_window = true, -- prevents images from persisting when switching tmux panes
+    -- recommeded opts for using with molten.nvim
+    backend = "kitty",
+    max_width = 100,
+    max_height = 12,
+    max_height_window_percentage = math.huge,
+    max_width_window_percentage = math.huge,
+    window_overlap_clear_enabled = true, -- toggles images when windows are overlapped
+    window_overlap_clear_ft_ignore = { "blink" }, -- ?
   },
 }
