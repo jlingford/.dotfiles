@@ -1,12 +1,13 @@
 return {
   "quarto-dev/quarto-nvim",
   -- enabled = false,
-  event = "VeryLazy",
+  -- lazy = true,
+  -- event = "VeryLazy",
+  ft = { "quarto", "markdown", "ipynb" },
   dependencies = {
     "jmbuhr/otter.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  ft = { "quarto", "markdown", "*.ipynb" },
   -- for Molten.nvim
   -- opts = {
   --   lspFeatures = {

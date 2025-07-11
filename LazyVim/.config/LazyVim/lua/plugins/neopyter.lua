@@ -1,5 +1,6 @@
 return {
   "SUSTech-data/neopyter",
+  enabled = false,
   event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
