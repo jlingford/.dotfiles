@@ -3,18 +3,18 @@
 -- Add any additional autocmds here
 
 -- create ipynb filetype to lazy load on
--- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
---   pattern = "*.ipynb",
---   callback = function()
---     vim.bo.filetype = "ipynb"
---   end,
--- })
-
--- recognise ipynb as json
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.ipynb",
   callback = function()
-    vim.bo.filetype = "json"
-    vim.b.notebook_file = true -- Custom flag for notebook files
+    vim.bo.filetype = "ipynb"
   end,
 })
+
+-- -- recognise ipynb as json
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--   pattern = "*.ipynb",
+--   callback = function()
+--     vim.bo.filetype = "json"
+--     vim.b.notebook_file = true -- Custom flag for notebook files
+--   end,
+-- })
