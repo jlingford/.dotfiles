@@ -1,16 +1,20 @@
 return {
-  "goerz/jupytext.nvim",
-  version = "0.2.0",
-  event = "VeryLazy",
-  -- ft = { "ipynb" },
+  "GCBallesteros/jupytext.nvim",
+  config = true,
+  -- WARN: do not try lazy loading, just won't work...
+  -- Depending on your nvim distro or config you may need to make the loading not lazy
+  -- lazy=false,
+  -- WARN: requires a venv with "pip install jupytext" ran
+  -- require("jupytext").setup({
+  --   style = "markdown",
+  --   output_extension = "md",
+  --   force_ft = "markdown",
+  -- }),
+  -- event = "VeryLazy",
+  -- ft = { "markdown", "quarto", "ipynb", "json" },
   opts = {
-    -- jupytext = "jupytext",
-    -- format = "markdown",
-    -- update = true,
-    -- filetype = require("jupytext").get_filetype,
-    -- new_template = require("jupytext").default_new_template(),
-    -- sync_patterns = { "*.md", "*.py", "*.jl", "*.R", "*.Rmd", "*.qmd" },
-    -- autosync = true,
-    -- handle_url_schemes = true,
+    style = "markdown",
+    output_extension = "md",
+    force_ft = "markdown",
   },
 }
