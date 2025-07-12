@@ -24,6 +24,9 @@ vim.keymap.set("c", ";", ":", { noremap = true }) -- maps semicolon to colon
 vim.keymap.set("c", ":", ";", { noremap = true }) -- maps colon to semicolon
 -- vim.keymap.set("n", "<Caps>", "<ctrl>", { noremap = true }) -- maps Caps to Ctrl
 
+-- move forward one character while in insert mode using Ctrl-l without the need to use right arrow key
+vim.keymap.set("i", "<C-L>", "<Right>", { noremap = true })
+
 -- autocomplete for some useful symbols
 vim.keymap.set("i", "<", "<><ESC>hli", { noremap = true })
 vim.keymap.set("i", "`", "``<ESC>hli", { noremap = true })
