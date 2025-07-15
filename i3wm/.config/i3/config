@@ -182,7 +182,7 @@ bindsym $mod+o exec Thunar
 
 # take a screenshot
 bindsym $mod+p exec xfce4-screenshooter -rc
-bindsym $mod+Shift+u exec xfce4-screenshooter -r --save ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym $mod+Shift+u exec xfce4-screenshooter -r --save ~/Pictures/Screenshots/$(date +%Y-%m-%d-%T)-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 
 # kill focused window
