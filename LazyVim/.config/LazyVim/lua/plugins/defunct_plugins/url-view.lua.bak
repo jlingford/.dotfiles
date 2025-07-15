@@ -1,5 +1,6 @@
 return {
   "axieax/urlview.nvim",
+  -- WARN: simply doesn't work
   -- enabled = true,
   -- lazy = false,
   -- cmd = { "UrlView" },
