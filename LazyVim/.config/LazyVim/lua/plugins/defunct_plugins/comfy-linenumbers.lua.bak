@@ -1,0 +1,8 @@
+return {
+  "mluders/comfy-line-numbers.nvim",
+  -- WARN: lazy loading not possible
+  -- WARN: extremely buggy... don't know how to fix
+  -- lazy = true,
+  -- event = "BufEnter",
+  -- cmd = { "Comfy" },
+}
