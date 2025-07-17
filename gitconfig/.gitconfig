@@ -2,6 +2,9 @@
 	name = jlingford
 	email = james.lingford@gmail.com
 
+[init]
+    defaultBranch = main
+
 [include]
     path = /home/james/.dotfiles/gitconfig/.delta/themes/catppuccin.gitconfig
 
