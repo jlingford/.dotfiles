@@ -14,3 +14,5 @@ opt.splitright = true -- Put new windows right of current
 opt.splitkeep = "screen"
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.wildmode = "longest:full,full" -- Command-line completion modes
+-- opt.background = "dark"
+-- vim.global.colors_name = "catppuccin-mocha"
