@@ -7,3 +7,4 @@ return {
     end
   end,
 }
+-- https://github.com/LazyVim/LazyVim/pull/6354
