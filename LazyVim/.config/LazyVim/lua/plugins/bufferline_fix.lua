@@ -8,3 +8,4 @@ return {
   end,
 }
 -- https://github.com/LazyVim/LazyVim/pull/6354
+-- also see: https://github.com/LazyVim/LazyVim/issues/6355
