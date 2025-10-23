@@ -1,5 +1,6 @@
 # Aliases
 alias ls="lsd"
+alias lsl="lsd -1"
 alias la="lsd -la"
 alias lat="lsd -la --total-size"
 alias lt="lsd -lat"

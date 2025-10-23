@@ -145,8 +145,8 @@ export FZF_CTRL_R_OPTS="
 # =============================================================================
 
 # set bindkeys
-bindkey "^[[3~" delete-char
-bindkey "^[l" forward-word # alt-l as a right-arrow substitute
+bindkey "^[[3~" delete-char # can now use the delete key properly
+# bindkey "^L" forward-char # ctrl-l as a right-arrow substitute. NOTE: just use Ctrl-f (default and builtin)
 export FZF_COMPLETION_TRIGGER='' # to disable **<TAB>, make fzf trigger on <TAB>
 bindkey '^T' fzf-completion # allow fzf trigger with CTRL-T FZF without need for **TAB
 bindkey '^I' $fzf_default_completion
