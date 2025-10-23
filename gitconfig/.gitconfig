@@ -23,3 +23,5 @@
 
 [merge]
     conflictstyle = zdiff3
+[credential]
+	helper = cache
