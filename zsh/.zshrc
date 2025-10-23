@@ -230,6 +230,15 @@ unset __mamba_setup
 
 # =============================================================================
 
+# # tmux conda-inherit plugin
+# # WARN: enabling this tmux pludin slows things down. must be placed after mamba init block
+# if [[ -n "$TMUX" ]] then
+#   export flavor='mamba' # NOTE: needs to be named 'mamba', not micromamba like in default
+#   source $HOME/.tmux/plugins/tmux-conda-inherit/conda-inherit.sh
+# fi
+
+# =============================================================================
+
 # Utility functions for zoxide.
 # pwd based on the value of _ZO_RESOLVE_SYMLINKS.
 function __zoxide_pwd() {
