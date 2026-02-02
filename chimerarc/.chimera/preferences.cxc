@@ -1,0 +1,57 @@
+# basic settings
+ui mousemode right select
+set bgCol white
+# col bychain
+col byhet
+lighting soft
+set sil t
+graphics sil width 1
+
+# make selection outline black
+graphics sel width 3 col black
+
+
+# hide side chains, but keep ligands/cofactors visible
+sel protein
+col sel byhet
+hide sel a,s
+show sel c
+
+# color chains sequentially (looks better than the default color bychain option)
+# col seq chains target acs palette Pastel1-4
+col seq chains target acs palette #f5e0dc:#f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
+
+# style ligands/cofactors as ball and stick
+sel ~protein
+style sel ball
+col sel byel
+
+## style nucleotide ligands with a ring fill
+#nucleotides sel fill
+#trans sel 20 target f
+
+# hydrogenase specific settings
+sel @Ni,Fe,Mg
+style sel sphere
+sel :cys
+show sel a
+col sel byhet
+sel pbonds
+col sel black
+
+# hide hydrogens
+hide H
+
+# make cute cartoon style
+car style helix width 2.5 thickness 1; car style strand width 2.5 thickness 1; car style arrowScale 1.5; car style coil thickness 0.9
+
+# chunky side chain look
+# size stickRadius 0.4
+
+# make cylinders/stubs cartoon style
+# cartoon style modeh def arrows t arrowshelix f arrowscale 2 wid 2 thick 0.4 sides 12 div 20
+# cartoon style protein modeh tube rad 2 sides 24 thick 0.6
+
+# keep as final command:
+select clear
+
