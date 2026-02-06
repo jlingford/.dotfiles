@@ -13,6 +13,7 @@ graphics sel width 3 col black
 
 # hide side chains, but keep ligands/cofactors visible
 sel protein
+style sel ball
 col sel byhet
 hide sel a,s
 show sel c
