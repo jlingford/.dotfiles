@@ -162,7 +162,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 3
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -170,13 +170,15 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        // active-color "#7fc8ff"
+        active-color "#cba6f7"
 
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#505050"
+        // inactive-color "#505050"
+        inactive-color "#6c7086"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -200,7 +202,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         off
 
-        width 4
+        width 3
         active-color "#ffc87f"
         inactive-color "#505050"
 
@@ -317,8 +319,23 @@ window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    // match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    // default-column-width {}
+
+    geometry-corner-radius 8
+    clip-to-geometry true
+    opacity 0.98
+}
+
+window-rule {
+    match app-id=r#"kitty$"# title="^tty-clock$"
+
+    open-floating true
+    default-column-width { proportion 0.3; }
+    default-window-height { proportion 0.3; }
+    default-floating-position x=7 y=7 relative-to="top-right"
+    open-focused false
+    opacity 1.0
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -623,4 +640,7 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+    // Toggle waybar on or off
+    Mod+B { spawn "pkill -SIGUSR1 waybar"; }
 }
