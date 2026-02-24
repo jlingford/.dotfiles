@@ -23,7 +23,7 @@ input {
     // Omitting settings disables them, or leaves them at their default values.
     // All commented-out settings here are examples, not defaults.
     touchpad {
-        off // TOUCHPADTARGET
+        // off
         tap
         // dwt
         // dwtp
@@ -641,7 +641,7 @@ binds {
     // Mod+B {spawn "~/.config/waybar/launch.sh"; }
 
     // Toggle mouse pad on or off
-    // Mod+M {spawn "$HOME/.dotfiles/niri/.config/niri/toggle_niri_trackpad.sh"}
+    // Mod+M {spawn "bash ~/bin/system/touchpad_toggler.sh"}
 
     Mod+Return { spawn "kitty"; }
 }

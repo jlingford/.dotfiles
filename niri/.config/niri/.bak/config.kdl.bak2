@@ -1,0 +1,254 @@
+spawn-at-startup "waybar"
+// spawn-at-startup "waypaper" "--restore"
+// spawn-at-startup "dunst"
+// spawn-at-startup "swayidle" "-w"
+
+workspace "1"
+workspace "2"
+workspace "3"
+
+prefer-no-csd
+
+environment {
+    DISPLAY ":1"
+    QT_QPA_PLATFORM "wayland"
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 28
+    hide-after-inactive-ms 5000
+}
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            options "caps:swapescape"
+        }
+
+        repeat-delay 400
+        repeat-rate 25
+        track-layout "global"
+    }
+
+    touchpad {
+        tap
+        accel-profile "flat"
+        scroll-method "two-finger"
+    }
+
+    mouse {
+        accel-profile "flat"
+        middle-emulation
+    }
+
+    warp-mouse-to-focus
+
+    focus-follows-mouse max-scroll-amount="100%"
+}
+
+output "eDP-1" {
+    scale 1.25
+
+    transform "normal"
+
+    background-color "#303446"
+
+    position x=1280 y=0
+}
+
+layout {
+    gaps 7
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 0.99
+    }
+
+    preset-window-heights {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.99; }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        width 3
+        active-color "#cba6f7"
+        inactive-color "#6c7086"
+    }
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path null
+
+switch-events {
+    lid-close {spawn "hyprlock";}
+}
+
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+    opacity 0.95
+}
+
+window-rule {
+    match app-id=r#"kitty$"# title="^tty-clock$"
+
+    open-floating true
+    default-column-width { proportion 0.3; }
+    default-window-height { proportion 0.3; }
+    default-floating-position x=7 y=7 relative-to="top-right"
+    open-focused false
+    opacity 0.97
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"firefox$"# title="^Library$"
+    match app-id=r#"mpv$"#
+    match app-id=r#"libresprite$"#
+    match app-id=r#"waypaper$"#
+    match app-id=r#"Audacity$"#
+
+    open-floating true
+    opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"firefox$"#
+    match app-id=r#"chromium$"#
+    match app-id=r#"vivaldi-stable$"#
+    match app-id=r#"virt-manager$"#
+    match app-id=r#"^com\.obsproject\.Studio$"#
+
+    opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"^com\.obsproject\.Studio$"#
+
+    min-width 876
+}
+
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    Mod+Return { spawn "kitty"; }
+    Mod+A { spawn "rofi" "-show" "drun" "-config" "~/.config/rofi/sway.rasi"; }
+    Mod+F {spawn "firefox";}
+    Mod+D {spawn "discord" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland";}
+    Mod+E {spawn "kitty" "-e" "yazi";}
+    Mod+B {spawn "~/.config/waybar/launch.sh"; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86MonBrightnessUp cooldown-ms=50 allow-when-locked=true { spawn "brightnessctl" "s" "5%+"; }
+    XF86MonBrightnessDown cooldown-ms=50 allow-when-locked=true { spawn "brightnessctl" "s" "5%-"; }
+
+    Shift+XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01+"; }
+    Shift+XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
+
+    Mod+Q { close-window; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+
+    Mod+Ctrl+Right      { focus-workspace-down; }
+    Mod+Ctrl+Left        { focus-workspace-up; }
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Alt+1 { move-window-to-workspace 1; }
+    Mod+Alt+2 { move-window-to-workspace 2; }
+    Mod+Alt+3 { move-window-to-workspace 3; }
+    Mod+Alt+4 { move-window-to-workspace 4; }
+    Mod+Alt+5 { move-window-to-workspace 5; }
+    Mod+Alt+6 { move-window-to-workspace 6; }
+    Mod+Alt+7 { move-window-to-workspace 7; }
+    Mod+Alt+8 { move-window-to-workspace 8; }
+    Mod+Alt+9 { move-window-to-workspace 9; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+M { maximize-column; }
+    Mod+C { center-column; }
+
+    Mod+Minus { set-column-width "-5%"; }
+    Mod+Equal { set-column-width "+5%"; }
+
+    Mod+Shift+Minus { set-window-height "-5%"; }
+    Mod+Shift+Equal { set-window-height "+5%"; }
+
+    Mod+W       { toggle-window-floating; }
+    Mod+Shift+W { switch-focus-between-floating-and-tiling; }
+
+    Mod+K { switch-layout "next"; }
+
+    Print { screenshot-screen; }
+    Alt+Print { screenshot; }
+    Ctrl+Print { screenshot-window; }
+
+    Mod+Shift+E { quit; }
+    Ctrl+Alt+Delete { spawn "rofi" "-show" "menu" "-modi" "'menu:~/.local/share/rofi/scripts/rofi-power-menu-niri --choices=logout/suspend/reboot/shutdown'" "-config" "~/.config/rofi/power.rasi"; }
+
+    Super+Alt+L { spawn "hyprlock"; }
+    Mod+Shift+P { power-off-monitors; }
+
+    Mod+Shift+C { center-window; }
+}
