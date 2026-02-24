@@ -13,9 +13,9 @@
     "modules-right": [
         "pulseaudio",
         "network",
-        "backlight",
+        // "backlight",
         "battery",
-        "niri/language",
+        // "niri/language",
         "tray",
         "custom/lock"
     ],
