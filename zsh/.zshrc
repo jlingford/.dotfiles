@@ -71,6 +71,7 @@ bindkey '^n' history-search-forward
 
 # Paths
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/Dropbox/Monash/HydDB/plots:$PATH"
 # export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 # export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
@@ -227,6 +228,15 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# =============================================================================
+
+# # tmux conda-inherit plugin
+# # WARN: enabling this tmux pludin slows things down. must be placed after mamba init block
+# if [[ -n "$TMUX" ]] then
+#   export flavor='mamba' # NOTE: needs to be named 'mamba', not micromamba like in default
+#   source $HOME/.tmux/plugins/tmux-conda-inherit/conda-inherit.sh
+# fi
 
 # =============================================================================
 

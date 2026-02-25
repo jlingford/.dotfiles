@@ -6,7 +6,7 @@
     defaultBranch = main
 
 [include]
-    path = /home/james/.dotfiles/gitconfig/.delta/themes/catppuccin.gitconfig
+    path = ~/.dotfiles/gitconfig/.delta/themes/catppuccin.gitconfig
 
 [core]
     pager = delta

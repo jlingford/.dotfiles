@@ -182,7 +182,8 @@ bindsym $mod+o exec Thunar
 
 # take a screenshot
 bindsym $mod+p exec xfce4-screenshooter -rc
-bindsym $mod+Shift+u exec xfce4-screenshooter -r --save ~/Pictures/Screenshots/$(date +%Y-%m-%d-%T)-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym $mod+Shift+p exec xfce4-screenshooter -r --save ~/Pictures/Screenshots/$(date +%Y-%m-%d-%T)-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym $mod+Shift+u exec xfce4-screenshooter -r --save ~/Dropbox/Monash/HydDB/notebook/pics/$(date +%Y-%m-%d-%T)-screenshot.png && notify-send "Screenshot saved to ~/Dropbox/Monash/HydDB/notebook/pics/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 
 # kill focused window
@@ -252,9 +253,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+g layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+g layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -304,11 +305,11 @@ bindsym $mod+m exec ~/bin/system/touchpad_toggler.sh
 
 ## App shortcuts
 bindsym $mod+w exec /usr/bin/firefox
-bindsym $mod+n exec /usr/bin/thunar
+# bindsym $mod+n exec /usr/bin/thunar
 bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
-bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
+# bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 ##########################################
 # configuration for workspace behaviour: #
