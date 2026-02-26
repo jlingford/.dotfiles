@@ -16,8 +16,8 @@ input {
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
         // A fairly fast repeat rate and delay.
-        repeat-delay 300
-        repeat-rate 35
+        repeat-delay 350
+        repeat-rate 30
     }
 
     // Next sections include libinput settings.
@@ -29,7 +29,7 @@ input {
         natural-scroll
         accel-speed 0.2
         accel-profile "flat"
-        // scroll-method "two-finger"
+        scroll-method "two-finger"
         // disabled-on-external-mouse
     }
 
@@ -285,7 +285,7 @@ hotkey-overlay {
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%Hh-%Mm-%Ss_screenshot.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -599,6 +599,9 @@ binds {
 
     // Toggle mouse pad on or off
     Mod+M { spawn "~/.dotfiles/niri/.config/niri/toggle_niri_trackpad.sh"; }
+
+    // Screenshot pipe into satty to edit it
+    Mod+P { spawn "~/.dotfiles/niri/.config/niri/satty_screenshot.sh"; }
 
     // Apps
     Mod+Return { spawn "kitty"; }
