@@ -320,14 +320,16 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"kitty$"# title="^tty-clock$"
+    match app-id=r#"satty$"# title="^satty$"
 
     open-floating true
-    default-column-width { proportion 0.3; }
-    default-window-height { proportion 0.3; }
-    default-floating-position x=7 y=7 relative-to="top-right"
-    open-focused false
+    min-width 300
+    min-height 300
+    open-focused true
     opacity 1.0
+    // default-column-width { proportion 0.3; }
+    // default-window-height { proportion 0.3; }
+    // default-floating-position x=0 y=0 relative-to="top-right"
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
