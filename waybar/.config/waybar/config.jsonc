@@ -1,24 +1,38 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "width": 1280, // Waybar width
+    "width": 0, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["custom/launcher", "niri/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "backlight", "battery", "niri/language", "tray", "custom/lock"],
+    "modules-left": [
+        "custom/launcher",
+        "niri/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "backlight",
+        "battery",
+        "niri/language",
+        "tray",
+        "custom/lock"
+    ],
     "niri/workspaces": {
-         "format": "{icon}",
-         "format-icons": {
-                "default": ""
-         },
-     },
+        "format": "{icon}",
+        "format-icons": {
+            "default": ""
+        },
+    },
     "tray": {
         "icon-size": 21,
         "spacing": 10
     },
-    "custom/launcher":{
+    "custom/launcher": {
         "format": " ",
-        "on-click": "fuzzel --config ~/.config/fuzzel/launcher.ini || pkill fuzzel",
+        // "on-click": "fuzzel --config ~/.config/fuzzel/launcher.ini || pkill fuzzel", // NOTE: update
+        "on-click": "fuzzel --config ~/.config/fuzzel/launcher.ini || pkill fuzzel", // NOTE: update
         "on-click-right": "pkill fuzzel",
         "tooltip": false,
     },
@@ -27,22 +41,33 @@
         "escape": true,
         "interval": 5,
         "tooltip": false,
-        "exec": "playerctl metadata --format='{{ title }}'",
+        // "exec": "playerctl metadata --format='{{ title }}'",
         "on-click": "playerctl play-pause",
         "max-length": 50
     },
     "clock": {
-        "timezone": "Pacific/Auckland",
+        "timezone": "Australia/Melbourne",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "  {:%d/%m/%Y}",
-        "format": "  {:%H:%M}"
+        // "format": "  {:%H:%M}" // 24 hour time
+        "format": "   {:%I:%M %p}" // 12 hour time
     },
     "backlight": {
         "device": "amdgpu_bl1",
         "format": "{icon} {percent}%",
-	"format-alt": "{icon}",
-	"tooltip": false,
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-alt": "{icon}",
+        "tooltip": false,
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "battery": {
         "interval": 30,
@@ -54,14 +79,30 @@
         "format-charging": "󰂄 {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%",
         "format-muted": " ",
         "format-icons": {
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol",
@@ -79,15 +120,12 @@
     "niri/language": {
         "format": "  {short}",
     },
-        "network": {
+    "network": {
         "interface": "wlan0",
-
         "format": "{ifname}",
         "format-disconnected": "",
-
         "format-wifi": " ",
         "format-alt": "  {essid}",
-
         "tooltip-format": "{signalStrength}%",
         "tooltip-format-wifi": "{essid} {signalStrength}%",
         "tooltip-format-disconnected": "No Connection",

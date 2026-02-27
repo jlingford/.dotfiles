@@ -1,8 +1,9 @@
 * {
   border: none;
   border-radius: 10;
+  /* font-family: "Hack Nerd Font Mono"; */
   font-family: "JetbrainsMono Nerd Font";
-  font-size: 15px;
+  font-size: 14px;
   min-height: 10px;
 }
 
@@ -355,6 +356,7 @@ window#waybar {
   margin-left: 8px;
   padding-right: 4px;
   background: #292c3c;
+  border-radius: 10px;
   border-bottom: 3px;
   border-style: solid;
   border-color: #bd93f9;
