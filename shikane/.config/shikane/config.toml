@@ -1,0 +1,30 @@
+[[profile]]
+name = "home1"
+
+[[profile.output]]
+enable = true
+search = ["m=PHL 243V7", "s=UHB1843019983", "v=Philips Consumer Electronics Company"]
+mode = "1440x900@59.901Hz"
+position = "0,0"
+scale = 1.0
+transform = "270"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=DELL S3422DW", "s=1811TH3", "v=Dell Inc."]
+mode = "3440x1440@59.973Hz"
+position = "900,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=0x14D6", "s=", "v=Sharp Corporation"]
+mode = "3840x2400@59.994Hz"
+position = "4340,0"
+scale = 2.0
+transform = "normal"
+adaptive_sync = false
+
