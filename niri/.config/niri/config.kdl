@@ -547,9 +547,10 @@ binds {
     Mod+Shift+M { spawn "~/.dotfiles/niri/.config/niri/toggle_niri_capsescape.sh"; }
 
     // Screenshot pipe into satty to edit it
-    Mod+P { spawn "~/.dotfiles/niri/.config/niri/satty_screenshot.sh"; }
+    Mod+P { spawn "~/.dotfiles/niri/.config/niri/satty_screenshot.sh"; } // regular screenshot and save
+    Mod+Ctrl+P { spawn "~/.dotfiles/niri/.config/niri/satty_screenshot2.sh"; } // save screenshot to notebook
 
-    // Open color picker 
+    // Open color picker
     Mod+Shift+P { spawn-sh "wl-color-picker"; }
 
     // Apps
