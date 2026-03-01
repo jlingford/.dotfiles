@@ -14,10 +14,14 @@
         "pulseaudio",
         "network",
         "backlight",
+        // "niri/language",
+        "cpu",
+        "temperature",
+        "disk",
         "battery",
-        "niri/language",
-        "tray",
-        "custom/lock"
+        "tray"
+        // "custom/lock",
+        // "custom/power"
     ],
     "niri/workspaces": {
         "format": "{icon}",
@@ -107,19 +111,62 @@
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol",
     },
-    "custom/lock": {
-        "tooltip": false,
-        "on-click": "hyprlock &",
-        "format": " ",
+    "cpu": {
+        "interval": 1,
+        // "format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
+        // "format": " {icon0} {usage:>2}%",
+        "format": " {usage:>2}%",
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+        "states": {
+            "warning": {
+                "min": 70
+            },
+            "critical": {
+                "min": 90
+            }
+        },
     },
-    "custom/power": {
-        "tooltip": false,
-        "on-click": "wlogout &",
-        "format": "⏻ "
+    "disk": {
+        "interval": 30,
+        "format": "{free}",
+        "path": "/home",
+        "unit": "GB",
+        "tooltip": true
     },
-    "niri/language": {
-        "format": "  {short}",
+    "temperature": {
+        "hwmon-path": [
+            "/sys/class/hwmon/hwmon2/temp1_input"
+            // "/sys/class/thermal/thermal_zone0/temp"
+        ],
+        "critical-threshold": 90,
+        "format": " {temperatureC}°C",
+        "format-warning": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "tooltip": true,
+        "interval": 5
     },
+    // "custom/lock": {
+    //     "tooltip": false,
+    //     "on-click": "hyprlock &",
+    //     "format": " ",
+    // },
+    // "custom/power": {
+    //     "tooltip": false,
+    //     "on-click": "wlogout &",
+    //     "format": "⏻ "
+    // },
+    // "niri/language": {
+    //     "format": "  {short}",
+    // },
     "network": {
         "interface": "wlan0",
         "format": "{ifname}",

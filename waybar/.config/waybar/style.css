@@ -291,6 +291,38 @@ window#waybar {
 
 }
 
+#cpu.warning {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  transition: none;
+  background: #292c3c;
+  color: #fab387;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #fab387;
+  transition: 0.3s;
+}
+
+#cpu.critical {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  transition: none;
+  background: #292c3c;
+  color: #f38ba8;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #f38ba8;
+  transition: 0.3s;
+}
+
 #custom-launcher {
   font-size: 20px;
   margin-top: 10px;
@@ -396,6 +428,70 @@ window#waybar {
 }
 
 #tray menu {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  transition: none;
+  background: #292c3c;
+  color: #bd93f9;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #bd93f9;
+  transition: 0.3s;
+}
+
+#temperature {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  transition: none;
+  background: #292c3c;
+  color: #bd93f9;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #bd93f9;
+  transition: 0.3s;
+}
+
+#temperature.warning {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  transition: none;
+  background: #292c3c;
+  color: #fab387;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #fab387;
+  transition: 0.3s;
+}
+
+#temperature.critical {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  transition: none;
+  background: #292c3c;
+  color: #f38ba8;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #f38ba8;
+  transition: 0.3s;
+}
+
+#custom-power {
   margin-top: 10px;
   margin-left: 8px;
   padding-left: 10px;
