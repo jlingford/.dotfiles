@@ -1,0 +1,30 @@
+[[profile]]
+name = "work1"
+
+[[profile.output]]
+enable = true
+search = ["m=DELL P2722H", "s=6SXZXN3", "v=Dell Inc."]
+mode = "1920x1080@60Hz"
+position = "3840,0"
+scale = 1.0
+transform = "90"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=DELL P2722H", "s=J1KSXN3", "v=Dell Inc."]
+mode = "1920x1080@60Hz"
+position = "1920,516"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=0x14D6", "s=", "v=Sharp Corporation"]
+mode = "3840x2400@59.994Hz"
+position = "0,396"
+scale = 2.0
+transform = "normal"
+adaptive_sync = false
+
