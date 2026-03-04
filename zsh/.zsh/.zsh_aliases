@@ -62,8 +62,8 @@ alias vz="NVIM_APPNAME=LazyVim nvim ~/.zshrc"
 # Custom functions
 
 # with fzf-tmux
-ripgrep->fzf->vim [QUERY]
-https://junegunn.github.io/fzf/tips/ripgrep-integration/
+# ripgrep->fzf->vim [QUERY]
+# https://junegunn.github.io/fzf/tips/ripgrep-integration/
 function g() (
   RELOAD='reload:rg --column --hidden --color=always --smart-case {q} || :'
   OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
