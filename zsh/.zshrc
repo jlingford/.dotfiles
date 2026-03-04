@@ -2,10 +2,10 @@
 
 # =============================================================================
 
-# Boot up tmux with new terminal session
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-    exec tmux new-session -A -s ${USER} >/dev/null 2>&1
-fi
+# # Boot up tmux with new terminal session
+# if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+#     exec tmux new-session -A -s ${USER} >/dev/null 2>&1
+# fi
 
 # Speed up zsh start time by not loading compinit every time
 autoload -Uz compinit
