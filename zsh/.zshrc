@@ -184,6 +184,14 @@ function ns() {
 
 # =============================================================================
 
+# edit-command-line: send current command to $EDITOR
+# NOTE: the keybind needs to be called within the zvm_after_init() function!
+autoload -U edit-command-line
+zle -N edit-command-line
+# bindkey -M vicmd v edit-command-line
+
+# =============================================================================
+
 # ANTIDOTE plugin manager
 # first time loading it:
 # source ~/.zsh/.antidote/antidote.zsh
@@ -205,7 +213,9 @@ source ${zsh_plugins}.zsh
 zvm_after_init_commands=(autopair-init)
 ZVM_INIT_MODE=sourcing
 function zvm_after_init() {
-  zvm_bindkey viins "^R" fzf-history-widget
+  zvm_bindkey viins "^R" fzf-history-widget # ctrl-r to call history search with fzf
+  zvm_bindkey viins "^e" edit-command-line # ctrl-e to edit current command line text in $EDITOR
+  zvm_bindkey vicmd "^e" edit-command-line # same as above, but can do it from cmd mode
 }
 function zvm_before_init() {
   zvm_bindkey viins '^[[A' history-substring-search-up
