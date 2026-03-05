@@ -40,7 +40,8 @@ alias ff="fastfetch -c examples/17"
 alias conda="mamba"
 # mkdir and cd into it in one go
 alias mon="cd ~/Dropbox/Monash; ls"
-alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
+# alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
+alias psel="pwd | tr -d '\n' | kitty +kitten clipboard" # copy pwd to kitty clipboard
 alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/plotting; mamba activate plots; ls"
