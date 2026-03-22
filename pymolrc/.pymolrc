@@ -19,7 +19,7 @@ set valence, off
 set dash_length, 0.06
 set dash_radius, 0.12
 set cartoon_gap_cutoff, 0
-set_color nitrogen = [2, 118, 253]
+set_color nitrogen, [2, 118, 253]
 set_color good_red, [228,74,62]
 set_color good_yellow, [250,199,44]
 set_color good_teal, [40,176,193]
