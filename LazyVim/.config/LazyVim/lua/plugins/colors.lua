@@ -63,6 +63,16 @@ return {
     event = "VeryLazy",
   },
   {
+    "danfry1/lume",
+    -- lazy = false,
+    lazy = "VeryLazy",
+    -- priority = 1000,
+    config = function()
+      require("lume").setup()
+      vim.cmd("colorscheme lume")
+    end,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
