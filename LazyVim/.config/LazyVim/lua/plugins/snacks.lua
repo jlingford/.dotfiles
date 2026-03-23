@@ -90,11 +90,41 @@ return {
         -- { section = "startup" },
 
         -- "COMPACT config"
-        { section = "header" },
+        -- { section = "header" },
+        -- adding a pokemon row
+        {
+          section = "terminal",
+          -- cmd = "rustmon print -n 'random' --hide-name --shiny 0.1",
+          -- cmd = "rustmon print -n 'dratini' --hide-name --shiny 0.1",
+          -- cmd = "rustmon print -n 'gastly' --hide-name --shiny 0.1",
+          -- cmd = 'rustmon print -n "unown unown unown" -f "v i m" --hide-name',
+          -- indent = 5,
+          cmd = "rustmon print -n 'unown' -f 'n' --hide-name --shiny 0.1",
+          random = 999,
+          padding = 1,
+          indent = 21,
+        },
         { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
         { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
         { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
         { section = "startup" },
+        -- { section = "terminal", cmd = "rustmon print -n 'random' --hide-name --shiny 0.1", random = 10 },
+
+        -- -- 2nd pane:
+        -- {
+        --   section = "terminal",
+        --   cmd = "cbonsai",
+        --   -- cmd = "rustmon print -n 'random' --hide-name --shiny 0.1",
+        --   -- cmd = "rustmon print -n 'random' --hide-name; rustmon print -n 'random' --hide-name",
+        --   random = 10,
+        --   pane = 2,
+        --   indent = 4,
+        --   height = 30,
+        -- },
+
+        -- -- POKEMON
+        -- { section = "terminal", cmd = 'rustmon print -n "unown unown unown unown" -f "n v i m" --hide-name' },
+        -- { section = "terminal", cmd = 'rustmon print -n "dratini" --hide-name' },
 
         -- -- "ADVANCED config"
         -- -- pane 1
