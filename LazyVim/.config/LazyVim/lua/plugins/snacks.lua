@@ -47,6 +47,12 @@ return {
           },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
           { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+          {
+            icon = " ",
+            action = "LazyExtras",
+            desc = "Lazy Extras",
+            key = "x",
+          },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
         -- Used by the `header` section
@@ -85,25 +91,25 @@ return {
       },
       sections = {
         -- -- DEFAULT config
-        -- { section = "header" },
+        { section = "header" },
         -- { section = "keys", gap = 1, padding = 1 },
         -- { section = "startup" },
 
         -- "COMPACT config"
         -- { section = "header" },
         -- adding a pokemon row
-        {
-          section = "terminal",
-          -- cmd = "rustmon print -n 'random' --hide-name --shiny 0.1",
-          -- cmd = "rustmon print -n 'dratini' --hide-name --shiny 0.1",
-          -- cmd = "rustmon print -n 'gastly' --hide-name --shiny 0.1",
-          -- cmd = 'rustmon print -n "unown unown unown" -f "v i m" --hide-name',
-          -- indent = 5,
-          cmd = "rustmon print -n 'unown' -f 'n' --hide-name --shiny 0.1",
-          random = 999,
-          padding = 1,
-          indent = 21,
-        },
+        -- {
+        --   section = "terminal",
+        --   -- cmd = "rustmon print -n 'random' --hide-name --shiny 0.1",
+        --   -- cmd = "rustmon print -n 'dratini' --hide-name --shiny 0.1",
+        --   -- cmd = "rustmon print -n 'gastly' --hide-name --shiny 0.1",
+        --   -- cmd = 'rustmon print -n "unown unown unown" -f "v i m" --hide-name',
+        --   -- indent = 5,
+        --   cmd = "rustmon print -n 'unown' -f 'n' --hide-name --shiny 0.1; sleep .1",
+        --   random = 999,
+        --   padding = 1,
+        --   indent = 21,
+        -- },
         { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
         { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
         { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
