@@ -20,7 +20,15 @@ show sel c
 
 # color chains sequentially (looks better than the default color bychain option)
 # col seq chains target acs palette Pastel1-4
-col seq chains target acs palette #f5e0dc:#f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
+# col seq chains target acs palette #f5e0dc:#f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
+# col seq chains target acs palette #f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
+col seq polymers target acs palette #f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
+# col seq polymers target acs palette #89b4fa:#b4befe:#cdd6f4:#f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec
+# col seq polymers target acs palette #dce0e8:#e6e9ef:#ccd0da:#bcc0cc:#acb0be:#9ca0b0:#8c8fa1:#7c7f93:#6c6f85:#5c5f77:#4c4f69
+# col seq polymers target acs palette #dce0e8:#4c4f69
+
+### plddt colours
+# color bfactor palette '0,#c53233:50,#f4c2aa:70,#7ea1f9:90,#3b4dc1'
 
 # style ligands/cofactors as ball and stick
 sel ~protein
@@ -33,12 +41,16 @@ col sel byel
 
 # hydrogenase specific settings
 sel @Ni,Fe,Mg
+show sel a
 style sel sphere
 sel :cys
 show sel a
 col sel byhet
 sel pbonds
 col sel black
+show :SF4
+sel @Fe
+style sel sphere
 
 # hide hydrogens
 hide H
