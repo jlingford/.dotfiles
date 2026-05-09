@@ -72,6 +72,9 @@ bindkey '^n' history-search-forward
 # Paths
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/Dropbox/Monash/HydDB/plots:$PATH"
+export PATH="$HOME/Dropbox/Monash/HydDB/gene_neighbourhoods/genbank_slicing/scripts:$PATH"
+export PATH="$HOME/Dropbox/Monash/HydDB/pae_screening:$PATH"
+export PATH="$HOME/Dropbox/Monash/HydDB/pyscripts/scripts:$PATH"
 # export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 # export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
