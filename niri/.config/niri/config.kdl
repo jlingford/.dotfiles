@@ -10,7 +10,7 @@
 // spawn-sh-at-startup "udiskie"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
-spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/aphextwin1.png"
+spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/dark-waves.jpg"
 spawn-at-startup "dunst -conf ~/.config/dunst/dunstrc"
 spawn-sh-at-startup "shikane --config ~/.config/shikane/config.toml"
 // spawn-sh-at-startup "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
@@ -214,8 +214,23 @@ layout {
         // top 64
         // bottom 64
     }
-
 }
+
+// // blur
+// blur {
+//     // off
+//     passes 3
+//     offset 3
+//     noise 0.02
+//     saturation 1.5
+// }
+// // Enable blur behind the kitty terminal.
+// window-rule {
+    // match app-id="^kitty$"
+    // background-effect {
+    //     blur true
+    // }
+// }
 
 overview {
     backdrop-color "#1e1e2e"
@@ -244,7 +259,8 @@ window-rule {
 
     geometry-corner-radius 11
     clip-to-geometry true
-    opacity 0.98
+    opacity 1.00
+    // opacity 0.98
 }
 
 window-rule {
@@ -547,9 +563,10 @@ binds {
     Mod+Shift+M { spawn "~/.dotfiles/niri/.config/niri/toggle_niri_capsescape.sh"; }
 
     // Screenshot pipe into satty to edit it
-    Mod+P { spawn "~/.dotfiles/niri/.config/niri/satty_screenshot.sh"; }
+    Mod+P { spawn "~/.dotfiles/niri/.config/niri/satty_screenshot.sh"; } // regular screenshot and save
+    Mod+Ctrl+P { spawn "~/.dotfiles/niri/.config/niri/satty_screenshot2.sh"; } // save screenshot to notebook
 
-    // Open color picker 
+    // Open color picker
     Mod+Shift+P { spawn-sh "wl-color-picker"; }
 
     // Apps

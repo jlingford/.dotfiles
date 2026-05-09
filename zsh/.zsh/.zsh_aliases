@@ -33,17 +33,20 @@ alias down="cd ~/Downloads; ls"
 alias drop="cd ~/Dropbox; ls"
 alias epg="cd ~/Documents/epg-blog; ls"
 # search for files in fzf and open them in nvim
-alias f="fzf -m --color=border:#cba6f7,label:#cdd6f4 --preview 'bat --color=always {}' --reverse --tmux center,80%,80% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
+# alias f="fzf -m --color=border:#cba6f7,label:#cdd6f4 --preview 'bat --color=always {}' --reverse --tmux center,80%,80% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
+alias f="fzf -m --margin=10%,10%,10%,10% --color=border:#cba6f7,label:#cdd6f4 --preview 'bat --color=always {}' --preview-window=70% --reverse --border=rounded --padding=2% --walker-skip .git,node_modules,target | xargs -r ${EDITOR}" # f = fzf into nvim
 alias ff="fastfetch -c examples/17"
 # alias mamba="micromamba"
 alias conda="mamba"
 # mkdir and cd into it in one go
 alias mon="cd ~/Dropbox/Monash; ls"
-alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
+# alias psel="pwd | tr -d '\n' | xsel -ib" # copy pwd to clipboard
+alias psel="pwd | tr -d '\n' | kitty +kitten clipboard" # copy pwd to kitty clipboard
 alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/plotting; mamba activate plots; ls"
 alias gogo='cd ~/Documents/plotting; mamba activate plots; la; tmux split-pane -h; tmux send-keys "mamba activate plots" Enter; tmux send-keys "ipython" Enter; tmux select-pane -L'
+alias py='cd ~/Dropbox/Monash/HydDB/pyscripts/scripts; mamba activate simple_plots; v .'
 alias gohyd='cd ~/Dropbox/Monash/HydDB/notebook; mamba activate plots; la; tmux split-pane -h; tmux send-keys "mamba activate plots" Enter; tmux send-keys "hyd" Enter; tmux select-pane -L'
 # alias gogo='cd ~/Documents/plotting; mamba activate plots; la; tmux split-pane -h; tmux select-pane -R; la; tmux select-pane -L'
 alias jalview="~/Documents/biotools/jalview/bin/jalview &"
@@ -60,8 +63,30 @@ alias vz="NVIM_APPNAME=LazyVim nvim ~/.zshrc"
 
 # Custom functions
 
+# # with fzf-tmux
 # ripgrep->fzf->vim [QUERY]
 # https://junegunn.github.io/fzf/tips/ripgrep-integration/
+# function g() (
+#   RELOAD='reload:rg --column --hidden --color=always --smart-case {q} || :'
+#   OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+#             $EDITOR {1} +{2}     # No selection. Open the current line in Vim.
+#           else
+#             $EDITOR +cw -q {+f}  # Build quickfix list for the selected items.
+#           fi'
+#   fzf --disabled --ansi --multi \
+#       --bind "start:$RELOAD" --bind "change:$RELOAD" \
+#       --bind "enter:become:$OPENER" \
+#       --bind "ctrl-o:execute:$OPENER" \
+#       --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+#       --color 'border:#cba6f7,label:#cdd6f4' \
+#       --delimiter : \
+#       --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+#       --tmux center,85%,85% \
+#       --reverse \
+#       --query "$*"
+# )
+
+# # without fzf-tmux
 function g() (
   RELOAD='reload:rg --column --hidden --color=always --smart-case {q} || :'
   OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
@@ -77,8 +102,12 @@ function g() (
       --color 'border:#cba6f7,label:#cdd6f4' \
       --delimiter : \
       --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
-      --tmux center,85%,85% \
+      --preview-window=70% \
+      --margin=10%,10%,10%,10% \
+      --padding=2% \
+      --border=rounded \
       --reverse \
+      -m \
       --query "$*"
 )
 
@@ -88,7 +117,14 @@ function mkdircd ()
 }
 alias mkd="mkdircd"
 
+# # with fzf-tmux
+# function con () {
+#     mamba deactivate
+#     mamba activate "$(mamba info --envs | fzf --color 'border:#94e2d5,label:#cdd6f4' --reverse --tmux center,40%,40% | awk '{print $1}')"
+# }
+
+# # without fzf-tmux
 function con () {
     mamba deactivate
-    mamba activate "$(mamba info --envs | fzf --color 'border:#94e2d5,label:#cdd6f4' --reverse --tmux center,40%,40% | awk '{print $1}')"
+    mamba activate "$(mamba info --envs | fzf --color 'border:#94e2d5,label:#cdd6f4' --border=rounded --padding=2% --reverse --margin=30%,20%,20%,30% | awk '{print $1}')"
 }
