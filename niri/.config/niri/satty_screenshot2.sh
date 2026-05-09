@@ -27,4 +27,5 @@ monitor-all)
     echo "'${MODE}' is not a supported, aborting!" >&2
     exit 1
     ;;
-esac | satty --filename - --output-filename "${HOME}/Dropbox/Monash/HydDB/notebook/pics/%Y-%m-%d_%Hh-%Mm-%Ss_screenshot.png"
+# esac | satty --filename - --output-filename "${HOME}/Dropbox/Monash/HydDB/notebook/pics/%Y-%m-%d_%Hh-%Mm-%Ss_screenshot.png"
+esac | satty --filename - --output-filename "${HOME}/Dropbox/Monash/HydDB/notebook/pics/guaymas/%Y-%m-%d_%Hh-%Mm-%Ss_screenshot.png"
