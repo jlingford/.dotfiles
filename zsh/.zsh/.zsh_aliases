@@ -46,6 +46,7 @@ alias rub="cd ~/Dropbox/Monash/Rubisco_project; ls"
 alias ncon="cd ~/.dotfiles/nvim/.config/nvim; nvim"
 alias sec="cd ~/Documents/plotting; mamba activate plots; ls"
 alias gogo='cd ~/Documents/plotting; mamba activate plots; la; tmux split-pane -h; tmux send-keys "mamba activate plots" Enter; tmux send-keys "ipython" Enter; tmux select-pane -L'
+alias py='cd ~/Dropbox/Monash/HydDB/pyscripts/scripts; mamba activate simple_plots; v .'
 alias gohyd='cd ~/Dropbox/Monash/HydDB/notebook; mamba activate plots; la; tmux split-pane -h; tmux send-keys "mamba activate plots" Enter; tmux send-keys "hyd" Enter; tmux select-pane -L'
 # alias gogo='cd ~/Documents/plotting; mamba activate plots; la; tmux split-pane -h; tmux select-pane -R; la; tmux select-pane -L'
 alias jalview="~/Documents/biotools/jalview/bin/jalview &"
