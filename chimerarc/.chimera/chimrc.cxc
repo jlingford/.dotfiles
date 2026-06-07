@@ -35,6 +35,11 @@ sel ~protein
 style sel ball
 col sel byel
 
+# # style ligands/cofactors as chunky spheres (pymol like look for cofactors)
+# sel ~protein
+# size sel atomRadius 1.5
+# col sel byel
+
 ## style nucleotide ligands with a ring fill
 #nucleotides sel fill
 #trans sel 20 target f
@@ -49,7 +54,7 @@ col sel byhet
 sel pbonds
 col sel black
 show :SF4
-sel @Fe
+sel @Fe,Fe1,Fe2,Fe3,Fe4
 style sel sphere
 
 # hide hydrogens
