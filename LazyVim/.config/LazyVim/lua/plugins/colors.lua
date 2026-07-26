@@ -8,10 +8,11 @@ return {
     name = "mellow",
     event = "VeryLazy",
   },
-  {
-    "oxfist/night-owl.nvim",
-    event = "VeryLazy",
-  },
+  -- WARN: buggy with R
+  -- {
+  --   "oxfist/night-owl.nvim",
+  --   event = "VeryLazy",
+  -- },
   {
     "fcancelinha/nordern.nvim",
     branch = "master",
