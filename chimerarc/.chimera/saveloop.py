@@ -21,7 +21,7 @@ for model in models:
 
     # Save png
     # outpath = outdir / f"{model_id}_{model_name}.png"
-    outpath = outdir / f"{model_id}_{model_name}_v2.png"
+    outpath = outdir / f"{model_id}_{model_name}.png"
     if outpath.exists():
         outpath.unlink()
 

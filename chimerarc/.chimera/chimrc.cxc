@@ -1,12 +1,18 @@
+# Run this with:
+# open ~/.chimera/chimrc.cxc
+
 # basic settings
 ui mousemode right select
 set bgCol white
-# col bychain
-col byhet
-lighting soft
-set sil t
-graphics sil width 1
+# set bgCol #1e1e2e
 
+# lighting soft, but clean (no smudges)
+lighting soft
+# lighting multishadow 512 # WARN: multishadow 512 creates laggy UI
+
+# silhouttes
+set sil t
+graphics sil width 2
 # make selection outline black
 graphics sel width 3 col black
 
@@ -22,41 +28,45 @@ show sel c
 # col seq chains target acs palette Pastel1-4
 # col seq chains target acs palette #f5e0dc:#f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
 # col seq chains target acs palette #f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
-col seq polymers target acs palette #f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
+# col seq polymers target acs palette #f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
 # col seq polymers target acs palette #89b4fa:#b4befe:#cdd6f4:#f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec
+col seq polymers target acs palette #89b4fa:#b4befe:#cdd6f4:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec
 # col seq polymers target acs palette #dce0e8:#e6e9ef:#ccd0da:#bcc0cc:#acb0be:#9ca0b0:#8c8fa1:#7c7f93:#6c6f85:#5c5f77:#4c4f69
+# col seq polymers target acs palette #e6e9ef:#ccd0da:#bcc0cc:#acb0be:#9ca0b0:#8c8fa1:#7c7f93:#6c6f85:#5c5f77:#4c4f69
 # col seq polymers target acs palette #dce0e8:#4c4f69
+# col seq polymers target acs palette #009392:#39b185:#9ccb86:#e9e29c:#eeb479:#e88471:#cf597e
+# col seq structures target acs palette #009392:#39b185:#9ccb86:#e9e29c:#eeb479:#e88471:#cf597e
+# col seq chains target acs palette #009392:#39b185:#9ccb86:#e9e29c:#eeb479:#e88471
+# col seq chains target acs palette #d2fbd4:#a5dbc2:#7bbcb0:#559c9e:#3a7c89:#235d72
+# col seq polymers target acs palette #008080:#70a494:#b4c8a8:#f6edbd:#edbb8a:#de8a5a:#ca562c
+# col seq polymers target acs palette #3d5941:#778868:#b5b991:#f6edbd:#edbb8a:#de8a5a:#ca562c
+# col seq polymers target acs palette #009392:#72aaa1:#b1c7b3:#f1eac8:#e5b9ad:#d98994:#d0587e
+# Sunset
+# col seq polymers target acs palette #f3e79b:#fac484:#f8a07e:#eb7f86:#ce6693:#a059a0:#5c53a5
+# Magenta
+# #ffc6c4:#f4a3a8:#e38191:#cc607d:#ad466c:#8b3058:#672044
+# #fcde9c:#faa476:#f0746e:#e34f6f:#dc3977:#b9257a:#7c1d6f
+# BluYl
+# #f7feae:#b7e6a5:#7ccba2:#46aea0:#089099:#00718b:#045275
+# DarkMint
+# #d2fbd4:#a5dbc2:#7bbcb0:#559c9e:#3a7c89:#235d72:#123f5a
+# Burg
+# #ffc6c4:#f4a3a8:#e38191:#cc607d:#ad466c:#8b3058:#672044
+# #c4e6c3:#96d2a4:#6dbc90:#4da284:#36877a:#266b6e:#1d4f60
+# RosePineDawn
+# #b4637a:#ea9d34:#d7827e:#286983:#56949f:#907aa9
 
 ### plddt colours
 # color bfactor palette '0,#c53233:50,#f4c2aa:70,#7ea1f9:90,#3b4dc1'
-
-# style ligands/cofactors as ball and stick
-sel ~protein
-style sel ball
-col sel byel
-
-## style nucleotide ligands with a ring fill
-#nucleotides sel fill
-#trans sel 20 target f
-
-# hydrogenase specific settings
-sel @Ni,Fe,Mg
-show sel a
-style sel sphere
-sel :cys
-show sel a
-col sel byhet
-sel pbonds
-col sel black
-show :SF4
-sel @Fe
-style sel sphere
-
-# hide hydrogens
-hide H
+# baker like plddt colors
+# color bfactor palette '0,#f3e79b:50,#f8a07e:70,#ce6693:90,#5c53a5'
 
 # make cute cartoon style
-car style helix width 2.5 thickness 1; car style strand width 2.5 thickness 1; car style arrowScale 1.5; car style coil thickness 0.9
+# car style helix width 2.5 thickness 1; car style strand width 2.5 thickness 1; car style arrowScale 1.5; car style coil thickness 0.9
+car style helix width 2.4 thickness 1; car style strand width 2.4 thickness 1; car style arrowScale 1.5; car style coil thickness 0.8
+
+# default cartoon style
+# cartoon style modeh def arrows t arrowshelix f arrowscale 2 wid 2 thick 0.4 sides 12 div 20
 
 # chunky side chain look
 # size stickRadius 0.4
@@ -65,6 +75,47 @@ car style helix width 2.5 thickness 1; car style strand width 2.5 thickness 1; c
 # cartoon style modeh def arrows t arrowshelix f arrowscale 2 wid 2 thick 0.4 sides 12 div 20
 # cartoon style protein modeh tube rad 2 sides 24 thick 0.6
 
+## style nucleotide ligands with a ring fill
+#nucleotides sel fill
+#trans sel 20 target f
+
+# hide hydrogens
+hide H
+
+# hide solvent
+hide solvent
+
+# hydrogenase specific settings
+sel @Ni,Fe,Mg; show sel a; style sel sphere; sel :cys; show sel a; col sel byhet; sel pbonds; col sel black; show :SF4; sel @Fe,Fe1,Fe2,Fe3,Fe4; style sel sphere; select clear;
+
+# style ligands/cofactors as ball and stick
+sel ~protein; show sel a; style sel ball; col sel byel
+
+# # style ligands/cofactors as cute chunky spheres (pymol like look for cofactors)
+# sel ~protein; show sel a; style sel sphere; size sel atomRadius 1.5; col sel byel
+
 # keep as final command:
 select clear
 
+# create aliases and buttons, stolen from Martin Pacesa lab page
+alias cute set bgcol white; graphics sil t; graphics sil width 2; lighting soft; lighting multishadow 512; car style helix width 2.5 thickness 1; car style strand width 2.5 thickness 1; car style arrowScale 1.5; car style coil thickness 0.9; sel @Ni,Fe,Mg; show sel a; style sel sphere; sel :cys; show sel a; col sel byhet; sel pbonds; col sel black; show :SF4; sel @Fe,Fe1,Fe2,Fe3,Fe4; style sel sphere; select clear; sel ~protein; show sel a; style sel sphere; size sel atomRadius 1.5; col sel byel; hide H; hide solvent; sel clear;
+buttonpanel Shortcuts add cute_view command "cute" row 0
+
+alias clean_light lighting soft; lighting multishadow 512
+buttonpanel Shortcuts add clean_light command "clean_light" row 0
+
+alias color_af2 color bfactor palette '0,#c53233:50,#f4c2aa:70,#7ea1f9:90,#3b4dc1'
+buttonpanel Shortcuts add coloraf2 command "color_af2" row 0
+
+alias color_nc rainbow palette "#1f449c:#3d65A6:#7CA1cc:#a8b6cc:#eebab4:#e57a77:#f05039"
+buttonpanel Shortcuts add colornc command "color_nc" row 1
+
+alias color_bc surface #1-1000/A; color #1-1000/A #439089; show #1-1000/B atoms; color #1-1000/B #E18797; color #1-1000/B byhetero; cartoon style width 2.2 thick 0.6
+buttonpanel Shortcuts add colorbc command color_bc row 1
+
+# alias rotation_movie movie record supersample 3; turn y -0.5 720; wait 720; movie stop; movie encode /home/james/Pictures/ChimeraX/movie.mp4 quality highest framerate 60
+alias rotation_movie movie record supersample 3; rock; wait 136; movie stop; movie encode /home/james/Pictures/ChimeraX/movie.mp4; stop
+buttonpanel Shortcuts add rotation_movie command "rotation_movie" row 1
+
+alias save_image save /home/james/Pictures/ChimeraX/image.png pixelSize 0.04 transparentB t supersample 5
+buttonpanel Shortcuts add save_image command "save_image" row 1

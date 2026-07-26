@@ -3,7 +3,7 @@ return {
   opts = {
     highlight = { enable = true },
     indent = { enable = true },
-    ensure_installed = {},
+    ensure_installed = { "r" },
     -- NOTE: options to work with markdown code blocks
     textobjects = {
       move = {
@@ -28,6 +28,19 @@ return {
         },
       },
     },
+    -- -- NOTE: options for R.nvim
+    -- config = function()
+    --   local langs = { "markdown", "markdown_inline", "r", "rnoweb", "yaml", "latex", "csv" }
+    --   require("nvim-treesitter").install(langs)
+    --
+    --   vim.api.nvim_create_autocmd("FileType", {
+    --     pattern = langs,
+    --     callback = function()
+    --       vim.treesitter.start()
+    --     end,
+    --   })
+    -- end,
+    --
     -- require("nvim-treesitter.configs").setup({
     --   textobjects = {
     --     move = {
