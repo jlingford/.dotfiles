@@ -8,8 +8,9 @@
 // Spawn processes at niri startup.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 // spawn-sh-at-startup "xwayland-satellite"
-spawn-sh-at-startup "udiskie"
-spawn-sh-at-startup "mako"
+// spawn-sh-at-startup "udiskie"
+spawn-sh-at-startup "clipse -listen"
+spawn-sh-at-startup "mako --config ~/.config/niri/mako/config"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
 spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/dark-waves.jpg"
@@ -284,6 +285,12 @@ window-rule {
     min-height 100
     open-focused true
     opacity 1.0
+}
+
+// window rule for clipse
+window-rule {
+    match app-id="clipse"
+    open-floating true
 }
 
 // add --name or --class to open apps as floating windows instead
