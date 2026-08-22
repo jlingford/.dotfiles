@@ -7,8 +7,9 @@
 
 // Spawn processes at niri startup.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
-// spawn-sh-at-startup "udiskie"
 // spawn-sh-at-startup "xwayland-satellite"
+spawn-sh-at-startup "udiskie"
+spawn-sh-at-startup "mako"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
 spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/dark-waves.jpg"
