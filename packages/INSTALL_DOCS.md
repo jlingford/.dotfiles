@@ -89,10 +89,19 @@ EOF
 sudo systemctl enable --now keyd
 ```
 
+# Mullvad VPN
+
+```bash
+sudo systemctl enable --now mullvad-daemon.service
+```
+
 # Change max battery charge to 80%
 
 ```bash
-
+sudo vim /etc/tlp.conf
+# uncomment lines regarding battery life for 80% max charge, and start charging below 75%
+# STOP_CHARGE_THRESH_BAT0=80
+sudo systemctl restart tlp
 ```
 
 # Install micromamba
