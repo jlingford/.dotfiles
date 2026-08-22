@@ -22,6 +22,7 @@ alias bin="cd ~/bin; ls"
 # alias fpchimerax="flatpak run edu.ucsf.rbvi.ChimeraX &"
 # alias chimera="flatpak run edu.ucsf.rbvi.ChimeraX-daily &"
 alias chimera="flatpak run edu.ucsf.rbvi.ChimeraX &"
+alias clp="clipse"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
 alias share="cd ~/.local/share; ls"
@@ -95,7 +96,8 @@ function g() (
             $EDITOR +cw -q {+f}  # Build quickfix list for the selected items.
           fi'
   fzf --disabled --ansi --multi \
-      --bind "start:$RELOAD" --bind "change:$RELOAD" \
+      --bind "start:$RELOAD" \
+      --bind "change:$RELOAD" \
       --bind "enter:become:$OPENER" \
       --bind "ctrl-o:execute:$OPENER" \
       --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
@@ -123,8 +125,26 @@ alias mkd="mkdircd"
 #     mamba activate "$(mamba info --envs | fzf --color 'border:#94e2d5,label:#cdd6f4' --reverse --tmux center,40%,40% | awk '{print $1}')"
 # }
 
-# # without fzf-tmux
+# conda env switcher without fzf-tmux
 function con () {
     mamba deactivate
     mamba activate "$(mamba info --envs | fzf --color 'border:#94e2d5,label:#cdd6f4' --border=rounded --padding=2% --reverse --margin=30%,20%,20%,30% | awk '{print $1}')"
+}
+
+# history clipboard
+function hist () {
+    fc -ln 0 | \
+        fzf --tac --multi \
+        --bind 'ctrl-y:execute-silent(printf "%s\n" {+} | wl-copy)' \
+        --bind 'ctrl-/:toggle-preview' \
+        --preview 'echo {} | bat -l bash --color=always --style=plain' \
+        --preview-window up:5:wrap \
+        --margin=5%,5%,5%,5% \
+        --padding=2% \
+        --border=rounded \
+        -m \
+        --color 'border:#b4befe,label:#cdd6f4,prompt:#94e2d5,header:#b4befe,hl:#f38ba8' \
+        --color 'header:italic' \
+        --header 'TAB = multi-select; CTRL-Y = copy; ENTER = copy + exit; CTRL-/ = toggle-preview' \
+        | wl-copy
 }

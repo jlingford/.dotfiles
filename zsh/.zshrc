@@ -137,11 +137,14 @@ export FZF_ALT_C_OPTS="
 # fzf history search
 # CTRL-/ to toggle small preview window to see the full command # CTRL-Y to copy the command into clipboard using pbcopy
 export FZF_CTRL_R_OPTS="
-  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --preview 'echo {} | cut -f2- | bat -l bash --color=always --style=plain'
+  --preview-window up:5:wrap
   --bind 'ctrl-/:toggle-preview'
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -se c)+abort'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | wl-copy)+abort'
   --color header:italic
-  --header 'Press CTRL-Y to copy command into clipboard'"
+  --color 'border:#b4befe,label:#cdd6f4,prompt:#94e2d5,header:#b4befe,hl:#f38ba8'
+  --header 'CTRL-Y = copy to clipboard; CTRL-/ = toggle-preview'
+"
 
 # for cd completion: 'ALT-C' or 'cd TAB' or 'cd **TAB' or 'cd CTRL-T'
 # for vim completion: 'v CTRL-T' or 'v **TAB' or 'fv'
