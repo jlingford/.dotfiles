@@ -45,6 +45,7 @@ stow -d ~/.dotfiles -t ~ gitconfig
 stow -d ~/.dotfiles -t ~ kanshi
 stow -d ~/.dotfiles -t ~ kitty
 stow -d ~/.dotfiles -t ~ LazyVim
+stow -d ~/.dotfiles -t ~ mako
 stow -d ~/.dotfiles -t ~ niri
 stow -d ~/.dotfiles -t ~ nvim
 stow -d ~/.dotfiles -t ~ pymolrc
@@ -93,15 +94,6 @@ sudo systemctl enable --now keyd
 
 ```bash
 sudo systemctl enable --now mullvad-daemon.service
-```
-
-# Change max battery charge to 80%
-
-```bash
-sudo vim /etc/tlp.conf
-# uncomment lines regarding battery life for 80% max charge, and start charging below 75%
-# STOP_CHARGE_THRESH_BAT0=80
-sudo systemctl restart tlp
 ```
 
 # Install micromamba
