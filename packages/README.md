@@ -14,7 +14,7 @@ pacman -Qqem > yay.txt
 
 ## Install from list
 
-pacman -S --needed < pacman.txt
+pacman -S --needed - < pacman.txt
 
 ## Make a list of zap plugins for zsh
 

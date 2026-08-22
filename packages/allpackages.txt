@@ -238,6 +238,7 @@ texinfo
 thefuck
 thunar
 tinymist
+tlp
 tmux
 tor
 ttf-bitstream-vera
