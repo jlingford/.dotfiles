@@ -59,6 +59,42 @@ stow -d ~/.dotfiles -t ~ yazi
 stow -d ~/.dotfiles -t ~ zsh
 ```
 
+# Niri setup
+
+```bash
+# create a niri session
+niri-session -l
+
+# reboot machine
+
+# waybar needs to be stopped to prevent two waybars from appearing
+systemctl --user disable waybar
+```
+
+# Keyd setup
+
+To remap the annoying Copilot key to be a CTRL key
+
+```bash
+sudo touch /etc/keyd/default.conf
+
+sudo cat > /etc/keyd/default.conf << EOF
+[ids]
+*
+
+[main]
+f23+leftshift+leftmeta = layer(control)
+EOF
+
+sudo systemctl enable --now keyd
+```
+
+# Change max battery charge to 80%
+
+```bash
+
+```
+
 # Install micromamba
 
 ```bash
