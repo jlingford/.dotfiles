@@ -140,3 +140,82 @@ wget -P ~/Pictures/Wallpapers https://github.com/orangci/walls-catppuccin-mocha/
         - click 'Import' button (top of screen)
         - select import.json from Downloads folder
         - changes should be instant
+
+# OpenSSH
+
+Make sure openssh and ufw are installed
+
+```bash
+# run on host
+sudo systemctl enable --now sshd
+
+# find host ip addr
+ip addr
+# ip addr is under inet, ignore forward slash and everything after it
+
+```
+
+Make sure host has an authorized_keys file for ssh
+
+```bash
+# in host
+touch ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+
+In client, make a new ssh key, and copy public key to host authorized_keys
+
+```bash
+# in host
+ssh-keygen -t ed25519 -f ~/.ssh/KEYNAME -C "INFO:EMAIL"
+# follow prompts, add passphrase for better security
+
+# either manually copy and paste public key to authorized_keys, or
+ssh-add ~/.ssh/KEYNAME
+ssh-copy-id -i ~/.ssh/KEYNAME user@ipaddr
+```
+
+Update sshd_config with better security to prevent port knocking
+
+```bash
+# backup original config file first
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+
+# edit config file
+sudo vim /etc/ssh/sshd_config
+
+# And make changes
+Port 4589 # make something that isn't port 22
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+AuthenticationMethods publickey # can only ssh with ssh keys
+MaxAuthTries 3
+AllowUsers <username> # restrict to specific username
+AuthorizedKeysFile .ssh/authorized_keys
+
+# check everything about the config is fine
+sudo sshd -t
+```
+
+Enable firewall
+
+```bash
+# in host
+sudo systemctl enable --now ufw
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow PORTNUMBER/tcp
+sudo ufw enable
+
+sudo ufw allow PORTNUMBER/tcp comment 'Open port ssh tcp port'
+sudo ufw status
+```
+
+Ssh into host from client machine
+
+```bash
+# in client
+ssh -p PORTNUMBER user@ipaddr
+```
