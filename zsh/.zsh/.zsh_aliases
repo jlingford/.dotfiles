@@ -23,7 +23,7 @@ alias bin="cd ~/bin; ls"
 # alias chimera="flatpak run edu.ucsf.rbvi.ChimeraX-daily &"
 alias ChimeraX="flatpak run edu.ucsf.rbvi.ChimeraX"
 alias chimera="flatpak run edu.ucsf.rbvi.ChimeraX &"
-alias clp="clipse"
+alias clps="clipse"
 alias clr="clear"
 alias conf="cd ~/.config; ls"
 alias share="cd ~/.local/share; ls"
@@ -146,6 +146,25 @@ function hist () {
         -m \
         --color 'border:#b4befe,label:#cdd6f4,prompt:#94e2d5,header:#b4befe,hl:#f38ba8' \
         --color 'header:italic' \
-        --header 'TAB = multi-select; CTRL-Y = copy; ENTER = copy + exit; CTRL-/ = toggle-preview' \
+        --header 'Command History (TAB = multi-select; CTRL-Y = copy; ENTER = copy + exit; CTRL-/ = toggle-preview)' \
+        | wl-copy
+}
+
+# clipboard history
+function clp () {
+    cliphist list |
+        cut -f2- |
+        fzf --tac --multi \
+        --bind 'ctrl-y:execute-silent(printf "%s\n" {+} | wl-copy)' \
+        --bind 'ctrl-/:toggle-preview' \
+        --preview 'echo {} | bat -l bash --color=always --style=plain' \
+        --preview-window up:5:wrap \
+        --margin=5%,5%,5%,5% \
+        --padding=2% \
+        --border=rounded \
+        -m \
+        --color 'border:#b4befe,label:#cdd6f4,prompt:#94e2d5,header:#b4befe,hl:#f38ba8' \
+        --color 'header:italic' \
+        --header 'Clipboard history (TAB = multi-select; CTRL-Y = copy; ENTER = copy + exit; CTRL-/ = toggle-preview)' \
         | wl-copy
 }
