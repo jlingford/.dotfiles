@@ -1,4 +1,5 @@
 format = """
+$hostname\
 $os\
 $custom$directory\
 [\uE0B0](fg:bar_two bg:bar_three)\
@@ -114,6 +115,16 @@ error_symbol = "[❯](text_four)"
 style = 'bg:bar_one fg:text_one'
 format = '[ $symbol ]($style)'
 disabled = true
+
+# [username]
+# style = 'bold fg:text_two bg:bar_two'
+# format = '[ james@ ]($style)'
+# disabled = false
+
+[hostname]
+style = 'fg:text_two bg:bar_two'
+format = '[ \[james@xps17\] ]($style)'
+disabled = false
 
 [os.symbols]
 Alpine = ''
