@@ -219,3 +219,20 @@ Ssh into host from client machine
 # in client
 ssh -p PORTNUMBER user@ipaddr
 ```
+
+On client, install `fail2ban` for more security
+
+```bash
+paru -S fail2ban
+```
+
+## Bluetooth
+
+Make sure bluez is installed
+
+```bash
+paru -S bluez bluez-utils
+sudo systemctl enable bluetooth.service
+```
+
+Can now open GUI bluetooth manager and connect devices
