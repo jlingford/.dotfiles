@@ -15,7 +15,7 @@ spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
 spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/dark-waves.jpg"
 spawn-at-startup "dunst -conf ~/.config/dunst/dunstrc"
-spawn-sh-at-startup "shikane --config ~/.config/shikane/config.toml"
+spawn-sh-at-startup "shikane --config ~/.config/shikane/work.toml"
 // spawn-sh-at-startup "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
 
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%Hh-%Mm-%Ss_screenshot.png"
@@ -330,6 +330,13 @@ window-rule {
     clip-to-geometry true
 }
 
+// blur wallpaper when going into global view (noctalia)
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
+// keybinds
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
@@ -581,7 +588,9 @@ binds {
     // Apps
     Mod+Return { spawn "kitty"; }
     Mod+B { spawn "brave"; }
-    Mod+N { spawn "thunar"; }
-    Mod+Ctrl+N { spawn "thunar" "--name" "FloatClass"; }
+    Mod+N { spawn "dolphin"; }
+    Mod+Ctrl+N { spawn "dolphin" "--name" "FloatClass"; }
     Mod+Ctrl+Return { spawn "xed" "--name" "FloatClass"; }
 }
+
+spawn-at-startup "noctalia"
