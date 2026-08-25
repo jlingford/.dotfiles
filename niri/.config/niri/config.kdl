@@ -295,7 +295,7 @@ window-rule {
 
 // add --name or --class to open apps as floating windows instead
 window-rule {
-    match app-id="FloatClass"
+    match app-id="SmallFloatingWindow"
     open-floating true
     default-column-width { proportion 0.33; }
     default-window-height { proportion 0.5; }
@@ -336,7 +336,51 @@ layer-rule {
   place-within-backdrop true
 }
 
-// keybinds
+// niri blur options
+/* Apps: blur them all without xray so it looks more realistic. */
+window-rule {
+    match app-id="^kitty$"
+    // Requires semitransparency to be visible
+    opacity 0.9
+
+  background-effect {
+    blur true
+    xray false
+  }
+}
+
+/*
+  Noctalia
+  Disable xray on all our surfaces so it looks more realistic.
+  Noctalia publishes blur regions automatically when ext-background-effects is available.
+*/
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    xray false
+    // blur false
+  }
+}
+
+/* Enable blur on noctalia's window switcher and disable xray. */
+layer-rule {
+    match namespace="noctalia-window-switcher"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+/* You can also fine-tune the blur effect globally. */
+blur {
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
+}
+
+//
+// KEYBINDS
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
@@ -588,9 +632,11 @@ binds {
     // Apps
     Mod+Return { spawn "kitty"; }
     Mod+B { spawn "brave"; }
-    Mod+N { spawn "dolphin"; }
-    Mod+Ctrl+N { spawn "dolphin" "--name" "FloatClass"; }
-    Mod+Ctrl+Return { spawn "xed" "--name" "FloatClass"; }
+    Mod+D { spawn "dolphin"; }
+    Mod+Ctrl+D { spawn "dolphin" "--class" "SmallFloatingWindow"; }
+    // Mod+Ctrl+Return { spawn "xed" "--name" "SmallFloatingWindow"; }
+    // Quick To-do notes
+    Mod+N { spawn "kitty" "--class" "SmallFloatingWindow" "-e" "env" "NVIM_APPNAME=LazyVim" "nvim" "/home/james/Dropbox/Monash/HydDB/notebook/todo.md"; }
 }
 
 spawn-at-startup "noctalia"
