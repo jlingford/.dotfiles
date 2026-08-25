@@ -9,13 +9,13 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 // spawn-sh-at-startup "xwayland-satellite"
 // spawn-sh-at-startup "udiskie"
-spawn-sh-at-startup "clipse -listen"
-spawn-sh-at-startup "mako --config ~/.config/niri/mako/config"
+// spawn-sh-at-startup "clipse -listen"
+// spawn-sh-at-startup "mako --config ~/.config/niri/mako/config"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
 spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/dark-waves.jpg"
-spawn-at-startup "dunst -conf ~/.config/dunst/dunstrc"
-spawn-sh-at-startup "shikane --config ~/.config/shikane/work.toml"
+// spawn-at-startup "dunst -conf ~/.config/dunst/dunstrc"
+spawn-sh-at-startup "shikane --config ~/.config/shikane/xps13-work.toml"
 // spawn-sh-at-startup "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
 
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%Hh-%Mm-%Ss_screenshot.png"
@@ -253,17 +253,14 @@ animations {
 }
 
 // Window rules let you adjust behavior for individual windows.
+// NOTE: to find window rule app-id and title, run...
+// niri msg --json pick-window
+// and then click over window of interest
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    // match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    // default-column-width {}
-
+    // global window rule, apply to all (rounded corners)
     geometry-corner-radius 11
     clip-to-geometry true
-    opacity 1.00
-    // opacity 0.98
+    opacity 0.98
 }
 
 window-rule {
@@ -278,6 +275,7 @@ window-rule {
     // default-floating-position x=0 y=0 relative-to="top-right"
 }
 
+// wayland color picker
 window-rule {
     match app-id=r#"zenity"# title="Copy color to Clipboard"
     open-floating true
@@ -285,6 +283,19 @@ window-rule {
     min-height 100
     open-focused true
     opacity 1.0
+}
+
+// calculator
+window-rule {
+    match app-id=r#"org.kde.kcalc"# title="KCalc"
+    open-floating true
+    // min-width 10
+    // min-height 10
+    open-focused true
+    opacity 0.5
+    default-column-width { proportion 0.2; }
+    default-window-height { proportion 0.5; }
+    default-floating-position x=10 y=10 relative-to="top-right"
 }
 
 // window rule for clipse
