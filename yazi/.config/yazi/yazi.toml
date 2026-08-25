@@ -2,3 +2,17 @@
 [mgr]
 show_hidden = true
 
+[opener]
+view-image = [{ run = "nsxiv %s", desc = "Open in nsxiv" }]
+
+[open]
+prepend_rules = [
+    { url = "*.png", use = "view-image" },
+    { url = "*.jpg", use = "view-image" },
+
+    # 	# Multiple openers for a single rule
+    # 	{ url = "*.html", use = [ "open", "edit" ] },
+    # ]
+    # append_rules = [
+    # 	{ url = "*", use = "my-fallback" },
+]
