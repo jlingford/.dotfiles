@@ -647,7 +647,7 @@ binds {
     Mod+Ctrl+D { spawn "dolphin" "--class" "SmallFloatingWindow"; }
     // Mod+Ctrl+Return { spawn "xed" "--name" "SmallFloatingWindow"; }
     // Quick To-do notes
-    Mod+N { spawn "kitty" "--class" "SmallFloatingWindow" "-e" "env" "NVIM_APPNAME=LazyVim" "nvim" "/home/james/Dropbox/Monash/HydDB/notebook/todo.md"; }
+    Mod+N { spawn "kitty" "--class" "SmallFloatingWindow" "-e" "env" "NVIM_APPNAME=LazyVim" "nvim" "/home/james/Documents/notebook/todo.md"; }
 }
 
 spawn-at-startup "noctalia"
