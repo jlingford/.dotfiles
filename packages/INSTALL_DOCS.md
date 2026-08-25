@@ -1,12 +1,14 @@
-# NOTE: commands are only examples. Change as needed
+# Installation of dotfiles and config
 
-# Install packages
+*NOTE: commands are only examples. Change as needed*
+
+## Install packages
 
 ```bash
 pacman -S --needed - < allpackages.txt
 ```
 
-# Setup .ssh keys
+## Setup .ssh keys
 
 ```bash
 mkdir -p ~/.ssh
@@ -30,7 +32,7 @@ git clone git@github.com/DOTFILES_REPO
 git clone git@github.com/SCRIPTS_REPO ~/bin
 ```
 
-# Stow files
+## Stow files
 
 ```bash
 # need to remove default niri config first
@@ -60,7 +62,7 @@ stow -d ~/.dotfiles -t ~ yazi
 stow -d ~/.dotfiles -t ~ zsh
 ```
 
-# Niri setup
+## Niri setup
 
 ```bash
 # create a niri session
@@ -72,7 +74,25 @@ niri-session -l
 systemctl --user disable waybar
 ```
 
-# Keyd setup
+## Tmux setup
+
+Need to install tpm plugin manager
+
+```bash
+# install tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# also need to manually install catppuccin-tmux
+mkdir -p ~/.tmux/plugins/catppuccin
+git clone -b v2.3.0 https://github.com/catppuccin/tmux.git ~/.tmux/plugins/catppuccin/tmux
+
+# run tmux, install plugins
+tmux
+tmux source ~/.tmux.conf
+# install plugins with 'ctrl-b + I'
+```
+
+## Keyd setup
 
 To remap the annoying Copilot key to be a CTRL key
 
@@ -90,20 +110,20 @@ EOF
 sudo systemctl enable --now keyd
 ```
 
-# Mullvad VPN
+## Mullvad VPN
 
 ```bash
 sudo systemctl enable --now mullvad-daemon.service
 ```
 
-# Install micromamba
+## Install micromamba
 
 ```bash
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 # follow prompts
 ```
 
-# Setup zsh
+## Setup zsh
 
 ```bash
 # set zsh as default shell
@@ -117,14 +137,14 @@ source ~/.zsh/.antidote/antidote.zsh
 antidote load
 ```
 
-# Wallpaper
+## Wallpaper
 
 ```bash
 mkdir -p ~/Pictures/Wallpapers
 wget -P ~/Pictures/Wallpapers https://github.com/orangci/walls-catppuccin-mocha/blob/master/dark-waves.jpg
 ```
 
-# Brave catppuccin theme
+## Brave catppuccin theme
 
 1. Go to Extensions --> Manage extensions --> turn on 'Developer mode' (toggle button top right corner of screen)
 2. Add Stylus to addons <https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en-GB>
@@ -141,7 +161,7 @@ wget -P ~/Pictures/Wallpapers https://github.com/orangci/walls-catppuccin-mocha/
         - select import.json from Downloads folder
         - changes should be instant
 
-# OpenSSH
+## OpenSSH
 
 Make sure openssh and ufw are installed
 
