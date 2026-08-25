@@ -1,0 +1,29 @@
+[[profile]]
+name = "xps13-work"
+
+[[profile.output]]
+enable = true
+search = ["m=DELL P2722H", "s=J1KSXN3", "v=Dell Inc."]
+mode = "1920x1080@60Hz"
+position = "1477,54"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=0x0804", "s=", "v=LG Display"]
+mode = "2560x1600@120.002Hz"
+position = "0,341"
+scale = 1.75
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=DELL P2722H", "s=6SXZXN3", "v=Dell Inc."]
+mode = "1920x1080@60Hz"
+position = "3415,0"
+scale = 1.0
+transform = "90"
+adaptive_sync = false
