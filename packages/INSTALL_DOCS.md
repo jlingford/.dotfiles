@@ -226,6 +226,22 @@ On client, install `fail2ban` for more security
 paru -S fail2ban
 ```
 
+## Tailscale
+
+> [!WARNING]
+> mullvad-daemon must be disabled for this to work, otherwise internet gets blocked
+
+```bash
+paru -S tailscale
+sudo systemctl enable --now tailscaled
+sudo tailscale up
+# follow link to browser, follow setup
+sudo tailscale set --ssh
+# machine is now ssh accessible, see ip addr from tailscale dashboard
+
+ssh username@tailscaleIPaddr
+```
+
 ## Bluetooth
 
 Make sure bluez is installed
