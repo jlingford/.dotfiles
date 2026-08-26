@@ -11,10 +11,10 @@
 // spawn-sh-at-startup "udiskie"
 // spawn-sh-at-startup "clipse -listen"
 // spawn-sh-at-startup "mako --config ~/.config/niri/mako/config"
-spawn-sh-at-startup "wl-paste --watch cliphist store"
-spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
-spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/dark-waves.jpg"
+// spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
 // spawn-at-startup "dunst -conf ~/.config/dunst/dunstrc"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store &"
+spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/dark-waves.jpg"
 spawn-sh-at-startup "shikane --config ~/.config/shikane/xps13-work.toml"
 // spawn-sh-at-startup "pkill swayidle; echo '10 minutes' > /tmp/idle-time; $NIRICONF/scripts/swayidle.sh"
 
@@ -625,7 +625,7 @@ binds {
     Mod+Tab hotkey-overlay-title="Toggle tabbed column" { toggle-column-tabbed-display; }
 
     // Toggle waybar on or off
-    Mod+Ctrl+B {spawn "~/.dotfiles/waybar/.config/waybar/wayland_launch.sh"; }
+    // Mod+Ctrl+B {spawn "~/.dotfiles/waybar/.config/waybar/wayland_launch.sh"; }
 
     // Toggle mouse pad on or off
     Mod+M { spawn "~/.dotfiles/niri/.config/niri/toggle_niri_trackpad.sh"; }
@@ -645,6 +645,8 @@ binds {
     Mod+B { spawn "brave"; }
     Mod+D { spawn "dolphin"; }
     Mod+Ctrl+D { spawn "dolphin" "--class" "SmallFloatingWindow"; }
+    Mod+Ctrl+B { spawn "~/.dotfiles/niri/.config/niri/cliphist_fuzzel_menu.sh"; }
+    Mod+Ctrl+M { spawn "~/.dotfiles/niri/.config/niri/history_fuzzel_menu.sh"; }
     // Mod+Ctrl+Return { spawn "xed" "--name" "SmallFloatingWindow"; }
     // Quick To-do notes
     Mod+N { spawn "kitty" "--class" "SmallFloatingWindow" "-e" "env" "NVIM_APPNAME=LazyVim" "nvim" "/home/james/Documents/notebook/todo.md"; }
