@@ -121,6 +121,9 @@ sudo systemctl enable --now mullvad-daemon.service
 ```bash
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 # follow prompts
+
+# then rename the micromamba binary to mamba, for ease of use
+mv ~/.local/bin/micromamba ~/.local/bin/mamba
 ```
 
 ## Setup zsh
