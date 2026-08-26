@@ -70,19 +70,12 @@ bindkey '^n' history-search-forward
 # =============================================================================
 
 # Paths
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/Dropbox/Monash/HydDB/plots:$PATH"
-export PATH="$HOME/Dropbox/Monash/HydDB/gene_neighbourhoods/genbank_slicing/scripts:$PATH"
-export PATH="$HOME/Dropbox/Monash/HydDB/pae_screening:$PATH"
-export PATH="$HOME/Dropbox/Monash/HydDB/pyscripts/scripts:$PATH"
-# export PATH="/home/james/Documents/localcolabfold/colabfold-conda/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-# export PATH="$HOME/.local/share/git-fuzzy/bin:$PATH"
-# export PATH="$HOME/.local/share/nvim/distant.nvim/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/Documents/structbio_scripts/scripts:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
-# export PATH="$HOME/Documents/foldseek/bin/:$PATH"
-# Docker completions
 FPATH="$HOME/.docker/completions:$FPATH"
 
 # =============================================================================
@@ -187,6 +180,11 @@ function ns() {
   fi
   NVIM_APPNAME=$config nvim $@
 }
+
+# ============================================================================
+
+# start cliphist watch... doesn't work as a spawn-sh-at-startup in niri for some reason
+# wl-paste --type text --watch cliphist store &
 
 # =============================================================================
 
