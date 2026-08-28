@@ -6,7 +6,7 @@
 # select cliphist id from fuzzel menu, pass to wl-copy
 selected=$(cliphist list | fuzzel --dmenu)
 [ -n "$selected" ] || exit 0
-echo "$selected" | wl-copy
+cliphist decode <<<"$selected" | wl-copy
 
 sleep 0.1
 

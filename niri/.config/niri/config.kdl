@@ -643,8 +643,8 @@ binds {
     // Apps
     Mod+Return { spawn "kitty"; }
     Mod+B { spawn "brave"; }
-    Mod+D { spawn "dolphin"; }
-    Mod+Ctrl+D { spawn "dolphin" "--class" "SmallFloatingWindow"; }
+    Mod+D { spawn "thunar"; }
+    Mod+Ctrl+D { spawn "thunar" "--class" "SmallFloatingWindow"; }
     Mod+Ctrl+B { spawn "~/.dotfiles/niri/.config/niri/cliphist_fuzzel_menu.sh"; }
     Mod+Ctrl+M { spawn "~/.dotfiles/niri/.config/niri/history_fuzzel_menu.sh"; }
     // Mod+Ctrl+Return { spawn "xed" "--name" "SmallFloatingWindow"; }
