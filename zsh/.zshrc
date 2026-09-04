@@ -75,6 +75,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/Dropbox/Monash/HydDB/plots:$PATH"
 export PATH="$HOME/Documents/structbio_scripts/scripts:$PATH"
+export PATH="$HOME/Documents/m3_repos/hpc_base/util:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 FPATH="$HOME/.docker/completions:$FPATH"
 
