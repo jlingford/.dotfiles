@@ -55,6 +55,7 @@ alias jalview="~/Documents/biotools/jalview/bin/jalview &"
 alias web="cd ~/Documents/website"
 # Neovim aliases
 alias v="NVIM_APPNAME=LazyVim nvim"
+alias ven="source .venv/bin/activate"
 alias vk="NVIM_APPNAME=KickstartNvim nvim"
 alias vc="NVIM_APPNAME=NvChad nvim"
 alias va="NVIM_APPNAME=AstroNvim nvim"
