@@ -12,14 +12,14 @@ lighting soft
 
 # silhouttes
 set sil t
-graphics sil width 2
+graphics sil width 1
 # make selection outline black
 graphics sel width 3 col black
 
 
 # hide side chains, but keep ligands/cofactors visible
 sel protein
-style sel ball
+style sel stick
 col sel byhet
 hide sel a,s
 show sel c
@@ -87,12 +87,13 @@ hide solvent
 
 # hydrogenase specific settings
 sel @Ni,Fe,Mg; show sel a; style sel sphere; sel :cys; show sel a; col sel byhet; sel pbonds; col sel black; show :SF4; sel @Fe,Fe1,Fe2,Fe3,Fe4; style sel sphere; select clear;
+# sel :cys; show sel a; col sel byhet; sel pbonds; col sel black; show :SF4; sel @Fe,Fe1,Fe2,Fe3,Fe4; style sel sphere; select clear;
 
 # style ligands/cofactors as ball and stick
-sel ~protein; show sel a; style sel ball; col sel byel
+sel ~protein; show sel a; style sel sphere; col sel byel
 
 # # style ligands/cofactors as cute chunky spheres (pymol like look for cofactors)
-# sel ~protein; show sel a; style sel sphere; size sel atomRadius 1.5; col sel byel
+sel ~protein; show sel a; style sel sphere; size sel atomRadius 1.5; col sel byel
 
 # keep as final command:
 select clear
