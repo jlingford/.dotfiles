@@ -49,7 +49,7 @@ return {
           { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
           {
             icon = " ",
-            action = "LazyExtras",
+            action = ":LazyExtras",
             desc = "Lazy Extras",
             key = "x",
           },
