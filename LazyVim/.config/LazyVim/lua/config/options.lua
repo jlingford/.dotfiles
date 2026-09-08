@@ -16,3 +16,18 @@ opt.tabstop = 4 -- Number of spaces tabs count for
 opt.wildmode = "longest:full,full" -- Command-line completion modes
 -- opt.background = "dark"
 -- vim.global.colors_name = "catppuccin-mocha"
+
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+  },
+}
+
+-- Optional: Enable unnamedplus so default yanks also copy to system clipboard
+opt.clipboard:append("unnamedplus")
