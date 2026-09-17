@@ -3,8 +3,8 @@
 
 # basic settings
 ui mousemode right select
-set bgCol white
-# set bgCol #1e1e2e
+# set bgCol white
+set bgCol #1e1e2e
 
 # lighting soft, but clean (no smudges)
 lighting soft
