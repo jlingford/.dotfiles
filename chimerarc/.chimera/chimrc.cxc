@@ -55,6 +55,8 @@ col seq polymers target acs palette #89b4fa:#b4befe:#cdd6f4:#f5c2e7:#cba6f7:#f38
 # #c4e6c3:#96d2a4:#6dbc90:#4da284:#36877a:#266b6e:#1d4f60
 # RosePineDawn
 # #b4637a:#ea9d34:#d7827e:#286983:#56949f:#907aa9
+# Tab20
+# #1f77b4:#aec7e8:#ff7f0e:#ffbb78:#2ca02c:#98df8a:#d62728:#ff9896:#9467bd:#c5b0d5:#8c564b:#c49c94:#e377c2:#f7b6d2:#7f7f7f:#c7c7c7:#bcbd22:#dbdb8d:#17becf
 
 ### plddt colours
 # color bfactor palette '0,#c53233:50,#f4c2aa:70,#7ea1f9:90,#3b4dc1'
@@ -118,5 +120,8 @@ alias color_bc surface #1-1000/A; color #1-1000/A #439089; show #1-1000/B atoms;
 alias rotation_movie movie record supersample 3; rock; wait 136; movie stop; movie encode /home/james/Pictures/ChimeraX/movie.mp4; stop
 # buttonpanel Shortcuts add rotation_movie command "rotation_movie" row 1
 
-alias save_image save /home/james/Pictures/ChimeraX/image.png pixelSize 0.04 transparentB t supersample 5
-buttonpanel Shortcuts add save_image command "quicksave_png" row 1
+# alias save_image save /home/james/Pictures/ChimeraX/image.png pixelSize 0.04 transparentB t supersample 5
+# buttonpanel Shortcuts add save_image command "quicksave_png" row 1
+
+alias quicksave_png runscript /home/james/.chimera/quicksave.py
+buttonpanel Shortcuts add save_image command quicksave_png row 1
