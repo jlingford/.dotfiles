@@ -312,6 +312,13 @@ window-rule {
     default-window-height { proportion 0.5; }
 }
 
+window-rule {
+    match app-id="LargeFloatingWindow"
+    open-floating true
+    default-column-width { proportion 0.95; }
+    default-window-height { proportion 0.95; }
+}
+
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
@@ -650,6 +657,8 @@ binds {
     // Mod+Ctrl+Return { spawn "xed" "--name" "SmallFloatingWindow"; }
     // Quick To-do notes
     Mod+N { spawn "kitty" "--class" "SmallFloatingWindow" "-e" "env" "NVIM_APPNAME=LazyVim" "nvim" "/home/james/Documents/notebook/todo.md"; }
+    // Quick Lab notes
+    Mod+Y { spawn "kitty" "--class" "LargeFloatingWindow" "-e" "env" "NVIM_APPNAME=LazyVim" "nvim" "/home/james/Documents/notebook/nife_atlas_notes3.md"; }
 }
 
 spawn-at-startup "noctalia"
