@@ -1,7 +1,16 @@
 brave-bin
 cbonsai
+clipse-git
 dropbox
+dropbox-cli
+kgamma
+lazyrsync-bin
 pacnews
+rustdesk-bin
 rustmon-git
+seqkit-bin
 tex-gyre-math-fonts
 wl-color-picker
+wl-screenrec
+zoom
+zotero-bin
