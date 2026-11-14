@@ -275,3 +275,13 @@ sudo systemctl enable bluetooth.service
 ```
 
 Can now open GUI bluetooth manager and connect devices
+
+## Stop localsearch from gnome
+
+```bash
+systemctl --user mask localsearch-3.service localsearch-control-3.service localsearch-writeback-3.service
+systemctl --user stop localsearch-3.service
+
+# wipe index
+localsearch reset -s
+```

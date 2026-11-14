@@ -131,3 +131,6 @@ alias rotation_movie movie record supersample 3; rock; wait 136; movie stop; mov
 
 alias quicksave_png runscript /home/james/.chimera/quicksave.py
 buttonpanel Shortcuts add save_image command quicksave_png row 1
+
+alias chimrc open /home/james/.chimera/chimrc.cxc
+buttonpanel Shortcuts add chimrc command chimrc row 1
