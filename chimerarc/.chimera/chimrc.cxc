@@ -24,6 +24,8 @@ col sel byhet
 hide sel a,s
 show sel c
 
+sel protein; style sel stick; col sel byhet; hide sel a,s; show sel c;
+
 # color chains sequentially (looks better than the default color bychain option)
 # col seq chains target acs palette Pastel1-4
 # col seq chains target acs palette #f5e0dc:#f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec:#89b4fa:#b4befe:#cdd6f4
@@ -106,31 +108,59 @@ select clear
 # bring up mseries slider
 mseries slider #1-200
 
+######### Aliases ##########
+
+# default look
+alias default cartoon style modeh def arrows t arrowshelix f arrowscale 2 wid 2 thick 0.4 sides 12 div 20;
+buttonpanel Shortcuts add default command "default" row 0
+
+# cute chunky look
+alias cute_style car style helix width 2.4 thickness 1; car style strand width 2.4 thickness 1; car style arrowScale 1.5; car style coil thickness 0.8;
+buttonpanel Shortcuts add cute_style command "cute_style" row 0
+
 # create aliases and buttons, stolen from Martin Pacesa lab page
-alias cute set bgcol white; graphics sil t; graphics sil width 2; lighting soft; lighting multishadow 512; car style helix width 2.5 thickness 1; car style strand width 2.5 thickness 1; car style arrowScale 1.5; car style coil thickness 0.9; sel @Ni,Fe,Mg; show sel a; style sel sphere; sel :cys; show sel a; col sel byhet; sel pbonds; col sel black; show :SF4; sel @Fe,Fe1,Fe2,Fe3,Fe4; style sel sphere; select clear; sel ~protein; show sel a; style sel sphere; size sel atomRadius 1.5; col sel byel; hide H; hide solvent; sel clear;
-# buttonpanel Shortcuts add cute_view command "cute" row 0
+alias pacesa_style set bgcol white; graphics sil t; graphics sil width 2; lighting soft; lighting multishadow 512; car style helix width 2.5 thickness 1; car style strand width 2.5 thickness 1; car style arrowScale 1.5; car style coil thickness 0.9; sel @Ni,Fe,Mg; show sel a; style sel sphere; sel :cys; show sel a; col sel byhet; sel pbonds; col sel black; show :SF4; sel @Fe,Fe1,Fe2,Fe3,Fe4; style sel sphere; select clear; sel ~protein; show sel a; style sel sphere; size sel atomRadius 1.5; col sel byel; hide H; hide solvent; sel clear;
+buttonpanel Shortcuts add pacesa_style command "pacesa_style" row 1
 
 alias clean_light lighting soft; lighting multishadow 512
 # buttonpanel Shortcuts add clean_light command "clean_light" row 0
 
-alias color_af2 color bfactor palette '0,#c53233:50,#f4c2aa:70,#7ea1f9:90,#3b4dc1'
-# buttonpanel Shortcuts add coloraf2 command "color_af2" row 0
+# plddt colours
+alias plddt color bfactor palette '0,#c53233:50,#f4c2aa:70,#7ea1f9:90,#3b4dc1'
+buttonpanel Shortcuts add plddt command "plddt" row 1
 
+# rainbow palette
 alias color_nc rainbow palette "#1f449c:#3d65A6:#7CA1cc:#a8b6cc:#eebab4:#e57a77:#f05039"
 # buttonpanel Shortcuts add colornc command "color_nc" row 1
 
+# pacesa style colouring
 alias color_bc surface #1-1000/A; color #1-1000/A #439089; show #1-1000/B atoms; color #1-1000/B #E18797; color #1-1000/B byhetero; cartoon style width 2.2 thick 0.6
 # buttonpanel Shortcuts add colorbc command color_bc row 1
 
+# save quick image
+alias quicksave_png runscript /home/james/.chimera/quicksave.py
+buttonpanel Shortcuts add save_image command quicksave_png row 2
+
+# save quick movie
+alias rock_movie runscript /home/james/.chimera/rockmovie.py
+buttonpanel Shortcuts add rock_movie command rock_movie row 2
+
+# colour chains by fave palette
+alias col_chains col seq polymers target acs palette #89b4fa:#b4befe:#cdd6f4:#f2cdcd:#f5c2e7:#cba6f7:#f38ba8:#eba0ac:#fab387:#f9e2af:#a6e3a1:#94e2d5:#89dceb:#74c7ec
+buttonpanel Shortcuts add col_chains command col_chains row 3
+
+# reset session
+# cute hydrogenase style
+alias reset_cute lighting soft; sel protein; style sel stick; col sel byhet; hide sel a,s; show sel c; car style helix width 2.4 thickness 1; car style strand width 2.4 thickness 1; car style arrowScale 1.5; car style coil thickness 0.8; hide H; hide solvent; sel @Ni,Fe,Mg; show sel a; style sel sphere; sel :cys; show sel a; col sel byhet; sel pbonds; col sel black; show :SF4; sel @Fe,Fe1,Fe2,Fe3,Fe4; style sel sphere; select clear; sel ~protein; show sel a; style sel sphere; col sel byel; sel ~protein; show sel a; style sel sphere; size sel atomRadius 1.5; col sel byel; sel :HOH; hide sel a; sel clear;
+buttonpanel Shortcuts add reset_cute command reset_cute row 3
+# alias chimrc open /home/james/.chimera/chimrc.cxc
+# buttonpanel Shortcuts add chimrc command chimrc row 3
+
+
 # alias rotation_movie movie record supersample 3; turn y -0.5 720; wait 720; movie stop; movie encode /home/james/Pictures/ChimeraX/movie.mp4 quality highest framerate 60
-alias rotation_movie movie record supersample 3; rock; wait 136; movie stop; movie encode /home/james/Pictures/ChimeraX/movie.mp4; stop
+# alias rotation_movie movie record supersample 3; rock; wait 136; movie stop; movie encode /home/james/Pictures/ChimeraX/movie.mp4; stop
 # buttonpanel Shortcuts add rotation_movie command "rotation_movie" row 1
 
 # alias save_image save /home/james/Pictures/ChimeraX/image.png pixelSize 0.04 transparentB t supersample 5
 # buttonpanel Shortcuts add save_image command "quicksave_png" row 1
 
-alias quicksave_png runscript /home/james/.chimera/quicksave.py
-buttonpanel Shortcuts add save_image command quicksave_png row 1
-
-alias chimrc open /home/james/.chimera/chimrc.cxc
-buttonpanel Shortcuts add chimrc command chimrc row 1
